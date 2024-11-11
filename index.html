@@ -44,7 +44,7 @@
     /* Courses Section */
     .courses {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 30px;
     }
     .course-card {
@@ -54,7 +54,6 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         overflow: hidden;
-        height: 550px;
     }
     .course-card:hover {
         transform: translateY(-10px);
@@ -62,14 +61,13 @@
     }
     .course-card img {
         width: 80%;
-        height: 180px;
+        height: auto;
         margin: 20px auto;
         display: block;
         object-fit: contain;
     }
     .course-content {
         padding: 20px;
-        text-align: center;
     }
     .course-title {
         font-size: 1.6em;
@@ -90,9 +88,9 @@
     .course-buttons {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
         gap: 10px;
-        margin-top: 15px;
+        justify-content: center;
+        margin-top: 20px;
     }
     .button {
         background-color: #2563eb;
@@ -325,6 +323,16 @@
             <p><strong>Mark Wilson:</strong></p>
             <p>"Advanced Kubernetes course provided me with a deep understanding of scaling and deploying strategies. Worth every penny!"</p>
             <p class="stars">★★★★★</p>
+        </div>
+        <div class="review">
+            <p><strong>Emily Brown:</strong></p>
+            <p>"The CI/CD Pipelines Mastery course was comprehensive and well-structured. I am now more confident in automating software deployments."</p>
+            <p class="stars">★★★★★</p>
+        </div>
+        <div class="review">
+            <p><strong>Michael Johnson:</strong></p>
+            <p>"Infrastructure as Code with Terraform was exactly what I needed to enhance my skills in cloud infrastructure management."</p>
+            <p class="stars">★★★★☆</p>
         </div>
     </div>
 </div>
