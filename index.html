@@ -54,20 +54,27 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
     }
     .course-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
     }
     .course-card img {
-        width: 80%;
-        height: auto;
-        margin: 20px auto;
-        display: block;
+        width: 100%;
+        height: 200px;
         object-fit: contain;
+        padding: 10px;
+        background-color: #f1f5f9;
     }
     .course-content {
         padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     .course-title {
         font-size: 1.6em;
@@ -89,8 +96,8 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
+        margin-top: 15px;
         justify-content: center;
-        margin-top: 20px;
     }
     .button {
         background-color: #2563eb;
@@ -104,6 +111,9 @@
         align-items: center;
         gap: 5px;
         transition: background-color 0.3s ease;
+        flex: 1 1 calc(45% - 10px);
+        text-align: center;
+        justify-content: center;
     }
     .button:hover {
         background-color: #1e40af;
@@ -149,6 +159,13 @@
         .header p {
             font-size: 1em;
         }
+        .course-buttons {
+            flex-direction: column;
+        }
+        .button {
+            flex: 1 1 100%;
+            margin-bottom: 10px;
+        }
     }
 </style>
 </head>
@@ -169,10 +186,10 @@
                 <p class="course-description">Master DevOps across AWS, Azure, and GCP to tackle complex multi-cloud environments.</p>
                 <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 1, 2024 | 10:00 AM - 1:00 PM (IST)</p>
                 <div class="course-buttons">
-                    <a href="#" class="button">
+                    <a href="https://www.youtube.com/watch?v=example1" target="_blank" class="button">
                         <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
                     </a>
-                    <a href="#" class="button">
+                    <a href="https://www.example.com/syllabus1" target="_blank" class="button">
                         <span class="material-icons button-icon">download</span> Download Syllabus
                     </a>
                     <a href="https://wa.me/91910665231" target="_blank" class="button" style="background-color: #25d366;">
@@ -193,10 +210,10 @@
                 <p class="course-description">Learn MLOps to streamline machine learning operations from development to production.</p>
                 <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 5, 2024 | 2:00 PM - 5:00 PM (IST)</p>
                 <div class="course-buttons">
-                    <a href="#" class="button">
+                    <a href="https://www.youtube.com/watch?v=example2" target="_blank" class="button">
                         <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
                     </a>
-                    <a href="#" class="button">
+                    <a href="https://www.example.com/syllabus2" target="_blank" class="button">
                         <span class="material-icons button-icon">download</span> Download Syllabus
                     </a>
                     <a href="https://wa.me/91910665231" target="_blank" class="button" style="background-color: #25d366;">
@@ -211,16 +228,16 @@
 
         <!-- Course 3 -->
         <div class="course-card">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYwAAAB/CAMAAADLlgV7AAAAvVBMVEX///8AAAAybebx8fFoaGgmZ+VZWVn5+fksLCwmJiaVr/A1NTUua+Zvb2+rq6sHBweUlJS2traMjIy+vr5+fn4bY+Xa2toaYuXMzMzp6emenp7g4OBSUlIQEBD4+v709/6ioqKDg4PF0/dDQ0PR0dF3d3dfX18bGxvZ4/rM2fjq8PyHpe/i6ftoj+tHe+ikuvK8zPaswPM6dOdbh+o+Pj6Oqu97ne1LfeipvvMAUuN1l+xWhOpsk+wFXORgi+o8I3YKAAANqElEQVR4nO1c6ULyuhZlilWoyFTKJKCAIKBCVfwOiu//WLeZxyJioV7M+kWboeleyZ6SkkpZWFhYWBwa3V6vm/QYLBB6rwEAj3lLR/KYznyQybgu8F6nSY/lj2O+AiEVCC4AM0tHcpisfeBmGFzgr+ZJj+mPYvLpCUxgAO9jkvS4/iDuP32NCrQ8/If7pMf2x3D7ZqYCrQ7/7Tbp8f0hLN5kBRXabvnae1skPcY/gkWgrArXXUzelFt+sEx6nKeP7r9AM9vgNdRbnmo7vODJxoEHxVOgCh2SkTeQEcLL2LD8YOjmgUHk4SJ4CFkCphLg5XtJj/o00X3T4wpMxnsqtTKSESqrjA0DD4GZWd6hxB9TqY8oT9cNrKqKH90gQtwZ8ByujIhVE1oO6+XGj7nZXni+H4Tinq8D33NNhIBV0iM/QSxZepaLHHifS2YTurdrwDWZUCvJUZ8oqIl236mcXW+mWOdpntLhuh+UC98m1mMHNwFTHG57zwZHqbfyERfBNDUlvHg2UxU3pj6Z55NQ4kHIhv/EiqC/xKb/LXAzIBNedjN4BcEA3SJW0BDbfQhF33vz6Xy/XwX/hYFd97/HFUmdT8DmEVLzyvRaYoM+Vbzy7VW4JG7xHtJt4APXh7+AC/wM9mLnE1TCG9goPGY8M+/I9d6ITup9wPytC+BvGIW4/ieV+0rI7Pp2tyle9DJCDAHeUFQ9cfHkD+DFIyoHAK+YvC9GGk9bOrb4PiaidDMuWgDzd2RHYDYklXrHZLxjD+tdDP/c5wQHfoqQsrLeP3oXqSlkoB/gLz9PCu5F7lw3mTGfLB6kTAe7PQnNtPsJf61DhzbgJ0OkpeHZEyOxQqTCgzbg/gPd7658D/2a+f4K52dX0KeSNpvYSrKIA3NBS7kAOlPP3jOW/WKN5v18RbKzax8a9G4gnm5bJzTs08RCmOjIRsy9DHg0JJ26n17Gg66stPsRHHu8Jw1RtHDLO5WHp531XbzeW3gfzFKKnrK5wjghnsRBiRAUA7pACefmWDnBhTAV/Sm7wRQjeqJkYaowRU6t4Sk/n80wKyS57sMwRFRTaK1YxANN5+B573obSEY3AAAgjeXhzVdEl7hLi+NCi1iQBwoZE88FXuZjgRbGk0c3V3vLj4wHXGTBRc2GHTCLWPDsqmT895if0GMfMFXi09Oc3fv8438qGXaDKT70MiI2oah74kzvPnj+m3hjCm2GmFnEHphFHJhQk+EC4Pkz/SDUxDDxZ77HD6fbDabY8I+QAR7yy3tJ+88nAjPd24lYOF/kV8+URv9IQz19rMlmtrgv0btfzt4zYCNkOtYbzw0e8guRoFti+u0GU1zAG0c4zTFdzJahSehtsBICAhkrkHHhN8gb6NkuPtaLntDWhn0xgeTD3cfFv/fQEmxgEpYkSHB2HP9BAjEtaC8Jxh6ev16s7MqIGTTMIJ+LuSjdgX8iw9wLAmQsnnnIhzOLrkdb+vb4c0yQNsCpzlnCINxD4cUMYG2FGEC7HVQ7sRZ2Gzw2TJQPKlF2Yx2aCAAnPDwSjdUV8rjgj6V8Shp8JDj4k8PSl4WLYrhPgA8Lwm8zADp0kAcAbTlNlc8t7TcasWImT3UfRXnrDUwP4sMH6M50g8//v8tk2MxUzHiWv1vCWVrkr2LJY9WFfaa1XNe3iamY0ZWNuAvoiY/lBpOxYTZ6rawia7xjx0Se7i4N4+5fn4NMJnifkeueuobsaYQDYCEbcdefsQPNPX60+TajkPaWyGBPHnnlqz7flOIIFEcqY433YfCgG+aFkOaYP/XUaA9v+lkcAF1J0tB/Wvo++MgvF4tlfp3xvceudMJK2AC0iB1TaS/8PnSx8IYTIPtIMDsibtHaUyGHxC034jD6XihWBFpr4cAUsPt7B8UT34ENrz61fzuaC18PuIH9fuywYNE10EIPopeeWNrcfglwaNC8k/v5pFIBrcaKnbEyer4WsWJK8yKu8V922F3Pns45Au6j/7hTVFgPSY/zb2Bp/H8dZYHYLYwjIfJvwISFYf+A7Vh4/2JtuBubBTkauisvjLkj4Xk2C3JMzJ/ykXh9sjrKwsLCwsLCwsJiN2Qbxf7PemhXS41YhvKn0SiNCukQd3v3UKzkxrCHcoyj+qPopDFye/dAOrBk/BxnlozfA0vGL8LfICPbTnoEO+HEyci2G63aIJ0eJT2QnXDiZBTI4GpJD2QnWDJ+ESwZvwiWjF8ES8YvgiXjFyFmMrLN5ra6zfpwWM9GFjvter3e1nuAzRrD4baunbDKUI8mKBk30S3bxobio7cNOVboZLQY4FW/glGkxVVyo+SQG4yMYeUc/RjXzAncYW2Ma16P9ArZRqtzRbsqjIr49Z1mtXQ2TjPkykaxNPsvpEKn6EgllIxBiQy70pee2h+whnrPTvmOPfms1XC0CnFDI+OSPb8KL2kikWV1S+TGWCXjmsss/aJLezgQytMFqUKz1UkrgOvMyZ2rt9PpktazU4uuUNDaD3ZrGKJ4rTQ9+CaBSsYNe3TRWM7IuFDJkKEq6ZstFRz1rUNAlZQ19vyiTOGGWuFCUGc6GZ0tDSVtdac1PXhORRF2kT25ZCzfmQxlg+RMr8AVo6MvANR79kpvFeJc6rmoV7jiUttCRtnQtSDunFY4/omcd4IsbD5ZRsby1O5kSGtDf7O0YFQNZCAqI8iQeq6aKlwz9R5NhrYu5IaGfvfff9sVkrDb+oP3J0NQsa3tFQxkoHUZRYYwgZvmCpe0PJKMiIa56Ibpflwyj4QobK6jC8ZyhN3JYJ0IL16oVLitprbUQAZyHiLJuNGGF+qmWon7Huk6Kddl+qI2TI8MDfm0vB6VKjU05mG8kjdAELZzQQdw7pjKMSLJuK4Mw1tNwQepkhpMSb2gKd1kdJDXY2TcNdqOk61XbwbIBjMy+qhag/qv6Ss6GK5rcMhZoZd0aVAyzsoUVWND+lb0PZlB6ZOO2sXOUV1b5nuOs8bylDRsjQwq+izjlLRhC+OF9kGlSgwTI0NxLhkZNMhhEQfVUyqtnA1yHRX05dSGjA387n0qih3FGA+4sLn6aBrLlVFHkpGqs47wNX0xruppjQt8uTMZzHMi1obpVS7rglwjIh3i0Ib8iedSQ/akI8XeGFTYl1xvtk3l3yCD62PcE2WZe/hMRrjCzmSwNdbC10yZ8OlTkruKIIP5SlzWLakhU2OdremdmKEHAG1j+XfIkCdwlioXQdQ09MVKYmcymFWryN1wf4NJkRiNCDKoNrvgt4bSiwo+x83x6FDJuGqby79DBn0vbBzZe3UuGah5wlLemQxm1ohs6Zq7GLGeadx8hmtEkEH7OdcbnstdQwzKh7fdCCoZav5lHzKYKkfaxBhdiRW+QQYVEbH8Y0OXBMRZiCDDkPNiwDXkUV+XjkKHSsZF01z+HTKYeUTaxBgjE2Dp704GHc1Ifo4BZIJHkHGxpSWpcqPcbu0l3u9BtxlZY/n+ZJhyQBQJkeFsWVKUDO7sEgyOF2dwFBxTuZZC34UMJNxtK6OP6x+ADBLdf39lXLNKDUWZDVKHBn29TsH8UMUgfs+AF6UrA3D4uy8Z22wG8aMjyDBkniiuhWoNeZtly3ZhPGBxhjBA8fgdDVUZQzuQwfKCyBtg3lTVyarAfexNBnWKcnrPRNlGkEGFPIhsSNCuiIQfWlFxmyAo0j4vH9EJQweyAxmMVvRiTKSVqDHsTQYNVOUdDhF0KEr6+4aOMLIhR5Vrq+rXtX8EwUA3eYqPO7jMjNWVG9FkMK+QrHiW34tKLexNBosuI0+m0CWg0MWcip18JJbP0bd844XoLfGkUlrfZKF50K/JYDOJLAWWaBHyIRL2JoMPOGpHlD1bjp94gL3Tvjal9PLrqj+C5LpyL5TJjQ+bTCJqEKLIaHPbQyTELfi1sM6zVTYr9yZDsHN9QZ+3KyxYYgv7nCxLB69wbplLwnpttmhDpyou459/3rUb5DhixMbIJMU1ZqHW71cu6bVGxl2xXK2WhQ1W5oAJvsvFTbnRqJaLN4Mrnp7enwwhhrkelevteqNarBWE+S4E0qNisVjpjLHuFP3ty/KwXR9WwzHx5d1MX90V2/gVmywvf+gPC2QyBCNOF75hw99MhgamOqISIrSH/clIDQzdpkUPRN8sbG5rSEfAhyyeXGHjOBCUCJsPgu0ERQRIX5Ih2MaauQb1CX5ARtvQbVpU7mocTTPFXzTUm0EcenNDTXdwufXJnYh5/RUZkn7VzqghUJ3wAzIi4nset+qZj/6216Jel35oKn2EA7ta7onbCGrMzIrqCzKUaPXSVIcGHj8hI+LIDZ/D2hKobWtIAw9T0Uvq0NDI4L4PW+sNU9pBO94p4koLj0zpQhqJRZJBK0al0BGapmUnuLp1Rc+ynais4WQdUZ2mgzxnh08UamdpBUVVZ/fYwWKCzk2VvW5feydj9t9pqZSO6GEAh64AZTntRkY4WdQRDOTjzy3RCOeEedJQtdGAeMjNkXritHDo6Bti2MDggk/VKcStjTAsGOVyl6NKsdzQ7Fiz2q/dDQoX4/H5y1kr8nxRvX/2Eta5KAxyraoYpsmpqj3glGuD8zF8fCf0nfVuhv3LTqdzVyuqMZ5TjWpY798VMCNXhU6rnvq/g/O1NB1nh0r7Pn3PniMbZpsQRz0gYmFhYWFhYZE0/gekdAKPY4l1ngAAAABJRU5ErkJggg==" alt="Advanced Kubernetes">
+            <img src="https://juststickers.in/wp-content/uploads/2018/11/kubernetes-wordmark.png" alt="Advanced Kubernetes">
             <div class="course-content">
                 <h2 class="course-title">Advanced Kubernetes</h2>
                 <p class="course-description">Deep dive into Kubernetes, covering advanced deployment and scaling strategies.</p>
                 <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 10, 2024 | 9:00 AM - 12:00 PM (IST)</p>
                 <div class="course-buttons">
-                    <a href="#" class="button">
+                    <a href="https://www.youtube.com/watch?v=example3" target="_blank" class="button">
                         <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
                     </a>
-                    <a href="#" class="button">
+                    <a href="https://www.example.com/syllabus3" target="_blank" class="button">
                         <span class="material-icons button-icon">download</span> Download Syllabus
                     </a>
                     <a href="https://wa.me/91910665231" target="_blank" class="button" style="background-color: #25d366;">
@@ -235,19 +252,19 @@
 
         <!-- Course 4 -->
         <div class="course-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Data_icon.svg" alt="DataOps for Data Engineers">
+            <img src="https://images.credly.com/images/51aeb74b-ec87-4069-93fc-0ea449c8d77f/twitter_thumb_201604_node.png" alt="Node.Js React.Js Development">
             <div class="course-content">
-                <h2 class="course-title">DataOps for Data Engineers</h2>
-                <p class="course-description">Optimize data workflows and pipelines with DataOps best practices.</p>
+                <h2 class="course-title">Node.Js React.Js Development</h2>
+                <p class="course-description">Learn full-stack development with Node.js and React.js to build scalable web applications.</p>
                 <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 12, 2024 | 11:00 AM - 2:00 PM (IST)</p>
                 <div class="course-buttons">
-                    <a href="#" class="button">
+                    <a href="https://www.youtube.com/watch?v=example4" target="_blank" class="button">
                         <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
                     </a>
-                    <a href="#" class="button">
+                    <a href="https://www.example.com/syllabus4" target="_blank" class="button">
                         <span class="material-icons button-icon">download</span> Download Syllabus
                     </a>
-                    <a href="https://wa.me/91910665231" target="_blank" class="button" style="background-color: #25d366;">
+                    <a href="https://wa.me/919100665231" target="_blank" class="button" style="background-color: #25d366;">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Message on WhatsApp
                     </a>
                     <a href="mailto:techsupport@emergencytechops.com" target="_blank" class="button" style="background-color: #ea4335;">
@@ -265,10 +282,10 @@
                 <p class="course-description">Automate and streamline the software development lifecycle with CI/CD practices.</p>
                 <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 15, 2024 | 3:00 PM - 6:00 PM (IST)</p>
                 <div class="course-buttons">
-                    <a href="#" class="button">
+                    <a href="https://www.youtube.com/watch?v=example5" target="_blank" class="button">
                         <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
                     </a>
-                    <a href="#" class="button">
+                    <a href="https://www.example.com/syllabus5" target="_blank" class="button">
                         <span class="material-icons button-icon">download</span> Download Syllabus
                     </a>
                     <a href="https://wa.me/91910665231" target="_blank" class="button" style="background-color: #25d366;">
@@ -283,16 +300,16 @@
 
         <!-- Course 6 -->
         <div class="course-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Terraform_Logo.svg" alt="Infrastructure as Code with Terraform">
+            <img src="https://spinspire.com/sites/default/files/2023-03/1640019487-og-image.png" alt="Infrastructure as Code with Terraform">
             <div class="course-content">
                 <h2 class="course-title">Infrastructure as Code with Terraform</h2>
                 <p class="course-description">Learn to define infrastructure with Terraform, enabling repeatable and scalable cloud setups.</p>
                 <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 20, 2024 | 8:00 AM - 11:00 AM (IST)</p>
                 <div class="course-buttons">
-                    <a href="#" class="button">
+                    <a href="https://www.youtube.com/watch?v=example6" target="_blank" class="button">
                         <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
                     </a>
-                    <a href="#" class="button">
+                    <a href="https://www.example.com/syllabus6" target="_blank" class="button">
                         <span class="material-icons button-icon">download</span> Download Syllabus
                     </a>
                     <a href="https://wa.me/91910665231" target="_blank" class="button" style="background-color: #25d366;">
@@ -323,16 +340,6 @@
             <p><strong>Mark Wilson:</strong></p>
             <p>"Advanced Kubernetes course provided me with a deep understanding of scaling and deploying strategies. Worth every penny!"</p>
             <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Emily Brown:</strong></p>
-            <p>"The CI/CD Pipelines Mastery course was comprehensive and well-structured. I am now more confident in automating software deployments."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Michael Johnson:</strong></p>
-            <p>"Infrastructure as Code with Terraform was exactly what I needed to enhance my skills in cloud infrastructure management."</p>
-            <p class="stars">★★★★☆</p>
         </div>
     </div>
 </div>
