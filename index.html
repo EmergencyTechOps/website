@@ -3,100 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emergency TechOps Institute - Top-Rated Multi-Cloud DevOps & MLOps Courses</title>
-<meta name="description" content="Join Emergency TechOps Institute for top-rated training in Multi-Cloud DevOps, MLOps, and CI/CD. Gain practical skills with high-demand courses designed for real-world applications.">
-<meta name="keywords" content="DevOps training, Multi-Cloud training, MLOps courses, CI/CD pipelines, Kubernetes advanced, Terraform infrastructure, DataOps, Cloud certifications, Emergency TechOps">
+<title>Emergency TechOps Institute - Multi-Cloud DevOps, MLOps & More</title>
+<meta name="description" content="Elevate your tech career with Emergency TechOps Institute. Expert-led courses and services in Multi-Cloud DevOps, MLOps, AIOps, Job Support, Freelancing, and Development.">
+<meta name="keywords" content="DevOps training, MLOps courses, AIOps, CloudOps, InfraOps, Job Support, Freelance DevOps, Development services, Kubernetes, Terraform, CI/CD, Cloud certifications, Emergency TechOps">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-    /* General Styles */
+    /* --- Color Palette - Black Theme with Image --- */
+    :root {
+        --primary-color: #2962ff;     /* Vibrant Blue - Accent */
+        --secondary-color: #ffca28;   /* Yellow - Highlight/Gold */
+        --accent-color: #26a69a;      /* Teal - Secondary Accent */
+        --text-color-dark: #ffffff;   /* Light Text for Black Background */
+        --text-color-light: #eee;     /* Slightly Darker Light Text (if needed) */
+        --background-black: #000000;   /* **Pure Black - Main BG** */
+        --background-section: #111111; /* Slightly lighter than black for sections */
+        --card-background: #222222;     /* Card Background - Even Lighter */
+    }
+
+    /* --- General Styles --- */
     body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8fafc;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), 
-                      url('https://t3.ftcdn.net/jpg/07/52/70/74/360_F_752707422_6wyWHXR0SRmVyvmR2NCObNTW7RbCmSKq.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
+        font-family: 'Roboto', sans-serif;
+        background-color: var(--background-black); /* **Using Pure Black for Body BG** */
+        color: var(--text-color-dark);
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        /* Background Image - Retaining Existing Image, but adjust overlay for black theme */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95)), /* **Darker Overlay for Black BG** */
+                          url('https://t3.ftcdn.net/jpg/07/52/70/74/360_F_752707422_6wyWHXR0SRmVyvmR2NCObNTW7RbCmSKq.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
     .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
     }
+
+    /* --- Header & Navigation --- */
     .header {
+        background-color: var(--primary-color); /* Vibrant Blue Header */
+        color: var(--text-color-dark);
+        padding: 30px 0;
         text-align: center;
-        padding: 40px;
-        background-color: #1e40af;
-        color: #ffffff;
-        border-radius: 10px;
-        margin-bottom: 30px;
-    }
-    .header h1 {
-        font-size: 2.5em;
-        margin: 0;
-        color: #fbbf24;
-    }
-    .header p {
-        color: #e5e7eb;
-        font-size: 1.2em;
-        margin-top: 10px;
     }
 
-    /* Courses Section */
-    .courses {
+    .header h1 {
+        font-size: 2.8em;
+        margin-bottom: 10px;
+        color: var(--secondary-color); /* Yellow Title */
+    }
+
+    .header p {
+        font-size: 1.2em;
+        color: var(--text-color-dark);
+        opacity: 0.9;
+    }
+
+    .navigation {
+        background-color: rgba(0, 0, 0, 0.3); /* Even Darker Transparent Nav */
+        padding: 15px 0;
+        margin-bottom: 30px;
+    }
+
+    .nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .nav-item {
+        margin: 0;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: var(--text-color-dark);
+        font-weight: 500;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.05); /* Very subtle lighter hover */
+    }
+
+    /* --- Sections Styles (Courses, Services, etc.) --- */
+    .section {
+        background-color: var(--background-section); /* Dark Section Background */
+        padding: 40px 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Even Stronger Shadow for Black BG */
+    }
+
+    .section-title {
+        font-size: 2.2em;
+        color: var(--primary-color); /* Vibrant Blue Title */
+        text-align: center;
+        margin-bottom: 30px;
+        position: relative;
+        padding-bottom: 20px;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        height: 3px;
+        width: 50px;
+        background-color: var(--secondary-color); /* Yellow Underline */
+    }
+
+
+    /* --- Courses Section --- */
+    .courses-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 30px;
     }
+
     .course-card {
-        background-color: #ffffff;
-        border: 1px solid #e2e8f0;
+        position: relative;
+        background-color: var(--card-background); /* Card Background - Lighter than section */
         border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6); /* Even Stronger Card Shadow for Black BG */
         overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         display: flex;
         flex-direction: column;
         height: 100%;
     }
+
     .course-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+        transform: translateY(-7px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* Max Shadow on Hover for Black BG */
     }
+
     .course-card img {
         width: 100%;
-        height: 200px;
-        object-fit: contain;
-        padding: 10px;
-        background-color: #f1f5f9;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+        opacity: 0.8; /* Dim images more for pure black theme */
+        transition: opacity 0.3s ease;
     }
+    .course-card:hover img {
+        opacity: 1;
+    }
+
+
     .course-content {
-        padding: 20px;
+        padding: 25px;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
+
     .course-title {
-        font-size: 1.6em;
-        color: #1e293b;
-        margin-bottom: 10px;
-        font-weight: bold;
-    }
-    .course-description {
-        color: #475569;
-        font-size: 1em;
+        font-size: 1.5em;
+        color: var(--text-color-dark); /* Light Course Title */
         margin-bottom: 15px;
+        font-weight: 700;
     }
+
+    .course-description {
+        color: var(--text-color-light); /* Lighter description text */
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
     .course-details {
-        font-size: 0.9em;
-        color: #64748b;
-        margin: 10px 0;
+        font-size: 0.95em;
+        color: #ccc; /* Even Lighter details text */
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
+
     .course-buttons {
         display: flex;
         flex-wrap: wrap;
@@ -104,65 +200,259 @@
         margin-top: 15px;
         justify-content: center;
     }
+
     .button {
-        background-color: #2563eb;
-        color: #ffffff;
-        padding: 10px 15px;
+        background-color: var(--accent-color); /* Teal Buttons */
+        color: var(--text-color-dark);
+        padding: 12px 20px;
         border-radius: 5px;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 500;
         font-size: 0.9em;
         display: inline-flex;
         align-items: center;
-        gap: 5px;
+        gap: 8px;
         transition: background-color 0.3s ease;
         flex: 1 1 calc(45% - 10px);
         text-align: center;
         justify-content: center;
     }
+
     .button:hover {
-        background-color: #1e40af;
-    }
-    .button-icon {
-        font-size: 1.2em;
-    }
-    .contact {
-        text-align: center;
-        margin-top: 40px;
-        font-size: 1.1em;
-    }
-    .contact a {
-        color: #1e293b;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    .contact a:hover {
-        color: #3b82f6;
-    }
-    .reviews {
-        margin-top: 40px;
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .review {
-        margin-bottom: 20px;
-    }
-    .review p {
-        margin: 5px 0;
-    }
-    .review .stars {
-        color: #f59e0b;
+        background-color: #2bbbad; /* Slightly brighter teal on hover */
     }
 
-    /* Responsive Layout */
+    .button-icon {
+        font-size: 1.1em;
+    }
+
+    .whatsapp-button {
+        background-color: #25d366;
+    }
+
+    .whatsapp-button:hover {
+        background-color: #128c7e;
+    }
+
+    .email-button {
+        background-color: #ea4335;
+    }
+
+    .email-button:hover {
+        background-color: #c6362a;
+    }
+
+    /* --- Course Stickers --- */
+    .course-sticker-ribbon, .service-sticker-ribbon {
+        position: absolute;
+        top: 15px;
+        left: -15px;
+        background-color: var(--secondary-color); /* Yellow Ribbons - Pop on Black */
+        color: var(--text-color-dark);
+        padding: 8px 20px;
+        font-size: 0.85em;
+        font-weight: bold;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Stronger Sticker Shadow on Black */
+        z-index: 1;
+        transform: rotate(-45deg);
+        overflow: hidden;
+        width: 150px;
+        text-align: center;
+    }
+
+    .course-sticker-badge, .service-sticker-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--primary-color); /* Vibrant Blue Badges - Pop on Black */
+        color: var(--text-color-dark);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9em;
+        font-weight: bold;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Stronger Sticker Shadow on Black */
+        z-index: 1;
+        text-align: center;
+    }
+
+    /* Emoji Stickers */
+    .course-sticker-ribbon .emoji-sticker, .course-sticker-badge .emoji-sticker,
+    .service-sticker-ribbon .emoji-sticker, .service-sticker-badge .emoji-sticker {
+        display: block;
+        font-size: 1.5em;
+        margin-bottom: 5px;
+    }
+    .course-sticker-ribbon span, .course-sticker-badge span,
+    .service-sticker-ribbon span, .service-sticker-badge span {
+        display: block;
+    }
+
+
+    /* --- Services Sections (Job Support, Freelance, Development) --- */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+    }
+
+    .service-card {
+        position: relative;
+        background-color: var(--card-background); /* Card background for services */
+        border-radius: 8px;
+        padding: 30px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Shadow for service cards on Black BG */
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+        background-color: var(--background-section); /* Section background on hover */
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6); /* Stronger hover shadow on Black BG */
+    }
+
+    .service-title {
+        font-size: 1.4em;
+        color: var(--primary-color); /* Vibrant blue service title */
+        margin-bottom: 15px;
+    }
+
+    .service-description {
+        color: var(--text-color-light); /* Lighter service description */
+        font-size: 1em;
+        line-height: 1.7;
+    }
+
+    .service-list {
+        padding-left: 20px;
+        margin-top: 15px;
+        color: #ccc; /* Lighter service list text */
+    }
+
+
+    /* --- Reviews Section --- */
+    .reviews-section {
+        background-color: var(--background-section); /* Dark Reviews Section */
+        padding: 40px 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Shadow for reviews section on Black BG */
+    }
+
+    .reviews-title {
+        font-size: 2.2em;
+        color: var(--primary-color); /* Vibrant Blue Reviews Title */
+        text-align: center;
+        margin-bottom: 30px;
+        position: relative;
+        padding-bottom: 20px;
+    }
+
+    .reviews-title::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        height: 3px;
+        width: 50px;
+        background-color: var(--secondary-color); /* Yellow Reviews Title Underline */
+    }
+
+
+    .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .review-card {
+        background-color: var(--card-background); /* Card background for reviews */
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for review cards on Black BG */
+    }
+
+    .review-author {
+        font-weight: bold;
+        color: var(--text-color-dark); /* Light Review Author */
+        margin-bottom: 5px;
+    }
+
+    .review-text {
+        color: var(--text-color-light); /* Lighter review text */
+        margin-bottom: 10px;
+    }
+
+    .stars {
+        color: var(--secondary-color); /* Yellow stars */
+        font-size: 1.1em;
+    }
+
+
+    /* --- Contact Section --- */
+    .contact-section {
+        text-align: center;
+        margin-top: 50px;
+        padding: 40px 0;
+        background-color: var(--background-section); /* Section background for contact */
+        color: var(--text-color-dark);
+        border-radius: 8px;
+    }
+
+    .contact-section p {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+    }
+
+    .contact-link {
+        color: var(--primary-color); /* Vibrant Blue Contact Link */
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .contact-link:hover {
+        color: var(--accent-color); /* Teal hover for contact link */
+    }
+
+
+    /* --- Footer --- */
+    .footer {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #080808; /* Even Darker Footer BG - almost black */
+        color: #999; /* Very light grey footer text */
+        font-size: 0.9em;
+        margin-top: 50px;
+    }
+
+
+    /* --- Responsive Layout --- */
     @media (max-width: 768px) {
         .header h1 {
-            font-size: 2em;
+            font-size: 2.3em;
         }
         .header p {
-            font-size: 1em;
+            font-size: 1.1em;
+        }
+        .nav-list {
+            flex-direction: column;
+            text-align: center;
+            gap: 10px;
+        }
+        .nav-item {
+            width: 100%;
+        }
+        .nav-link {
+            display: block;
+        }
+        .courses-grid, .services-grid, .reviews-grid {
+            grid-template-columns: 1fr;
         }
         .course-buttons {
             flex-direction: column;
@@ -177,265 +467,527 @@
 <body>
 
 <div class="container">
-    <div class="header">
-        <h1>Our Top-Rated Courses</h1>
-        <p>Advance your career with high-demand skills in Multi-Cloud, DevOps, MLOps, and CI/CD.</p>
-    </div>
+    <header class="header">
+        <h1>Emergency TechOps Institute</h1>
+        <p>Top-Rated Multi-Cloud DevOps & MLOps Courses and Services</p>
+    </header>
 
-    <div class="courses">
-        <!-- Course 1 -->
-        <div class="course-card">
-            <img src="https://miro.medium.com/v2/resize:fit:1400/1*-Iq5c95ZmaSGX4NnlcNudA.png" alt="Multi-Cloud DevOps">
-            <div class="course-content">
-                <h2 class="course-title">Master Multi-Cloud DevOps (AWS, Azure, GCP)</h2>
-                <p class="course-description">Learn to manage complex multi-cloud environments with hands-on expertise in AWS, Azure, and GCP DevOps. Master cloud-native solutions, infrastructure automation, and cost optimization strategies to become an in-demand multi-cloud DevOps expert.</p>
-                <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 1, 2024 | 10:00 AM - 1:00 PM (IST)</p>
-                <div class="course-buttons">
-                    <a href="https://youtu.be/fWa4Z7IogIg" target="_blank" class="button">
-                        <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
-                    </a>
-                    <a href="https://www.example.com/syllabus1" target="_blank" class="button">
-                        <span class="material-icons button-icon">download</span> Download Syllabus
-                    </a>
-                    <a href="https://wa.me/91910665231" target="_blank" class="button" style="background-color: #25d366;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Message on WhatsApp
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button" style="background-color: #ea4335;">
-                        <span class="material-icons button-icon">email</span> Email Us
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Course 2 -->
-        <div class="course-card">
-            <img src="https://lh4.googleusercontent.com/OtRptlupbdbe2oFCNmp9e2jbyRVXZ60egvdr7PzTjCSMECiWcvjeJQJi2MMck8_pP64rAjEQclSQ12XAn-ap4ebRFMRDbLtBEDsiRqjU2zK9cbCG0tqe2sFtzoZT86X16Lq_zyY0" alt="MLOps and Machine Learning">
-            <div class="course-content">
-                <h2 class="course-title">MLOps: From Development to Production</h2>
-                <p class="course-description">Streamline your machine learning operations with MLOps tools and workflows. Learn model deployment on AWS Sagemaker, Azure Machine Learning, and Google AI Platform. Master CI/CD for ML pipelines, data versioning, and scalable ML models in real-world projects.</p>
-                <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 5, 2024 | 2:00 PM - 5:00 PM (IST)</p>
-                <div class="course-buttons">
-                    <a href="https://youtu.be/O6u6V-EZ9yQ" target="_blank" class="button">
-                        <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
-                    </a>
-                    <a href="https://www.example.com/syllabus2" target="_blank" class="button">
-                        <span class="material-icons button-icon">download</span> Download Syllabus
-                    </a>
-                    <a href="https://wa.me/91910665231" target="_blank" class="button" style="background-color: #25d366;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Message on WhatsApp
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button" style="background-color: #ea4335;">
-                        <span class="material-icons button-icon">email</span> Email Us
-                    </a>
-                </div>
-            </div>
-        </div>
+    <nav class="navigation">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#courses" class="nav-link">Courses</a></li>
+            <li class="nav-item"><a href="#job-support" class="nav-link">Job Support</a></li>
+            <li class="nav-item"><a href="#freelance" class="nav-link">Freelance Services</a></li>
+            <li class="nav-item"><a href="#development" class="nav-link">Development Services</a></li>
+            <li class="nav-item"><a href="#reviews" class="nav-link">Reviews</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
 
-        <!-- Course 3 -->
-        <div class="course-card">
-            <img src="https://juststickers.in/wp-content/uploads/2018/11/kubernetes-wordmark.png" alt="Advanced Kubernetes">
-            <div class="course-content">
-                <h2 class="course-title">Advanced Kubernetes Mastery</h2>
-                <p class="course-description">Become a Kubernetes expert by mastering advanced deployment strategies, autoscaling, load balancing, and Kubernetes Ingress Controllers. Explore real-time Kubernetes labs, multi-cloud cluster management, and Helm charts to ace DevOps roles.</p>
-                <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 10, 2024 | 9:00 AM - 12:00 PM (IST)</p>
-                <div class="course-buttons">
-                    <a href="https://youtu.be/kpJu9QkXKFA" target="_blank" class="button">
-                        <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
-                    </a>
-                    <a href="https://www.example.com/syllabus3" target="_blank" class="button">
-                        <span class="material-icons button-icon">download</span> Download Syllabus
-                    </a>
-                    <a href="https://wa.me/91910665231" target="_blank" class="button" style="background-color: #25d366;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Message on WhatsApp
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button" style="background-color: #ea4335;">
-                        <span class="material-icons button-icon">email</span> Email Us
-                    </a>
+    <!-- Courses Section -->
+    <section id="courses" class="section">
+        <h2 class="section-title">Our Courses</h2>
+        <div class="courses-grid">
+            <!-- Course 1 -->
+            <div class="course-card">
+                <img src="https://miro.medium.com/v2/resize:fit:1400/1*-Iq5c95ZmaSGX4NnlcNudA.png" alt="Multi-Cloud DevOps">
+                <div class="course-sticker-ribbon">
+                    <span class="emoji-sticker">🚀</span> <span>Top Course</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Master Multi-Cloud DevOps (AWS, Azure, GCP)</h3>
+                    <p class="course-description">Learn to manage complex multi-cloud environments with hands-on expertise in AWS, Azure, and GCP DevOps. Master cloud-native solutions, infrastructure automation, and cost optimization strategies to become an in-demand multi-cloud DevOps expert.</p>
+                    <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 1, 2024 | 10:00 AM - 1:00 PM (IST)</p>
+                    <div class="course-buttons">
+                        <a href="https://youtu.be/fWa4Z7IogIg" target="_blank" class="button">
+                            <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
+                        </a>
+                        <a href="https://www.example.com/syllabus1" target="_blank" class="button">
+                            <span class="material-icons button-icon">download</span> Download Syllabus
+                        </a>
+                        <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                            <span class="material-icons button-icon">email</span> Email Us
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Course 4 -->
-        <div class="course-card">
-            <img src="https://images.credly.com/images/51aeb74b-ec87-4069-93fc-0ea449c8d77f/twitter_thumb_201604_node.png" alt="Node.Js React.Js Development">
-            <div class="course-content">
-                <h2 class="course-title">Full-Stack Development with Node.js and React.js</h2>
-                <p class="course-description">Build scalable web applications with Node.js and React.js. Learn REST API integration, frontend development, and backend architecture. Gain skills in MongoDB, Express.js, and Redux to develop robust, full-stack applications.</p>
-                <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 12, 2024 | 11:00 AM - 2:00 PM (IST)</p>
-                <div class="course-buttons">
-                    <a href="https://www.youtube.com/watch?v=example4" target="_blank" class="button">
-                        <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
-                    </a>
-                    <a href="https://www.example.com/syllabus4" target="_blank" class="button">
-                        <span class="material-icons button-icon">download</span> Download Syllabus
-                    </a>
-                    <a href="https://wa.me/919100665231" target="_blank" class="button" style="background-color: #25d366;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Message on WhatsApp
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button" style="background-color: #ea4335;">
-                        <span class="material-icons button-icon">email</span> Email Us
-                    </a>
+            <!-- Course 2 -->
+            <div class="course-card">
+                <img src="https://lh4.googleusercontent.com/OtRptlupbdbe2oFCNmp9e2jbyRVXZ60egvdr7PzTjCSMECiWcvjeJQJi2MMck8_pP64rAjEQclSQ12XAn-ap4ebRFMRDbLtBEDsiRqjU2zK9cbCG0tqe2sFtzoZT86X16Lq_zyY0" alt="MLOps and Machine Learning">
+                <div class="course-sticker-badge">
+                    <span class="emoji-sticker">🔥</span> <span>Hot</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">MLOps: From Development to Production</h3>
+                    <p class="course-description">Streamline your machine learning operations with MLOps tools and workflows. Learn model deployment on AWS Sagemaker, Azure Machine Learning, and Google AI Platform. Master CI/CD for ML pipelines, data versioning, and scalable ML models in real-world projects.</p>
+                    <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 5, 2024 | 2:00 PM - 5:00 PM (IST)</p>
+                    <div class="course-buttons">
+                        <a href="https://youtu.be/O6u6V-EZ9yQ" target="_blank" class="button">
+                            <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
+                        </a>
+                        <a href="https://www.example.com/syllabus2" target="_blank" class="button">
+                            <span class="material-icons button-icon">download</span> Download Syllabus
+                        </a>
+                        <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                            <span class="material-icons button-icon">email</span> Email Us
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Course 5 -->
-        <div class="course-card">
-            <img src="https://miro.medium.com/v2/resize:fit:1400/1*sFSP-4uK7gEoBxHELIa7cw.jpeg" alt="CI/CD Pipelines Mastery">
-            <div class="course-content">
-                <h2 class="course-title">CI/CD Automation for DevOps</h2>
-                <p class="course-description">Automate the software development lifecycle with industry-best CI/CD tools like Jenkins, GitHub Actions, and GitLab CI/CD. Learn to implement code pipelines, test automation, and continuous delivery for seamless production releases.</p>
-                <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 15, 2024 | 3:00 PM - 6:00 PM (IST)</p>
-                <div class="course-buttons">
-                    <a href="https://youtu.be/FiI8uO7Mw1A" target="_blank" class="button">
-                        <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
-                    </a>
-                    <a href="https://www.example.com/syllabus5" target="_blank" class="button">
-                        <span class="material-icons button-icon">download</span> Download Syllabus
-                    </a>
-                    <a href="https://wa.me/91910665231" target="_blank" class="button" style="background-color: #25d366;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Message on WhatsApp
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button" style="background-color: #ea4335;">
-                        <span class="material-icons button-icon">email</span> Email Us
-                    </a>
+            <!-- Course 3 -->
+            <div class="course-card">
+                <img src="https://juststickers.in/wp-content/uploads/2018/11/kubernetes-wordmark.png" alt="Advanced Kubernetes">
+                <div class="course-sticker-badge">
+                    <span class="emoji-sticker">🛡️</span> <span>Pro</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Advanced Kubernetes Mastery</h3>
+                    <p class="course-description">Become a Kubernetes expert by mastering advanced deployment strategies, autoscaling, load balancing, and Kubernetes Ingress Controllers. Explore real-time Kubernetes labs, multi-cloud cluster management, and Helm charts to ace DevOps roles.</p>
+                    <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 10, 2024 | 9:00 AM - 12:00 PM (IST)</p>
+                    <div class="course-buttons">
+                        <a href="https://youtu.be/kpJu9QkXKFA" target="_blank" class="button">
+                            <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
+                        </a>
+                        <a href="https://www.example.com/syllabus3" target="_blank" class="button">
+                            <span class="material-icons button-icon">download</span> Download Syllabus
+                        </a>
+                        <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                            <span class="material-icons button-icon">email</span> Email Us
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Course 6 -->
-        <div class="course-card">
-            <img src="https://spinspire.com/sites/default/files/2023-03/1640019487-og-image.png" alt="Infrastructure as Code with Terraform">
-            <div class="course-content">
-                <h2 class="course-title">Terraform for Cloud Infrastructure Automation</h2>
-                <p class="course-description">Define and manage your cloud infrastructure with Terraform. Build scalable, repeatable setups for AWS, Azure, and GCP. Learn state management, modular configurations, and infrastructure as code (IaC) principles to save time and reduce errors.</p>
-                <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 20, 2024 | 8:00 AM - 11:00 AM (IST)</p>
+            <!-- Course 4 -->
+            <div class="course-card">
+                <img src="https://images.credly.com/images/51aeb74b-ec87-4069-93fc-0ea449c8d77f/twitter_thumb_201604_node.png" alt="Node.Js React.Js Development">
+                <div class="course-sticker-ribbon">
+                    <span class="emoji-sticker">💻</span> <span>Dev Focus</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Full-Stack Development with Node.js and React.js</h3>
+                    <p class="course-description">Build scalable web applications with Node.js and React.js. Learn REST API integration, frontend development, and backend architecture. Gain skills in MongoDB, Express.js, and Redux to develop robust, full-stack applications.</p>
+                    <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 12, 2024 | 11:00 AM - 2:00 PM (IST)</p>
+                    <div class="course-buttons">
+                        <a href="https://www.youtube.com/watch?v=example4" target="_blank" class="button">
+                            <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
+                        </a>
+                        <a href="https://www.example.com/syllabus4" target="_blank" class="button">
+                            <span class="material-icons button-icon">download</span> Download Syllabus
+                        </a>
+                        <a href="https://wa.me/919100665231" target="_blank" class="button whatsapp-button">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                            <span class="material-icons button-icon">email</span> Email Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 5 -->
+            <div class="course-card">
+                <img src="https://miro.medium.com/v2/resize:fit:1400/1*sFSP-4uK7gEoBxHELIa7cw.jpeg" alt="CI/CD Pipelines Mastery">
+                <div class="course-sticker-badge">
+                    <span class="emoji-sticker">⚙️</span> <span>Automate</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">CI/CD Automation for DevOps</h3>
+                    <p class="course-description">Automate the software development lifecycle with industry-best CI/CD tools like Jenkins, GitHub Actions, and GitLab CI/CD. Learn to implement code pipelines, test automation, and continuous delivery for seamless production releases.</p>
+                    <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 15, 2024 | 3:00 PM - 6:00 PM (IST)</p>
+                    <div class="course-buttons">
+                        <a href="https://youtu.be/FiI8uO7Mw1A" target="_blank" class="button">
+                            <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
+                        </a>
+                        <a href="https://www.example.com/syllabus5" target="_blank" class="button">
+                            <span class="material-icons button-icon">download</span> Download Syllabus
+                        </a>
+                        <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                            <span class="material-icons button-icon">email</span> Email Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 6 -->
+            <div class="course-card">
+                <img src="https://spinspire.com/sites/default/files/2023-03/1640019487-og-image.png" alt="Infrastructure as Code with Terraform">
+                <div class="course-sticker-ribbon">
+                    <span class="emoji-sticker">☁️</span> <span>Cloud IaC</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Terraform for Cloud Infrastructure Automation</h3>
+                    <p class="course-description">Define and manage your cloud infrastructure with Terraform. Build scalable, repeatable setups for AWS, Azure, and GCP. Learn state management, modular configurations, and infrastructure as code (IaC) principles to save time and reduce errors.</p>
+                    <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 20, 2024 | 8:00 AM - 11:00 AM (IST)</p>
+                    <div class="course-buttons">
+                        <a href="https://youtu.be/QuBLvM5eNks" target="_blank" class="button">
+                            <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
+                        </a>
+                        <a href="https://www.example.com/syllabus6" target="_blank" class="button">
+                            <span class="material-icons button-icon">download</span> Download Syllabus
+                        </a>
+                        <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                            <span class="material-icons button-icon">email</span> Email Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Support Section -->
+    <section id="job-support" class="section">
+        <h2 class="section-title">Job Support Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-sticker-badge">
+                    <span class="emoji-sticker">🚨</span> <span>Urgent</span>
+                </div>
+                <h3 class="service-title">Emergency Job Support</h3>
+                <p class="service-description">Get immediate assistance with critical issues and roadblocks in your DevOps, MLOps, and CloudOps projects. Our experts are available to provide on-demand support to keep your projects on track.</p>
+                <ul class="service-list">
+                    <li>24/7 Emergency Assistance</li>
+                    <li>Expert DevOps, MLOps, CloudOps Engineers</li>
+                    <li>Remote Support & Troubleshooting</li>
+                    <li>Focus on AIOps, MLOps, DevOps, CloudOps, InfraOps</li>
+                </ul>
                 <div class="course-buttons">
-                    <a href="https://youtu.be/QuBLvM5eNks" target="_blank" class="button">
-                        <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
+                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp for Support
                     </a>
-                    <a href="https://www.example.com/syllabus6" target="_blank" class="button">
-                        <span class="material-icons button-icon">download</span> Download Syllabus
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                        <span class="material-icons button-icon">email</span> Email for Job Support
                     </a>
-                    <a href="https://wa.me/91910665231" target="_blank" class="button" style="background-color: #25d366;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Message on WhatsApp
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-sticker-ribbon">
+                    <span class="emoji-sticker">🛠️</span> <span>Task Help</span>
+                </div>
+                <h3 class="service-title">Task-Based Support</h3>
+                <p class="service-description">Need help with specific tasks? We offer specialized support for DevOps, MLOps, and CloudOps tasks. From scripting and automation to deployment and monitoring, we've got you covered.</p>
+                <ul class="service-list">
+                    <li>Custom Scripting & Automation</li>
+                    <li>Deployment & Configuration Management</li>
+                    <li>Monitoring & Alerting Setup</li>
+                    <li>CI/CD Pipeline Assistance</li>
+                    <li>Infrastructure as Code (IaC) Support</li>
+                </ul>
+                <div class="course-buttons">
+                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp for Tasks
                     </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button" style="background-color: #ea4335;">
-                        <span class="material-icons button-icon">email</span> Email Us
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                        <span class="material-icons button-icon">email</span> Email Task Requests
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-sticker-badge">
+                    <span class="emoji-sticker">👤</span> <span>Profile Up</span>
+                </div>
+                <h3 class="service-title">Student Profile Building</h3>
+                <p class="service-description">Enhance your professional profile to stand out in the competitive tech job market. We provide guidance and support to build a compelling portfolio and online presence.</p>
+                <ul class="service-list">
+                    <li>Resume & LinkedIn Optimization</li>
+                    <li>Portfolio Project Guidance</li>
+                    <li>Skill Endorsement Strategies</li>
+                    <li>Career Counseling & Mentorship</li>
+                </ul>
+                <div class="course-buttons">
+                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp for Profile
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                        <span class="material-icons button-icon">email</span> Email Profile Building
                     </a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Freelance Services Section -->
+    <section id="freelance" class="section">
+        <h2 class="section-title">Freelance Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-sticker-ribbon">
+                    <span class="emoji-sticker">🧑‍💻</span> <span>DevOps Pro</span>
+                </div>
+                <h3 class="service-title">DevOps Freelance Experts</h3>
+                <p class="service-description">Hire our expert DevOps freelancers for your projects. We offer skilled professionals in CI/CD pipeline setup, infrastructure automation, cloud migrations, and more.</p>
+                <ul class="service-list">
+                    <li>CI/CD Pipeline Design & Implementation</li>
+                    <li>Infrastructure Automation with Terraform/Ansible</li>
+                    <li>Cloud Migration & Optimization</li>
+                    <li>Kubernetes & Containerization Solutions</li>
+                </ul>
+                <div class="course-buttons">
+                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Enquire Freelance DevOps
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                        <span class="material-icons button-icon">email</span> Email Freelance Inquiry
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-sticker-badge">
+                    <span class="emoji-sticker">🧠</span> <span>MLOps Wiz</span>
+                </div>
+                <h3 class="service-title">MLOps Freelance Consultants</h3>
+                <p class="service-description">Leverage our MLOps freelance consultants to streamline your machine learning projects. From model deployment to monitoring and scaling, we provide end-to-end MLOps expertise.</p>
+                <ul class="service-list">
+                    <li>ML Model Deployment & Management</li>
+                    <li>ML Pipeline Automation</li>
+                    <li>Data Versioning & Management</li>
+                    <li>Scalable ML Infrastructure Setup</li>
+                </ul>
+                <div class="course-buttons">
+                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Enquire Freelance MLOps
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                        <span class="material-icons button-icon">email</span> Email Freelance Inquiry
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-sticker-ribbon">
+                    <span class="emoji-sticker">💡</span> <span>Smart Ops</span>
+                </div>
+                <h3 class="service-title">AIOps & CloudOps Freelancers</h3>
+                <p class="service-description">Enhance your IT operations with AIOps and CloudOps freelance services. Our experts can help you implement AI-driven automation, cloud cost optimization, and infrastructure management.</p>
+                <ul class="service-list">
+                    <li>AIOps Implementation & Automation</li>
+                    <li>Cloud Cost Optimization Strategies</li>
+                    <li>Infrastructure Monitoring & Management</li>
+                    <li>Cloud Security & Compliance</li>
+                </ul>
+                <div class="course-buttons">
+                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Enquire Freelance AIOps/CloudOps
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                        <span class="material-icons button-icon">email</span> Email Freelance Inquiry
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Services Section -->
+    <section id="development" class="section">
+        <h2 class="section-title">Development Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-sticker-badge">
+                    <span class="emoji-sticker">🛠️</span> <span>Build It</span>
+                </div>
+                <h3 class="service-title">Custom DevOps Tooling Development</h3>
+                <p class="service-description">Need a custom DevOps tool or integration? Our development team can build tailored solutions to streamline your workflows and enhance your DevOps capabilities.</p>
+                <ul class="service-list">
+                    <li>Custom CI/CD Tool Development</li>
+                    <li>Automation Scripting & Tooling</li>
+                    <li>API Integrations & Development</li>
+                    <li>Monitoring & Alerting Solutions</li>
+                </ul>
+                <div class="course-buttons">
+                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Discuss Custom Tooling
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                        <span class="material-icons button-icon">email</span> Email Development Inquiry
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-sticker-ribbon">
+                    <span class="emoji-sticker">📊</span> <span>ML Pipelines</span>
+                </div>
+                <h3 class="service-title">MLOps Pipeline Development</h3>
+                <p class="service-description">Develop robust and scalable MLOps pipelines with our expert development services. We build automated pipelines for model training, validation, deployment, and monitoring.</p>
+                <ul class="service-list">
+                    <li>End-to-End ML Pipeline Development</li>
+                    <li>Automated Model Training & Deployment</li>
+                    <li>Data Pipeline Development</li>
+                    <li>MLOps Platform Integration</li>
+                </ul>
+                <div class="course-buttons">
+                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Discuss MLOps Development
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                        <span class="material-icons button-icon">email</span> Email Development Inquiry
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-sticker-badge">
+                    <span class="emoji-sticker">☁️</span> <span>Cloud Infra</span>
+                </div>
+                <h3 class="service-title">Cloud Infrastructure Development</h3>
+                <p class="service-description">Build and manage your cloud infrastructure with our development expertise. We offer Infrastructure as Code (IaC) development, cloud architecture design, and deployment automation.</p>
+                <ul class="service-list">
+                    <li>Infrastructure as Code (IaC) Development</li>
+                    <li>Cloud Architecture Design & Implementation</li>
+                    <li>Automated Cloud Deployment Solutions</li>
+                    <li>Multi-Cloud & Hybrid Cloud Setups</li>
+                </ul>
+                <div class="course-buttons">
+                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Discuss Cloud Development
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
+                        <span class="material-icons button-icon">email</span> Email Development Inquiry
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Reviews Section -->
-    <div class="reviews">
-        <h2>What Our Students Say</h2>
-        <div class="review">
-            <p><strong>Arun from Infosys:</strong></p>
-            <p>"The Multi-Cloud DevOps training was a game-changer for me. The practical labs made it easy to understand real-world applications."</p>
-            <p class="stars">★★★★★</p>
+    <section id="reviews" class="reviews-section">
+        <h2 class="reviews-title">What Our Students Say</h2>
+        <div class="reviews-grid">
+            <!-- Reviews - (same as before, just inside reviews-grid) -->
+            <div class="review-card">
+                <p class="review-author"><strong>Arun from Infosys:</strong></p>
+                <p class="review-text">"The Multi-Cloud DevOps training was a game-changer for me. The practical labs made it easy to understand real-world applications."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Keerthana from Wipro:</strong></p>
+                <p class="review-text">"Emergency TechOps Institute's MLOps course helped me master deployment techniques and optimize ML models effectively. Highly recommended!"</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Balaji from Cognizant:</strong></p>
+                <p class="review-text">"The Kubernetes Masterclass provided excellent insights on container orchestration and scaling applications. The trainers were exceptional!"</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Lakshmi from Infosys:</strong></p>
+                <p class="review-text">"I found the Terraform and AWS Integration course very comprehensive. It helped me improve cloud infrastructure automation with real-time labs."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Raghav from TCS:</strong></p>
+                <p class="review-text">"The Multi-Cloud DevOps sessions covered everything from GCP, AWS, to Azure. The labs were incredibly detailed, making me job-ready!"</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Sreeja from Accenture:</strong></p>
+                <p class="review-text">"The Jenkins and CI/CD Pipeline course was well structured. I learned efficient ways to implement and automate continuous deployment."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Prakash from HCL:</strong></p>
+                <p class="review-text">"Advanced Docker sessions were very helpful. I can now confidently handle containerized applications and solve deployment issues."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Meena from Tech Mahindra:</strong></p>
+                <p class="review-text">"I was impressed with the Emergency TechOps Institute's AI-DevOps course. It gave me hands-on experience with AI-powered automation in cloud environments."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Karthik from Capgemini:</strong></p>
+                <p class="review-text">"The Kubernetes Networking and Ingress workshop helped me understand traffic routing in Kubernetes. It's a must-do for every cloud engineer."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Deepa from Infosys:</strong></p>
+                <p class="review-text">"The Multi-Cloud Infrastructure training was exceptional. The practical approach helped me set up and manage VPCs in GCP, AWS, and Azure."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Venkat from DXC Technology:</strong></p>
+                <p class="review-text">"Emergency TechOps Institute's MLOps course covered the end-to-end machine learning lifecycle, which boosted my confidence in managing production workloads."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Sudha from IBM:</strong></p>
+                <p class="review-text">"The GitOps and Continuous Deployment sessions were very informative. Learning GitHub Actions was incredibly useful for our team's workflow."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Krishna from HCL:</strong></p>
+                <p class="review-text">"I learned a lot from the Helm workshop. It gave me practical skills for deploying microservices in Kubernetes using Helm charts."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Madhavi from Infosys:</strong></p>
+                <p class="review-text">"The AWS and Terraform modules were great. I enjoyed the hands-on labs, which taught me how to automate infrastructure efficiently."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Suresh from Wipro:</strong></p>
+                <p class="review-text">"The Jenkins and CI/CD course helped me automate our builds and deployments. The instructors were very knowledgeable, and the examples were relatable."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Padma from TCS:</strong></p>
+                <p class="review-text">"Emergency TechOps Institute's Kubernetes Crash Course was perfect for getting up to speed quickly. The labs were practical and easy to follow."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Girish from Infosys:</strong></p>
+                <p class="review-text">"I really enjoyed the Multi-Cloud Deployment Strategies course. It covered Azure, AWS, and GCP in depth, with a lot of practical exercises."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Anjali from Capgemini:</strong></p>
+                <p class="review-text">"The Docker Swarm and Kubernetes comparison lab gave me a clear understanding of different orchestration tools. It was very enlightening."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Vikram from Infosys:</strong></p>
+                <p class="review-text">"The Prometheus and Grafana monitoring course gave me essential skills for observability in cloud environments. The hands-on approach was excellent."</p>
+                <p class="stars">★★★★★</p>
+            </div>
+            <div class="review-card">
+                <p class="review-author"><strong>Sandhya from HCL:</strong></p>
+                <p class="review-text">"Emergency TechOps Institute's course on Azure DevOps was exactly what I needed to understand cloud-native CI/CD workflows. Highly effective!"</p>
+                <p class="stars">★★★★★</p>
+            </div>
         </div>
-        <div class="review">
-            <p><strong>Keerthana from Wipro:</strong></p>
-            <p>"Emergency TechOps Institute's MLOps course helped me master deployment techniques and optimize ML models effectively. Highly recommended!"</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Balaji from Cognizant:</strong></p>
-            <p>"The Kubernetes Masterclass provided excellent insights on container orchestration and scaling applications. The trainers were exceptional!"</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Lakshmi from Infosys:</strong></p>
-            <p>"I found the Terraform and AWS Integration course very comprehensive. It helped me improve cloud infrastructure automation with real-time labs."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Raghav from TCS:</strong></p>
-            <p>"The Multi-Cloud DevOps sessions covered everything from GCP, AWS, to Azure. The labs were incredibly detailed, making me job-ready!"</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Sreeja from Accenture:</strong></p>
-            <p>"The Jenkins and CI/CD Pipeline course was well structured. I learned efficient ways to implement and automate continuous deployment."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Prakash from HCL:</strong></p>
-            <p>"Advanced Docker sessions were very helpful. I can now confidently handle containerized applications and solve deployment issues."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Meena from Tech Mahindra:</strong></p>
-            <p>"I was impressed with the Emergency TechOps Institute's AI-DevOps course. It gave me hands-on experience with AI-powered automation in cloud environments."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Karthik from Capgemini:</strong></p>
-            <p>"The Kubernetes Networking and Ingress workshop helped me understand traffic routing in Kubernetes. It's a must-do for every cloud engineer."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Deepa from Infosys:</strong></p>
-            <p>"The Multi-Cloud Infrastructure training was exceptional. The practical approach helped me set up and manage VPCs in GCP, AWS, and Azure."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Venkat from DXC Technology:</strong></p>
-            <p>"Emergency TechOps Institute's MLOps course covered the end-to-end machine learning lifecycle, which boosted my confidence in managing production workloads."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Sudha from IBM:</strong></p>
-            <p>"The GitOps and Continuous Deployment sessions were very informative. Learning GitHub Actions was incredibly useful for our team's workflow."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Krishna from HCL:</strong></p>
-            <p>"I learned a lot from the Helm workshop. It gave me practical skills for deploying microservices in Kubernetes using Helm charts."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Madhavi from Infosys:</strong></p>
-            <p>"The AWS and Terraform modules were great. I enjoyed the hands-on labs, which taught me how to automate infrastructure efficiently."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Suresh from Wipro:</strong></p>
-            <p>"The Jenkins and CI/CD course helped me automate our builds and deployments. The instructors were very knowledgeable, and the examples were relatable."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Padma from TCS:</strong></p>
-            <p>"Emergency TechOps Institute's Kubernetes Crash Course was perfect for getting up to speed quickly. The labs were practical and easy to follow."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Girish from Infosys:</strong></p>
-            <p>"I really enjoyed the Multi-Cloud Deployment Strategies course. It covered Azure, AWS, and GCP in depth, with a lot of practical exercises."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Anjali from Capgemini:</strong></p>
-            <p>"The Docker Swarm and Kubernetes comparison lab gave me a clear understanding of different orchestration tools. It was very enlightening."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Vikram from Infosys:</strong></p>
-            <p>"The Prometheus and Grafana monitoring course gave me essential skills for observability in cloud environments. The hands-on approach was excellent."</p>
-            <p class="stars">★★★★★</p>
-        </div>
-        <div class="review">
-            <p><strong>Sandhya from HCL:</strong></p>
-            <p>"Emergency TechOps Institute's course on Azure DevOps was exactly what I needed to understand cloud-native CI/CD workflows. Highly effective!"</p>
-            <p class="stars">★★★★★</p>
-        </div>
-    </div>
-    
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Ready to Elevate Your Tech Skills?</h2>
+        <p>Contact us today for more information about our courses and services.</p>
+        <p>Email: <a href="mailto:technicalsupport@emergencytechops.com" class="contact-link">technicalsupport@emergencytechops.com</a> | WhatsApp: <a href="https://wa.me/91910665231" class="contact-link">+91 91066 5231</a></p>
+    </section>
+
+    <footer class="footer">
+        © 2024 Emergency TechOps Institute. All Rights Reserved.
+    </footer>
+
 </div>
 
 </body>
 </html>
-
-
