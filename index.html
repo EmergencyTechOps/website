@@ -29,6 +29,10 @@
         box-sizing: border-box;
     }
 
+    html {
+        scroll-behavior: smooth; 
+    }
+
     body {
         font-family: 'Inter', sans-serif;
         background: var(--dark-gradient);
@@ -38,6 +42,7 @@
         position: relative;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        line-height: 1.6; 
     }
 
     /* Animated Background Particles */
@@ -49,24 +54,20 @@
         height: 100%;
         pointer-events: none;
         z-index: -1;
-        transition: transform 0.1s linear; /* For smooth parallax effect */
+        transition: transform 0.1s linear; 
     }
 
     .particle {
         position: absolute;
         background: rgba(255, 255, 255, 0.2);
         border-radius: 50%;
-        /* The 'float' animation primarily controls the particle's transform for movement and rotation.
-           Directly setting particle.style.transform in JS for mouse move would override this.
-           The mouse interaction is now handled by moving the parent '.bg-animation' container. */
         animation: float 25s infinite linear;
         will-change: transform, opacity;
     }
 
     @keyframes float {
         0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
-        10% { opacity: 0.7; transform: translateY(90vh) rotate(72deg) scale(1); } /* Adjusted for continuous feel */
-        /* ... more intermediate steps can be added for complex paths */
+        10% { opacity: 0.7; transform: translateY(90vh) rotate(72deg) scale(1); }
         90% { opacity: 0.7; transform: translateY(10vh) rotate(648deg) scale(1); }
         100% { transform: translateY(-100vh) rotate(720deg) scale(0.5); opacity: 0; }
     }
@@ -84,24 +85,27 @@
     .container {
         max-width: 1400px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 25px; 
     }
 
     /* 3D Hero Section */
     .hero-section {
         min-height: 100vh;
         display: flex;
+        flex-direction: column; 
         align-items: center;
         justify-content: center;
         position: relative;
         overflow: hidden;
         text-align: center;
+        padding-top: 20px; 
     }
 
     .hero-content {
         z-index: 2;
         transform-style: preserve-3d;
         animation: heroEntrance 1s ease-out, heroFloat 8s ease-in-out infinite alternate 1s;
+        padding: 20px; 
     }
 
     @keyframes heroEntrance {
@@ -115,7 +119,7 @@
     }
 
     .hero-title {
-        font-size: clamp(2.5rem, 7vw, 5rem);
+        font-size: clamp(2.5rem, 7vw, 4.8rem); 
         font-weight: 800;
         background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f7b801, #ff6b6b);
         background-size: 300% 300%;
@@ -125,6 +129,7 @@
         animation: gradientShift 5s ease infinite;
         margin-bottom: 1.5rem;
         text-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+        line-height: 1.2; 
     }
 
     @keyframes gradientShift {
@@ -134,13 +139,13 @@
     }
 
     .hero-subtitle {
-        font-size: clamp(1.1rem, 3vw, 1.8rem);
+        font-size: clamp(1.0rem, 2.5vw, 1.6rem); 
         font-weight: 300;
         color: var(--text-secondary);
         margin-bottom: 2.5rem;
         opacity: 0;
         animation: fadeInUp 1.2s ease 0.7s forwards;
-        max-width: 700px;
+        max-width: 650px; 
         margin-left: auto;
         margin-right: auto;
     }
@@ -150,7 +155,7 @@
         to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* 3D Navigation */
+    /* Navigation */
     .navigation {
         position: fixed;
         top: 25px;
@@ -159,7 +164,8 @@
         z-index: 1000;
         opacity: 0;
         animation: navSlideIn 1s ease-out 1.2s forwards;
-        will-change: transform;
+        will-change: transform, opacity; 
+        width: auto; 
     }
 
     @keyframes navSlideIn {
@@ -172,8 +178,8 @@
         backdrop-filter: blur(18px);
         -webkit-backdrop-filter: blur(18px);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 50px;
-        padding: 12px 25px;
+        border-radius: 50px; 
+        padding: 10px 25px; 
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         transform-style: preserve-3d;
         transition: transform 0.3s ease-out;
@@ -182,48 +188,49 @@
     .nav-list {
         display: flex;
         list-style: none;
-        gap: 25px;
+        gap: 20px; 
         align-items: center;
+        margin: 0; 
+        padding: 0; 
     }
 
     .nav-link {
         color: var(--text-primary);
         text-decoration: none;
         font-weight: 500;
-        padding: 10px 18px;
-        border-radius: 25px;
-        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        font-size: clamp(0.9rem, 1.5vw, 1rem); 
+        padding: 12px 15px; 
+        transition: color 0.35s ease-out, transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative;
-        overflow: hidden;
-        transform: translateZ(10px);
+        transform: translateZ(10px); 
     }
 
-    .nav-link::before {
+    .nav-link::after {
         content: '';
         position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: var(--accent-gradient);
-        transition: left 0.35s ease-out;
-        z-index: -1;
-        border-radius: 25px;
-    }
-
-    .nav-link:hover::before {
-        left: 0;
+        left: 50%; 
+        transform: translateX(-50%); 
+        bottom: 6px; 
+        width: 0; 
+        height: 2.5px; 
+        background: var(--accent-gradient); 
+        border-radius: 2px;
+        transition: width 0.3s ease-out;
     }
 
     .nav-link:hover {
-        transform: translateY(-3px) translateZ(20px) scale(1.05);
-        color: #fff;
-        box-shadow: 0 8px 20px rgba(79, 172, 254, 0.3);
+        transform: translateY(-3px) translateZ(20px) scale(1.05); 
+        color: var(--highlight-color); 
     }
+
+    .nav-link:hover::after {
+        width: 60%; 
+    }
+
 
     /* Sections */
     .section {
-        padding: 120px 0;
+        padding: clamp(60px, 10vw, 120px) 0; 
         position: relative;
         overflow: hidden; 
     }
@@ -240,46 +247,47 @@
 
 
     .section-title {
-        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        font-size: clamp(2rem, 5vw, 3.2rem); 
         font-weight: 700;
         text-align: center;
-        margin-bottom: 90px;
+        margin-bottom: clamp(60px, 8vw, 90px); 
         background: var(--primary-gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         position: relative;
         text-shadow: 0 3px 15px rgba(102, 126, 234, 0.2);
+        line-height: 1.2;
     }
 
     .section-title::after {
         content: '';
         position: absolute;
-        bottom: -25px;
+        bottom: -20px; 
         left: 50%;
         transform: translateX(-50%);
-        width: 120px;
-        height: 5px;
+        width: clamp(80px, 15vw, 120px); 
+        height: 4px; 
         background: var(--accent-gradient);
         border-radius: 3px;
         box-shadow: 0 0 15px var(--highlight-color);
     }
 
-    /* 3D Course Cards */
-    .courses-grid {
+    /* 3D Course Cards & Service Cards */
+    .courses-grid, .services-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-        gap: 50px;
-        margin-top: 70px;
+        grid-template-columns: repeat(auto-fit, minmax( clamp(300px, 80vw, 380px) , 1fr)); 
+        gap: clamp(25px, 5vw, 50px); 
+        margin-top: clamp(40px, 6vw, 70px);
     }
 
-    .course-card, .service-card { /* Combined for initial hidden state */
+    .course-card, .service-card { 
         position: relative;
         background: var(--glass-bg);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
         border: 1px solid var(--glass-border);
-        border-radius: 30px; 
+        border-radius: 25px; 
         overflow: hidden;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transform-style: preserve-3d; 
@@ -287,25 +295,23 @@
         will-change: transform, box-shadow;
     }
     
-    .course-card.hidden-initial, .service-card.hidden-initial { /* For scroll animations */
+    .course-card.hidden-initial, .service-card.hidden-initial { 
         opacity: 0;
         transform: translateY(40px) rotateX(-10deg) scale(0.95);
-        /* transition delay can be added by JS if needed for staggered effect */
     }
     .course-card.visible-card, .service-card.visible-card {
         opacity: 1;
         transform: translateY(0) rotateX(0deg) scale(1);
-         transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Add transition here for reveal */
+         transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
     }
-
 
     .course-card:hover {
-        transform: perspective(1500px) rotateX(8deg) rotateY(6deg) translateY(-25px) scale(1.03);
-        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 20px var(--highlight-color) inset;
-        border-color: rgba(79, 172, 254, 0.7);
+        transform: perspective(1500px) rotateX(8deg) rotateY(6deg) translateY(-20px) scale(1.02); 
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 15px var(--highlight-color) inset;
+        border-color: rgba(79, 172, 254, 0.6);
     }
     
-    .course-card::after {
+    .course-card::after { 
         content: "";
         position: absolute;
         top: 0;
@@ -332,10 +338,10 @@
 
     .course-image-wrapper {
         width: 100%;
-        height: 250px;
+        height: 220px; 
         overflow: hidden; 
-        border-top-left-radius: 29px; 
-        border-top-right-radius: 29px;
+        border-top-left-radius: 24px; 
+        border-top-right-radius: 24px;
         transform: translateZ(10px); 
     }
 
@@ -347,60 +353,62 @@
     }
 
     .course-card:hover .course-image {
-        transform: scale(1.15) rotate(2deg);
-        filter: brightness(1.1) saturate(1.2);
+        transform: scale(1.12) rotate(1.5deg); 
+        filter: brightness(1.1) saturate(1.15);
     }
 
-    .course-content {
-        padding: 30px;
+    .course-content, .service-content { 
+        padding: clamp(20px, 4vw, 30px); 
         position: relative;
         transform: translateZ(30px);
     }
 
-    .course-title {
-        font-size: 1.7rem;
+    .course-title, .service-title {
+        font-size: clamp(1.3rem, 3vw, 1.6rem); 
         font-weight: 700;
         margin-bottom: 15px;
         color: var(--text-primary);
         line-height: 1.3;
         transition: color 0.3s ease;
     }
-    .course-card:hover .course-title {
+    .course-card:hover .course-title, .service-card:hover .service-title {
         color: var(--highlight-color);
     }
 
-    .course-description {
+    .course-description, .service-description {
         color: var(--text-secondary);
         line-height: 1.65; 
         margin-bottom: 25px;
-        font-size: 0.98rem;
+        font-size: clamp(0.85rem, 2vw, 0.95rem); 
     }
 
-    .course-details {
+    .course-details { /* Date and time removed, so this might be empty or used for other details */
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 10px; 
         color: rgba(224, 224, 224, 0.8);
-        font-size: 0.9rem;
-        margin-bottom: 30px;
+        font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+        margin-bottom: 25px;
+        min-height: 1.5em; /* Keep some space even if empty to prevent layout jump */
     }
-    .course-details .material-icons {
+    .course-details .material-icons { /* Style if you add icons back */
         color: var(--highlight-color);
-        font-size: 1.2rem;
+        font-size: 1.1rem; 
     }
 
     /* 3D Buttons */
     .course-buttons {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 15px;
+        gap: 12px; 
     }
 
     .btn-3d {
-        padding: 14px 20px; 
+        padding: clamp(10px, 2.5vw, 14px) clamp(15px, 3vw, 20px); 
         border: none;
         border-radius: 50px;
         font-weight: 600;
+        font-size: clamp(0.85rem, 2vw, 0.95rem); 
         text-decoration: none;
         text-align: center;
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -409,14 +417,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 8px; 
         transform-style: preserve-3d;
         transform: perspective(800px) rotateX(0deg) translateZ(20px); 
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
         will-change: transform, box-shadow;
     }
     .btn-3d .material-icons {
-        font-size: 1.3em;
+        font-size: clamp(1.1em, 2.2vw, 1.2em); 
     }
 
     .btn-primary {
@@ -440,13 +448,13 @@
     }
 
     .btn-3d:hover {
-        transform: perspective(800px) rotateX(-12deg) translateY(-6px) translateZ(30px) scale(1.05);
-        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+        transform: perspective(800px) rotateX(-10deg) translateY(-5px) translateZ(25px) scale(1.03); 
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
     
     .btn-3d:active {
-        transform: perspective(800px) rotateX(-5deg) translateY(-2px) translateZ(15px) scale(0.97);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        transform: perspective(800px) rotateX(-4deg) translateY(-1px) translateZ(12px) scale(0.96); 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
     }
 
 
@@ -469,10 +477,10 @@
     /* Floating Action Button */
     .floating-cta {
         position: fixed;
-        bottom: 40px;
-        right: 40px;
-        width: 75px;
-        height: 75px;
+        bottom: clamp(20px, 4vw, 40px); 
+        right: clamp(20px, 4vw, 40px);
+        width: clamp(60px, 10vw, 75px); 
+        height: clamp(60px, 10vw, 75px);
         background: var(--secondary-gradient);
         border-radius: 50%;
         display: flex;
@@ -486,37 +494,28 @@
         transform: scale(1);
     }
     .floating-cta .material-icons {
-        font-size: 2.2rem;
+        font-size: clamp(1.8rem, 4vw, 2.2rem); 
         color: white;
     }
 
     .floating-cta:hover {
-        transform: scale(1.15) rotate(10deg);
-        box-shadow: 0 18px 45px rgba(245, 87, 108, 0.7);
+        transform: scale(1.12) rotate(8deg); 
+        box-shadow: 0 15px 40px rgba(245, 87, 108, 0.65);
     }
 
     @keyframes pulse {
         0%, 100% { transform: scale(1); filter: brightness(1); }
-        50% { transform: scale(1.08); filter: brightness(1.15); }
+        50% { transform: scale(1.05); filter: brightness(1.1); } 
     }
 
-    /* Service Cards with 3D Effect */
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-        gap: 40px;
-        margin-top: 70px;
-    }
-
-    /* .service-card is already defined with .course-card for hidden-initial state */
-
+    /* Service Cards */
     .service-card::before { 
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        height: 5px;
+        height: 4px; 
         background: var(--accent-gradient);
         transform: scaleX(0);
         transform-origin: left;
@@ -529,13 +528,13 @@
     }
 
     .service-card:hover {
-        transform: perspective(1200px) rotateX(5deg) translateY(-15px) scale(1.02);
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
-        border-color: rgba(79, 172, 254, 0.6);
+        transform: perspective(1200px) rotateX(4deg) translateY(-12px) scale(1.015); 
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        border-color: rgba(79, 172, 254, 0.5);
     }
 
     .service-icon {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 5vw, 3rem); 
         margin-bottom: 20px;
         display: inline-block;
         background: var(--accent-gradient);
@@ -544,27 +543,11 @@
         background-clip: text;
     }
 
-    .service-title {
-        font-size: 1.6rem;
-        font-weight: 600;
-        margin-bottom: 15px;
-        color: var(--text-primary); 
-    }
-    .service-card:hover .service-title {
-        color: var(--highlight-color);
-    }
-    .service-description {
-        color: var(--text-secondary);
-        line-height: 1.6;
-        font-size: 0.95rem;
-    }
-
-
     /* Reviews Carousel */
     .reviews-container {
         position: relative;
         overflow: hidden;
-        margin-top: 70px;
+        margin-top: clamp(40px, 6vw, 70px);
         padding: 20px 0; 
     }
 
@@ -575,41 +558,41 @@
 
     .reviews-grid {
         display: flex;
-        gap: 30px;
-        animation: scrollReviews 60s linear infinite; /* Renamed to avoid conflict if 'scroll' is too generic */
+        gap: clamp(20px, 4vw, 30px); 
+        animation: scrollReviews 70s linear infinite; 
         width: fit-content; 
     }
 
     @keyframes scrollReviews {
         0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); } /* Assumes content is duplicated once, making total width 200% of one set */
+        100% { transform: translateX(-50%); } 
     }
 
     .review-card {
-        min-width: 360px;
-        max-width: 380px;
+        min-width: clamp(280px, 75vw, 360px); 
+        max-width: clamp(300px, 80vw, 380px);
         background: var(--glass-bg);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border: 1px solid var(--glass-border);
-        border-radius: 25px;
-        padding: 35px;
+        border-radius: 20px; 
+        padding: clamp(25px, 4vw, 35px); 
         position: relative;
         flex-shrink: 0;
         transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
         transform-style: preserve-3d;
     }
     .review-card:hover {
-        transform: translateY(-10px) scale(1.03);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        transform: translateY(-8px) scale(1.02); 
+        box-shadow: 0 12px 35px rgba(0,0,0,0.25);
     }
 
     .review-card::before {
         content: '“'; 
         position: absolute;
         top: 5px;
-        left: 25px;
-        font-size: 5rem;
+        left: clamp(15px, 3vw, 25px);
+        font-size: clamp(3.5rem, 8vw, 5rem); 
         color: rgba(79, 172, 254, 0.2);
         font-family: 'Times New Roman', Times, serif;
         z-index: 0;
@@ -621,18 +604,20 @@
 
     .stars {
         color: #ffd700;
-        font-size: 1.3rem;
+        font-size: clamp(1rem, 2.5vw, 1.2rem); 
         margin-bottom: 15px;
-        letter-spacing: 2px;
+        letter-spacing: 1.5px;
     }
     .review-text {
         font-style: italic;
         color: var(--text-secondary);
         margin-bottom: 15px;
         line-height: 1.6;
+        font-size: clamp(0.85rem, 2vw, 0.95rem); 
     }
     .review-author {
         font-weight: 600;
+        font-size: clamp(0.9rem, 2.2vw, 1rem);
         color: var(--text-primary);
     }
     .review-author span {
@@ -644,11 +629,11 @@
 
 
     /* Contact Section */
-    .contact-section { /* This is a .glass-container applied directly in HTML */
+    .contact-section { 
         text-align: center;
-        padding: 100px 20px; 
-        margin: 120px auto; 
-        max-width: 1200px; /* Applied to the glass-container itself */
+        padding: clamp(60px, 10vw, 100px) clamp(15px, 3vw, 20px); 
+        margin: clamp(80px, 12vw, 120px) auto; 
+        max-width: 1200px; 
         position: relative; 
     }
     .contact-content {
@@ -656,10 +641,10 @@
         margin: 0 auto;
     }
     .contact-section .section-title {
-        font-size: clamp(2rem, 4.5vw, 3rem);
+        font-size: clamp(1.8rem, 4vw, 3rem); 
     }
     .contact-description {
-        font-size: 1.1rem;
+        font-size: clamp(0.95rem, 2.2vw, 1.1rem); 
         color: var(--text-secondary);
         line-height: 1.7;
         margin-bottom: 40px;
@@ -674,24 +659,26 @@
         .contact-buttons {
             flex-direction: row;
             justify-content: center;
+            gap: 25px; 
         }
     }
     .contact-buttons .btn-3d {
-        min-width: 220px; 
+        min-width: clamp(180px, 40vw, 220px); 
     }
 
 
     /* Footer */
     .footer {
         text-align: center;
-        padding: 50px 20px;
+        padding: clamp(30px, 6vw, 50px) 20px; 
         background: rgba(0,0,0,0.2);
         border-top: 1px solid var(--glass-border);
-        margin-top: 80px;
+        margin-top: clamp(50px, 8vw, 80px);
     }
     .footer p {
         color: var(--text-secondary);
-        font-size: 0.9rem;
+        font-size: clamp(0.8rem, 1.8vw, 0.9rem); 
+        margin-bottom: 0.5rem;
     }
     .footer a {
         color: var(--highlight-color);
@@ -703,76 +690,78 @@
     }
 
 
-    /* Responsive Design */
-    @media (max-width: 992px) {
-        .courses-grid, .services-grid {
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        .course-card:hover { 
-            transform: perspective(1500px) rotateX(5deg) rotateY(3deg) translateY(-15px) scale(1.02);
-        }
-    }
-
+    /* Responsive Design - Mobile Specific Adjustments */
     @media (max-width: 768px) {
         .hero-section {
-            padding-top: 80px; /* Space for nav if it becomes static */
+             padding-top: 0; 
+             justify-content: flex-start; 
+        }
+        .hero-content {
+            margin-top: 20px; 
+        }
+
+        .navigation {
+            position: static; 
+            transform: none; 
+            animation: none; 
+            opacity: 1; 
+            margin: 30px auto 20px auto; 
+            width: fit-content; 
+        }
+        .nav-container {
+            padding: 8px 15px; 
         }
         .nav-list {
             flex-direction: column;
-            gap: 10px;
-            padding: 10px 0;
+            gap: 8px; 
         }
         .nav-link {
-            padding: 8px 15px;
+            padding: 10px 20px; 
+            font-size: 1rem; 
+        }
+        .nav-link::after { 
+            bottom: 5px; 
+            height: 2px;
         }
         
-        .navigation {
-            position: absolute; /* Or static, if preferred. Absolute keeps it at top. */
-            /* If static, hero section might need more padding-top */
-            /* transform: none; // This was for fixed, if absolute or static, adjust Xcentering */
-            /* animation: none; */ /* Can keep if desired */
-            /* opacity: 1; */
-            width: auto; /* fit content */
-        }
-        .nav-container {
-            /* Optional: make it full width or centered */
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-        .section-title {
-            margin-bottom: 70px;
-        }
         .course-buttons {
             grid-template-columns: 1fr; 
         }
-        .floating-cta {
-            width: 60px;
-            height: 60px;
-            bottom: 20px;
-            right: 20px;
+
+        .course-card:hover, .service-card:hover {
+            transform: translateY(-10px) scale(1.01); 
         }
-        .floating-cta .material-icons {
-            font-size: 1.8rem;
+         .btn-3d:hover {
+            transform: translateY(-3px) scale(1.02);
         }
-        .review-card {
-            min-width: 300px; 
-            max-width: 320px;
+
+    }
+    @media (max-width: 480px) {
+        .courses-grid, .services-grid {
+             grid-template-columns: 1fr; 
+        }
+        .btn-3d {
+            font-size: 0.9rem; 
+        }
+        .hero-title {
+            font-size: clamp(2rem, 10vw, 2.5rem);
+        }
+        .hero-subtitle {
+            font-size: clamp(0.9rem, 4vw, 1rem);
         }
     }
+
 
     /* Course Badges */
     .course-badge {
         position: absolute;
-        top: 25px;
-        right: 25px;
+        top: clamp(15px, 3vw, 25px); 
+        right: clamp(15px, 3vw, 25px);
         background: var(--secondary-gradient);
         color: white;
-        padding: 8px 18px;
+        padding: clamp(6px, 1.5vw, 8px) clamp(12px, 2.5vw, 18px); 
         border-radius: 20px;
-        font-size: 0.85rem;
+        font-size: clamp(0.75rem, 1.8vw, 0.85rem); 
         font-weight: 600;
         z-index: 3; 
         animation: bounceBadge 2.5s ease-in-out infinite;
@@ -781,7 +770,7 @@
 
     @keyframes bounceBadge {
         0%, 100% { transform: translateY(0) translateZ(40px) rotate(-3deg); }
-        50% { transform: translateY(-12px) translateZ(45px) rotate(3deg); }
+        50% { transform: translateY(-10px) translateZ(43px) rotate(2deg); } 
     }
 
     /* Loading Animation */
@@ -808,8 +797,8 @@
     }
 
     .spinner {
-        width: 70px; 
-        height: 70px;
+        width: 60px; 
+        height: 60px;
         border: 4px solid rgba(255, 255, 255, 0.2);
         border-top: 4px solid var(--highlight-color); 
         border-radius: 50%;
@@ -857,14 +846,12 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Emergency TechOps Institute</h1>
-                <p class="hero-subtitle">Transform Your Career with Next-Gen Multi-Cloud DevOps & MLOps Training. Master the skills of tomorrow, today.</p>
-                 <a href="#courses" class="btn-3d btn-primary" style="margin-top: 20px; padding: 18px 35px; font-size: 1.1rem;">
-                    <span class="material-icons">rocket_launch</span> Explore Courses
-                </a>
-            </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Emergency TechOps Institute</h1>
+            <p class="hero-subtitle">Transform Your Career with Next-Gen Multi-Cloud DevOps & MLOps Training. Master the skills of tomorrow, today.</p>
+             <a href="#courses" class="btn-3d btn-primary" style="margin-top: 25px; padding: 16px 30px; font-size: clamp(0.95rem, 2.2vw, 1.1rem);">
+                <span class="material-icons">rocket_launch</span> Explore Courses
+            </a>
         </div>
     </section>
 
@@ -883,17 +870,16 @@
                         <h3 class="course-title">Master Multi-Cloud DevOps (AWS, Azure, GCP)</h3>
                         <p class="course-description">Dive deep into multi-cloud environments. Master AWS, Azure, & GCP DevOps, cloud-native solutions, IaC, and cost optimization.</p>
                         <div class="course-details">
-                            <span class="material-icons">schedule</span>
-                            <span>Dec 1, 2024 | 10 AM - 1 PM (IST)</span>
+                            <!-- Date and time removed -->
                         </div>
                         <div class="course-buttons">
                             <a href="https://youtu.be/fWa4Z7IogIg" target="_blank" class="btn-3d btn-primary">
                                 <span class="material-icons">play_circle_filled</span> Demo
                             </a>
-                            <a href="#" class="btn-3d btn-secondary"> <!-- Add actual syllabus link -->
+                            <a href="#" class="btn-3d btn-secondary"> 
                                 <span class="material-icons">download</span> Syllabus
                             </a>
-                            <a href="https://wa.me/91910665231" target="_blank" class="btn-3d btn-whatsapp">
+                            <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
                                 <span class="material-icons">sms</span> WhatsApp
                             </a>
                             <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
@@ -913,17 +899,16 @@
                         <h3 class="course-title">MLOps: Development to Production</h3>
                         <p class="course-description">Streamline ML operations. Learn model deployment on AWS Sagemaker, Azure ML, and Google AI Platform with best MLOps practices.</p>
                          <div class="course-details">
-                            <span class="material-icons">schedule</span>
-                            <span>Dec 5, 2024 | 2 PM - 5 PM (IST)</span>
+                            <!-- Date and time removed -->
                         </div>
                         <div class="course-buttons">
                             <a href="https://youtu.be/O6u6V-EZ9yQ" target="_blank" class="btn-3d btn-primary">
                                 <span class="material-icons">play_circle_filled</span> Demo
                             </a>
-                            <a href="#" class="btn-3d btn-secondary"> <!-- Add actual syllabus link -->
+                            <a href="#" class="btn-3d btn-secondary"> 
                                 <span class="material-icons">download</span> Syllabus
                             </a>
-                             <a href="https://wa.me/91910665231" target="_blank" class="btn-3d btn-whatsapp">
+                             <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
                                 <span class="material-icons">sms</span> WhatsApp
                             </a>
                             <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
@@ -943,17 +928,16 @@
                         <h3 class="course-title">Advanced Kubernetes Mastery</h3>
                         <p class="course-description">Become a K8s expert. Master advanced deployments, autoscaling, load balancing, and Ingress controllers in depth.</p>
                         <div class="course-details">
-                            <span class="material-icons">schedule</span>
-                            <span>Dec 10, 2024 | 9 AM - 12 PM (IST)</span>
+                            <!-- Date and time removed -->
                         </div>
                         <div class="course-buttons">
                             <a href="https://youtu.be/kpJu9QkXKFA" target="_blank" class="btn-3d btn-primary">
                                 <span class="material-icons">play_circle_filled</span> Demo
                             </a>
-                            <a href="#" class="btn-3d btn-secondary"> <!-- Add actual syllabus link -->
+                            <a href="#" class="btn-3d btn-secondary"> 
                                 <span class="material-icons">download</span> Syllabus
                             </a>
-                             <a href="https://wa.me/91910665231" target="_blank" class="btn-3d btn-whatsapp">
+                             <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
                                 <span class="material-icons">sms</span> WhatsApp
                             </a>
                             <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
@@ -973,17 +957,16 @@
                         <h3 class="course-title">Full-Stack: Node.js & React.js</h3>
                         <p class="course-description">Build scalable web apps with Node.js and React.js. Cover REST APIs, frontend magic, and robust backend architecture.</p>
                          <div class="course-details">
-                            <span class="material-icons">schedule</span>
-                            <span>Dec 12, 2024 | 11 AM - 2 PM (IST)</span>
+                            <!-- Date and time removed -->
                         </div>
                         <div class="course-buttons">
-                           <a href="#" target="_blank" class="btn-3d btn-primary"> <!-- Add actual demo link -->
+                           <a href="#" target="_blank" class="btn-3d btn-primary"> 
                                 <span class="material-icons">play_circle_filled</span> Demo
                             </a>
-                            <a href="#" class="btn-3d btn-secondary"> <!-- Add actual syllabus link -->
+                            <a href="#" class="btn-3d btn-secondary"> 
                                 <span class="material-icons">download</span> Syllabus
                             </a>
-                             <a href="https://wa.me/91910665231" target="_blank" class="btn-3d btn-whatsapp">
+                             <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
                                 <span class="material-icons">sms</span> WhatsApp
                             </a>
                             <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
@@ -1002,17 +985,16 @@
                         <h3 class="course-title">CI/CD Automation for DevOps</h3>
                         <p class="course-description">Automate your software lifecycle with Jenkins, GitHub Actions, & GitLab CI/CD. Build robust, efficient pipelines.</p>
                         <div class="course-details">
-                            <span class="material-icons">schedule</span>
-                            <span>Dec 15, 2024 | 3 PM - 6 PM (IST)</span>
+                            <!-- Date and time removed -->
                         </div>
                         <div class="course-buttons">
                             <a href="https://youtu.be/FiI8uO7Mw1A" target="_blank" class="btn-3d btn-primary">
                                 <span class="material-icons">play_circle_filled</span> Demo
                             </a>
-                            <a href="#" class="btn-3d btn-secondary"> <!-- Add actual syllabus link -->
+                            <a href="#" class="btn-3d btn-secondary"> 
                                 <span class="material-icons">download</span> Syllabus
                             </a>
-                            <a href="https://wa.me/91910665231" target="_blank" class="btn-3d btn-whatsapp">
+                            <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
                                 <span class="material-icons">sms</span> WhatsApp
                             </a>
                             <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
@@ -1032,28 +1014,28 @@
             <h2 class="section-title">Our Expert Services</h2>
             <div class="services-grid">
                 <div class="service-card hidden-initial">
-                    <span class="material-icons service-icon">support_agent</span>
-                    <h3 class="service-title">Dedicated Job Support</h3>
-                    <p class="service-description">Navigate complex projects with our expert job support. Get real-time assistance, troubleshooting, and guidance to excel in your role.</p>
-                    <a href="https://wa.me/91910665231?text=Hi%2C%20I'm%20interested%20in%20Job%20Support" target="_blank" class="btn-3d btn-primary" style="margin-top: 20px;">
-                        <span class="material-icons">call</span> Get Support
-                    </a>
+                        <span class="material-icons service-icon">support_agent</span>
+                        <h3 class="service-title">Dedicated Job Support</h3>
+                        <p class="service-description">Navigate complex projects with our expert job support. Get real-time assistance, troubleshooting, and guidance to excel in your role.</p>
+                        <a href="https://wa.me/919100665231?text=Hi%2C%20I'm%20interested%20in%20Job%20Support" target="_blank" class="btn-3d btn-primary" style="margin-top: 20px;">
+                            <span class="material-icons">call</span> Get Support
+                        </a>
                 </div>
                 <div class="service-card hidden-initial">
-                     <span class="material-icons service-icon">workspaces</span>
-                    <h3 class="service-title">Freelance DevOps Excellence</h3>
-                    <p class="service-description">Leverage our top-tier freelance DevOps engineers for your projects. Scalable, expert solutions for CI/CD, cloud, and automation.</p>
-                     <a href="mailto:freelance@emergencytechops.com" class="btn-3d btn-secondary" style="margin-top: 20px;">
-                        <span class="material-icons">business_center</span> Hire Experts
-                    </a>
+                        <span class="material-icons service-icon">workspaces</span>
+                        <h3 class="service-title">Freelance DevOps Excellence</h3>
+                        <p class="service-description">Leverage our top-tier freelance DevOps engineers for your projects. Scalable, expert solutions for CI/CD, cloud, and automation.</p>
+                        <a href="mailto:freelance@emergencytechops.com" class="btn-3d btn-secondary" style="margin-top: 20px;">
+                            <span class="material-icons">business_center</span> Hire Experts
+                        </a>
                 </div>
                 <div class="service-card hidden-initial">
-                    <span class="material-icons service-icon">code</span>
-                    <h3 class="service-title">Custom Development</h3>
-                    <p class="service-description">From web applications to complex cloud-native solutions, our development team brings your ideas to life with cutting-edge tech.</p>
-                    <a href="mailto:development@emergencytechops.com" class="btn-3d btn-primary" style="margin-top: 20px; background: var(--secondary-gradient);">
-                        <span class="material-icons">developer_mode</span> Start Project
-                    </a>
+                        <span class="material-icons service-icon">code</span>
+                        <h3 class="service-title">Custom Development</h3>
+                        <p class="service-description">From web applications to complex cloud-native solutions, our development team brings your ideas to life with cutting-edge tech.</p>
+                        <a href="mailto:development@emergencytechops.com" class="btn-3d btn-primary" style="margin-top: 20px; background: var(--secondary-gradient);">
+                            <span class="material-icons">developer_mode</span> Start Project
+                        </a>
                 </div>
             </div>
         </div>
@@ -1065,7 +1047,7 @@
         <div class="container">
             <h2 class="section-title">What Our Students Say</h2>
             <div class="reviews-container">
-                <div class="reviews-wrapper"> <!-- This wrapper helps if you need to constrain width for some reason -->
+                <div class="reviews-wrapper"> 
                     <div class="reviews-grid" id="reviewsGrid">
                         <!-- Review 1 -->
                         <div class="review-card">
@@ -1107,7 +1089,6 @@
                                 <p class="review-author">Fatima Z. <span>- Solutions Architect</span></p>
                             </div>
                         </div>
-                        <!-- Duplicates will be added by JS for seamless scroll -->
                     </div>
                 </div>
             </div>
@@ -1124,7 +1105,7 @@
                     Reach out to us! We're excited to help you achieve your goals.
                 </p>
                 <div class="contact-buttons">
-                    <a href="https://wa.me/91910665231" target="_blank" class="btn-3d btn-whatsapp">
+                    <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
                         <span class="material-icons">sms</span> Chat on WhatsApp
                     </a>
                     <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
@@ -1136,7 +1117,7 @@
     </section>
 
     <!-- Floating Action Button -->
-    <a href="https://wa.me/91910665231?text=Hi%2C%20I%20have%20a%20question%20about%20your%20courses." target="_blank" class="floating-cta" title="Quick Enquiry">
+    <a href="https://wa.me/919100665231?text=Hi%2C%20I%20have%20a%20question%20about%20your%20courses." target="_blank" class="floating-cta" title="Quick Enquiry">
         <span class="material-icons">question_answer</span>
     </a>
 
@@ -1160,96 +1141,65 @@
 
     // --- Animated Background Particles ---
     const bgAnimation = document.getElementById('bgAnimation');
-    const numParticles = 50; 
+    const numParticles = 40;
 
     if (bgAnimation) {
         for (let i = 0; i < numParticles; i++) {
             const particle = document.createElement('div');
             particle.classList.add('particle');
-            const size = Math.random() * 5 + 2; 
+            const size = Math.random() * 4 + 1.5; 
             particle.style.width = `${size}px`;
             particle.style.height = `${size}px`;
             particle.style.left = `${Math.random() * 100}%`;
-            // Start particles at random vertical positions for better initial distribution
             particle.style.setProperty('--initial-translate-y', `${Math.random() * 100}vh`); 
-            // The CSS @keyframes float animation will handle the transform for floating.
-            const duration = Math.random() * 15 + 20; 
+            const duration = Math.random() * 18 + 22; 
             particle.style.animationDuration = `${duration}s`;
             particle.style.animationDelay = `${Math.random() * -duration}s`; 
             bgAnimation.appendChild(particle);
         }
     }
     
-    // Mouse move interaction for subtle parallax on the background container
     document.addEventListener('mousemove', (e) => {
         if (!bgAnimation) return;
         const { clientX, clientY } = e;
         const centerX = window.innerWidth / 2;
         const centerY = window.innerHeight / 2;
-
-        // Move the entire particle container for a subtle parallax effect
-        // This avoids conflict with individual particle CSS animations
-        const moveX = (clientX - centerX) * -0.005; // Inverted for natural parallax
-        const moveY = (clientY - centerY) * -0.005; // Inverted for natural parallax
-        
+        const moveX = (clientX - centerX) * -0.004; 
+        const moveY = (clientY - centerY) * -0.004; 
         bgAnimation.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
-    });
-
-
-    // --- Smooth Scrolling for Nav Links ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start' 
-                });
-            }
-        });
     });
 
     // --- Scroll-triggered Animations (Intersection Observer) ---
     const observerOptions = {
         root: null, 
         rootMargin: '0px',
-        threshold: 0.1 
+        threshold: 0.05 
     };
 
     const revealOnScroll = (entries, observer) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => { 
             if (entry.isIntersecting) {
-                // Add 'visible' class to trigger transition
                 entry.target.classList.remove('hidden-initial');
                 if (entry.target.classList.contains('section')) {
                      entry.target.classList.add('visible-section');
                 } else if (entry.target.matches('.course-card, .service-card')) {
                      entry.target.classList.add('visible-card');
                 }
-                
-                // Optional: Stagger card animations if desired
-                // if (entry.target.matches('.course-card, .service-card')) {
-                //    entry.target.style.transitionDelay = `${index * 100}ms`;
-                // }
-
                 observer.unobserve(entry.target); 
             }
         });
     };
 
     const observer = new IntersectionObserver(revealOnScroll, observerOptions);
-    // Observe all elements that need to be revealed
     document.querySelectorAll('.section.hidden-initial, .course-card.hidden-initial, .service-card.hidden-initial').forEach(el => {
         observer.observe(el);
     });
 
     // --- Reviews Carousel Duplication for Seamless Scroll ---
     const reviewsGrid = document.getElementById('reviewsGrid');
-    if (reviewsGrid && reviewsGrid.children.length > 0) { // Check if there are children to duplicate
+    if (reviewsGrid && reviewsGrid.children.length > 0) { 
         const content = reviewsGrid.innerHTML;
-        reviewsGrid.innerHTML += content; // Duplicate content once
+        reviewsGrid.innerHTML += content; 
     }
 
 
