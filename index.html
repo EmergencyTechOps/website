@@ -7,987 +7,1258 @@
 <meta name="description" content="Elevate your tech career with Emergency TechOps Institute. Expert-led courses and services in Multi-Cloud DevOps, MLOps, AIOps, Job Support, Freelancing, and Development.">
 <meta name="keywords" content="DevOps training, MLOps courses, AIOps, CloudOps, InfraOps, Job Support, Freelance DevOps, Development services, Kubernetes, Terraform, CI/CD, Cloud certifications, Emergency TechOps">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-    /* --- Color Palette - Black Theme with Image --- */
     :root {
-        --primary-color: #2962ff;     /* Vibrant Blue - Accent */
-        --secondary-color: #ffca28;   /* Yellow - Highlight/Gold */
-        --accent-color: #26a69a;      /* Teal - Secondary Accent */
-        --text-color-dark: #ffffff;   /* Light Text for Black Background */
-        --text-color-light: #eee;     /* Slightly Darker Light Text (if needed) */
-        --background-black: #000000;   /* **Pure Black - Main BG** */
-        --background-section: #111111; /* Slightly lighter than black for sections */
-        --card-background: #222222;     /* Card Background - Even Lighter */
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+        --glass-bg: rgba(255, 255, 255, 0.05);
+        --glass-border: rgba(255, 255, 255, 0.15);
+        --text-primary: #e0e0e0;
+        --text-secondary: #a0a0c0;
+        --shadow-glow: 0 8px 32px rgba(49, 71, 203, 0.3);
+        --shadow-intense: 0 20px 60px rgba(0, 0, 0, 0.6);
+        --highlight-color: #00f2fe;
     }
 
-    /* --- General Styles --- */
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: var(--background-black); /* **Using Pure Black for Body BG** */
-        color: var(--text-color-dark);
+    * {
         margin: 0;
         padding: 0;
-        line-height: 1.6;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: var(--dark-gradient);
+        color: var(--text-primary);
+        overflow-x: hidden;
+        min-height: 100vh;
+        position: relative;
         -webkit-font-smoothing: antialiased;
-        /* Background Image - Retaining Existing Image, but adjust overlay for black theme */
-        background-image: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95)), /* **Darker Overlay for Black BG** */
-                          url('https://t3.ftcdn.net/jpg/07/52/70/74/360_F_752707422_6wyWHXR0SRmVyvmR2NCObNTW7RbCmSKq.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Animated Background Particles */
+    .bg-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        transition: transform 0.1s linear; /* For smooth parallax effect */
+    }
+
+    .particle {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        /* The 'float' animation primarily controls the particle's transform for movement and rotation.
+           Directly setting particle.style.transform in JS for mouse move would override this.
+           The mouse interaction is now handled by moving the parent '.bg-animation' container. */
+        animation: float 25s infinite linear;
+        will-change: transform, opacity;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+        10% { opacity: 0.7; transform: translateY(90vh) rotate(72deg) scale(1); } /* Adjusted for continuous feel */
+        /* ... more intermediate steps can be added for complex paths */
+        90% { opacity: 0.7; transform: translateY(10vh) rotate(648deg) scale(1); }
+        100% { transform: translateY(-100vh) rotate(720deg) scale(0.5); opacity: 0; }
+    }
+
+    /* Glass Morphism Container */
+    .glass-container {
+        background: var(--glass-bg);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid var(--glass-border);
+        border-radius: 25px;
+        box-shadow: var(--shadow-glow);
     }
 
     .container {
-        max-width: 1200px;
+        max-width: 1400px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 0 20px;
     }
 
-    /* --- Header & Navigation --- */
-    .header {
-        background-color: var(--primary-color); /* Vibrant Blue Header */
-        color: var(--text-color-dark);
-        padding: 30px 0;
+    /* 3D Hero Section */
+    .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
         text-align: center;
     }
 
-    .header h1 {
-        font-size: 2.8em;
-        margin-bottom: 10px;
-        color: var(--secondary-color); /* Yellow Title */
+    .hero-content {
+        z-index: 2;
+        transform-style: preserve-3d;
+        animation: heroEntrance 1s ease-out, heroFloat 8s ease-in-out infinite alternate 1s;
     }
 
-    .header p {
-        font-size: 1.2em;
-        color: var(--text-color-dark);
-        opacity: 0.9;
+    @keyframes heroEntrance {
+        from { opacity: 0; transform: translateY(50px) scale(0.9); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
+    @keyframes heroFloat {
+        0% { transform: perspective(1200px) rotateX(2deg) rotateY(-1deg) translateY(0px) translateZ(0px); }
+        100% { transform: perspective(1200px) rotateX(-2deg) rotateY(1deg) translateY(-25px) translateZ(10px); }
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 7vw, 5rem);
+        font-weight: 800;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f7b801, #ff6b6b);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 5s ease infinite;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1.1rem, 3vw, 1.8rem);
+        font-weight: 300;
+        color: var(--text-secondary);
+        margin-bottom: 2.5rem;
+        opacity: 0;
+        animation: fadeInUp 1.2s ease 0.7s forwards;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(40px) scale(0.95); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* 3D Navigation */
     .navigation {
-        background-color: rgba(0, 0, 0, 0.3); /* Even Darker Transparent Nav */
-        padding: 15px 0;
-        margin-bottom: 30px;
+        position: fixed;
+        top: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        opacity: 0;
+        animation: navSlideIn 1s ease-out 1.2s forwards;
+        will-change: transform;
+    }
+
+    @keyframes navSlideIn {
+        from { opacity: 0; transform: translateX(-50%) translateY(-60px) rotateX(-20deg); }
+        to { opacity: 1; transform: translateX(-50%) translateY(0) rotateX(0deg); }
+    }
+
+    .nav-container {
+        background: rgba(10, 10, 20, 0.5);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 50px;
+        padding: 12px 25px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        transform-style: preserve-3d;
+        transition: transform 0.3s ease-out;
     }
 
     .nav-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
         display: flex;
-        justify-content: center;
-        gap: 30px;
-    }
-
-    .nav-item {
-        margin: 0;
+        list-style: none;
+        gap: 25px;
+        align-items: center;
     }
 
     .nav-link {
+        color: var(--text-primary);
         text-decoration: none;
-        color: var(--text-color-dark);
         font-weight: 500;
-        padding: 10px 15px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
+        padding: 10px 18px;
+        border-radius: 25px;
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        overflow: hidden;
+        transform: translateZ(10px);
+    }
+
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--accent-gradient);
+        transition: left 0.35s ease-out;
+        z-index: -1;
+        border-radius: 25px;
+    }
+
+    .nav-link:hover::before {
+        left: 0;
     }
 
     .nav-link:hover {
-        background-color: rgba(255, 255, 255, 0.05); /* Very subtle lighter hover */
+        transform: translateY(-3px) translateZ(20px) scale(1.05);
+        color: #fff;
+        box-shadow: 0 8px 20px rgba(79, 172, 254, 0.3);
     }
 
-    /* --- Sections Styles (Courses, Services, etc.) --- */
+    /* Sections */
     .section {
-        background-color: var(--background-section); /* Dark Section Background */
-        padding: 40px 20px;
-        margin-bottom: 30px;
-        border-radius: 8px;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Even Stronger Shadow for Black BG */
+        padding: 120px 0;
+        position: relative;
+        overflow: hidden; 
     }
+    
+    .section.hidden-initial { 
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .section.visible-section {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 
     .section-title {
-        font-size: 2.2em;
-        color: var(--primary-color); /* Vibrant Blue Title */
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        font-weight: 700;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 90px;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         position: relative;
-        padding-bottom: 20px;
+        text-shadow: 0 3px 15px rgba(102, 126, 234, 0.2);
     }
 
     .section-title::after {
         content: '';
         position: absolute;
+        bottom: -25px;
         left: 50%;
-        bottom: 0;
         transform: translateX(-50%);
-        height: 3px;
-        width: 50px;
-        background-color: var(--secondary-color); /* Yellow Underline */
+        width: 120px;
+        height: 5px;
+        background: var(--accent-gradient);
+        border-radius: 3px;
+        box-shadow: 0 0 15px var(--highlight-color);
     }
 
-
-    /* --- Courses Section --- */
+    /* 3D Course Cards */
     .courses-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 50px;
+        margin-top: 70px;
     }
 
-    .course-card {
+    .course-card, .service-card { /* Combined for initial hidden state */
         position: relative;
-        background-color: var(--card-background); /* Card Background - Lighter than section */
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6); /* Even Stronger Card Shadow for Black BG */
+        background: var(--glass-bg);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid var(--glass-border);
+        border-radius: 30px; 
         overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform-style: preserve-3d; 
+        box-shadow: var(--shadow-glow);
+        will-change: transform, box-shadow;
     }
+    
+    .course-card.hidden-initial, .service-card.hidden-initial { /* For scroll animations */
+        opacity: 0;
+        transform: translateY(40px) rotateX(-10deg) scale(0.95);
+        /* transition delay can be added by JS if needed for staggered effect */
+    }
+    .course-card.visible-card, .service-card.visible-card {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg) scale(1);
+         transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Add transition here for reveal */
+    }
+
 
     .course-card:hover {
-        transform: translateY(-7px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* Max Shadow on Hover for Black BG */
+        transform: perspective(1500px) rotateX(8deg) rotateY(6deg) translateY(-25px) scale(1.03);
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 20px var(--highlight-color) inset;
+        border-color: rgba(79, 172, 254, 0.7);
     }
-
-    .course-card img {
+    
+    .course-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 220px;
-        object-fit: cover;
-        display: block;
-        opacity: 0.8; /* Dim images more for pure black theme */
-        transition: opacity 0.3s ease;
-    }
-    .course-card:hover img {
-        opacity: 1;
+        height: 100%;
+        background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.1) 45%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.1) 55%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+        transform: translateX(-100%) skewX(-20deg);
     }
 
+    .course-card:hover::after {
+        opacity: 1;
+        transform: translateX(0) skewX(-20deg);
+        animation: glareAnim 1.5s ease-out;
+    }
+
+    @keyframes glareAnim {
+        0% { transform: translateX(-150%) skewX(-20deg); opacity: 0.5; }
+        100% { transform: translateX(150%) skewX(-20deg); opacity: 0; }
+    }
+
+    .course-image-wrapper {
+        width: 100%;
+        height: 250px;
+        overflow: hidden; 
+        border-top-left-radius: 29px; 
+        border-top-right-radius: 29px;
+        transform: translateZ(10px); 
+    }
+
+    .course-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .course-card:hover .course-image {
+        transform: scale(1.15) rotate(2deg);
+        filter: brightness(1.1) saturate(1.2);
+    }
 
     .course-content {
-        padding: 25px;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        padding: 30px;
+        position: relative;
+        transform: translateZ(30px);
     }
 
     .course-title {
-        font-size: 1.5em;
-        color: var(--text-color-dark); /* Light Course Title */
-        margin-bottom: 15px;
+        font-size: 1.7rem;
         font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--text-primary);
+        line-height: 1.3;
+        transition: color 0.3s ease;
+    }
+    .course-card:hover .course-title {
+        color: var(--highlight-color);
     }
 
     .course-description {
-        color: var(--text-color-light); /* Lighter description text */
-        font-size: 1em;
-        margin-bottom: 20px;
+        color: var(--text-secondary);
+        line-height: 1.65; 
+        margin-bottom: 25px;
+        font-size: 0.98rem;
     }
 
     .course-details {
-        font-size: 0.95em;
-        color: #ccc; /* Even Lighter details text */
-        margin-bottom: 15px;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 12px;
+        color: rgba(224, 224, 224, 0.8);
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+    .course-details .material-icons {
+        color: var(--highlight-color);
+        font-size: 1.2rem;
     }
 
+    /* 3D Buttons */
     .course-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 15px;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
     }
 
-    .button {
-        background-color: var(--accent-color); /* Teal Buttons */
-        color: var(--text-color-dark);
-        padding: 12px 20px;
-        border-radius: 5px;
+    .btn-3d {
+        padding: 14px 20px; 
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
         text-decoration: none;
-        font-weight: 500;
-        font-size: 0.9em;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        transition: background-color 0.3s ease;
-        flex: 1 1 calc(45% - 10px);
         text-align: center;
-        justify-content: center;
-    }
-
-    .button:hover {
-        background-color: #2bbbad; /* Slightly brighter teal on hover */
-    }
-
-    .button-icon {
-        font-size: 1.1em;
-    }
-
-    .whatsapp-button {
-        background-color: #25d366;
-    }
-
-    .whatsapp-button:hover {
-        background-color: #128c7e;
-    }
-
-    .email-button {
-        background-color: #ea4335;
-    }
-
-    .email-button:hover {
-        background-color: #c6362a;
-    }
-
-    /* --- Course Stickers --- */
-    .course-sticker-ribbon, .service-sticker-ribbon {
-        position: absolute;
-        top: 15px;
-        left: -15px;
-        background-color: var(--secondary-color); /* Yellow Ribbons - Pop on Black */
-        color: var(--text-color-dark);
-        padding: 8px 20px;
-        font-size: 0.85em;
-        font-weight: bold;
-        border-radius: 5px;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Stronger Sticker Shadow on Black */
-        z-index: 1;
-        transform: rotate(-45deg);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
         overflow: hidden;
-        width: 150px;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transform-style: preserve-3d;
+        transform: perspective(800px) rotateX(0deg) translateZ(20px); 
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+        will-change: transform, box-shadow;
+    }
+    .btn-3d .material-icons {
+        font-size: 1.3em;
     }
 
-    .course-sticker-badge, .service-sticker-badge {
+    .btn-primary {
+        background: var(--accent-gradient);
+        color: white;
+    }
+
+    .btn-secondary {
+        background: var(--secondary-gradient);
+        color: white;
+    }
+
+    .btn-whatsapp {
+        background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+        color: white;
+    }
+
+    .btn-email {
+        background: linear-gradient(135deg, #ea4335 0%, #c5221f 100%);
+        color: white;
+    }
+
+    .btn-3d:hover {
+        transform: perspective(800px) rotateX(-12deg) translateY(-6px) translateZ(30px) scale(1.05);
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+    }
+    
+    .btn-3d:active {
+        transform: perspective(800px) rotateX(-5deg) translateY(-2px) translateZ(15px) scale(0.97);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+
+    .btn-3d::before { 
+        content: '';
         position: absolute;
-        top: 15px;
-        right: 15px;
-        background-color: var(--primary-color); /* Vibrant Blue Badges - Pop on Black */
-        color: var(--text-color-dark);
-        width: 60px;
-        height: 60px;
+        top: 0;
+        left: -150%;
+        width: 80%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+        transition: left 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        transform: skewX(-25deg);
+    }
+
+    .btn-3d:hover::before {
+        left: 150%;
+    }
+
+    /* Floating Action Button */
+    .floating-cta {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        width: 75px;
+        height: 75px;
+        background: var(--secondary-gradient);
         border-radius: 50%;
         display: flex;
-        justify-content: center;
         align-items: center;
-        font-size: 0.9em;
-        font-weight: bold;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Stronger Sticker Shadow on Black */
-        z-index: 1;
-        text-align: center;
+        justify-content: center;
+        box-shadow: 0 12px 35px rgba(245, 87, 108, 0.5);
+        z-index: 1000;
+        animation: pulse 2.5s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        cursor: pointer;
+        transition: all 0.35s ease-out;
+        transform: scale(1);
+    }
+    .floating-cta .material-icons {
+        font-size: 2.2rem;
+        color: white;
     }
 
-    /* Emoji Stickers */
-    .course-sticker-ribbon .emoji-sticker, .course-sticker-badge .emoji-sticker,
-    .service-sticker-ribbon .emoji-sticker, .service-sticker-badge .emoji-sticker {
-        display: block;
-        font-size: 1.5em;
-        margin-bottom: 5px;
-    }
-    .course-sticker-ribbon span, .course-sticker-badge span,
-    .service-sticker-ribbon span, .service-sticker-badge span {
-        display: block;
+    .floating-cta:hover {
+        transform: scale(1.15) rotate(10deg);
+        box-shadow: 0 18px 45px rgba(245, 87, 108, 0.7);
     }
 
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); filter: brightness(1); }
+        50% { transform: scale(1.08); filter: brightness(1.15); }
+    }
 
-    /* --- Services Sections (Job Support, Freelance, Development) --- */
+    /* Service Cards with 3D Effect */
     .services-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 40px;
+        margin-top: 70px;
     }
 
-    .service-card {
-        position: relative;
-        background-color: var(--card-background); /* Card background for services */
-        border-radius: 8px;
-        padding: 30px;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Shadow for service cards on Black BG */
-        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    /* .service-card is already defined with .course-card for hidden-initial state */
+
+    .service-card::before { 
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--accent-gradient);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease-out;
+        box-shadow: 0 0 10px var(--highlight-color);
+    }
+
+    .service-card:hover::before {
+        transform: scaleX(1);
     }
 
     .service-card:hover {
-        background-color: var(--background-section); /* Section background on hover */
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6); /* Stronger hover shadow on Black BG */
+        transform: perspective(1200px) rotateX(5deg) translateY(-15px) scale(1.02);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+        border-color: rgba(79, 172, 254, 0.6);
+    }
+
+    .service-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .service-title {
-        font-size: 1.4em;
-        color: var(--primary-color); /* Vibrant blue service title */
+        font-size: 1.6rem;
+        font-weight: 600;
         margin-bottom: 15px;
+        color: var(--text-primary); 
     }
-
+    .service-card:hover .service-title {
+        color: var(--highlight-color);
+    }
     .service-description {
-        color: var(--text-color-light); /* Lighter service description */
-        font-size: 1em;
-        line-height: 1.7;
-    }
-
-    .service-list {
-        padding-left: 20px;
-        margin-top: 15px;
-        color: #ccc; /* Lighter service list text */
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.95rem;
     }
 
 
-    /* --- Reviews Section --- */
-    .reviews-section {
-        background-color: var(--background-section); /* Dark Reviews Section */
-        padding: 40px 20px;
-        margin-bottom: 30px;
-        border-radius: 8px;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Shadow for reviews section on Black BG */
-    }
-
-    .reviews-title {
-        font-size: 2.2em;
-        color: var(--primary-color); /* Vibrant Blue Reviews Title */
-        text-align: center;
-        margin-bottom: 30px;
+    /* Reviews Carousel */
+    .reviews-container {
         position: relative;
-        padding-bottom: 20px;
+        overflow: hidden;
+        margin-top: 70px;
+        padding: 20px 0; 
     }
 
-    .reviews-title::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        height: 3px;
-        width: 50px;
-        background-color: var(--secondary-color); /* Yellow Reviews Title Underline */
+    .reviews-wrapper { 
+        display: flex;
+        width: fit-content; 
     }
-
 
     .reviews-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
+        display: flex;
+        gap: 30px;
+        animation: scrollReviews 60s linear infinite; /* Renamed to avoid conflict if 'scroll' is too generic */
+        width: fit-content; 
+    }
+
+    @keyframes scrollReviews {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); } /* Assumes content is duplicated once, making total width 200% of one set */
     }
 
     .review-card {
-        background-color: var(--card-background); /* Card background for reviews */
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for review cards on Black BG */
+        min-width: 360px;
+        max-width: 380px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        border-radius: 25px;
+        padding: 35px;
+        position: relative;
+        flex-shrink: 0;
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        transform-style: preserve-3d;
+    }
+    .review-card:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     }
 
-    .review-author {
-        font-weight: bold;
-        color: var(--text-color-dark); /* Light Review Author */
-        margin-bottom: 5px;
+    .review-card::before {
+        content: '“'; 
+        position: absolute;
+        top: 5px;
+        left: 25px;
+        font-size: 5rem;
+        color: rgba(79, 172, 254, 0.2);
+        font-family: 'Times New Roman', Times, serif;
+        z-index: 0;
     }
-
-    .review-text {
-        color: var(--text-color-light); /* Lighter review text */
-        margin-bottom: 10px;
+    .review-content {
+        position: relative; 
+        z-index: 1;
     }
 
     .stars {
-        color: var(--secondary-color); /* Yellow stars */
-        font-size: 1.1em;
+        color: #ffd700;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        letter-spacing: 2px;
+    }
+    .review-text {
+        font-style: italic;
+        color: var(--text-secondary);
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+    .review-author {
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+    .review-author span {
+        font-weight: 400;
+        color: var(--text-secondary);
+        font-size: 0.9em;
+        display: block;
     }
 
 
-    /* --- Contact Section --- */
-    .contact-section {
+    /* Contact Section */
+    .contact-section { /* This is a .glass-container applied directly in HTML */
         text-align: center;
-        margin-top: 50px;
-        padding: 40px 0;
-        background-color: var(--background-section); /* Section background for contact */
-        color: var(--text-color-dark);
-        border-radius: 8px;
+        padding: 100px 20px; 
+        margin: 120px auto; 
+        max-width: 1200px; /* Applied to the glass-container itself */
+        position: relative; 
+    }
+    .contact-content {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .contact-section .section-title {
+        font-size: clamp(2rem, 4.5vw, 3rem);
+    }
+    .contact-description {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 40px;
+    }
+    .contact-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    @media (min-width: 600px) {
+        .contact-buttons {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+    .contact-buttons .btn-3d {
+        min-width: 220px; 
     }
 
-    .contact-section p {
-        font-size: 1.1em;
-        margin-bottom: 20px;
-    }
 
-    .contact-link {
-        color: var(--primary-color); /* Vibrant Blue Contact Link */
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s ease;
-    }
-
-    .contact-link:hover {
-        color: var(--accent-color); /* Teal hover for contact link */
-    }
-
-
-    /* --- Footer --- */
+    /* Footer */
     .footer {
         text-align: center;
-        padding: 20px 0;
-        background-color: #080808; /* Even Darker Footer BG - almost black */
-        color: #999; /* Very light grey footer text */
-        font-size: 0.9em;
-        margin-top: 50px;
+        padding: 50px 20px;
+        background: rgba(0,0,0,0.2);
+        border-top: 1px solid var(--glass-border);
+        margin-top: 80px;
+    }
+    .footer p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+    }
+    .footer a {
+        color: var(--highlight-color);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .footer a:hover {
+        text-decoration: underline;
     }
 
 
-    /* --- Responsive Layout --- */
-    @media (max-width: 768px) {
-        .header h1 {
-            font-size: 2.3em;
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .courses-grid, .services-grid {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
-        .header p {
-            font-size: 1.1em;
+        .course-card:hover { 
+            transform: perspective(1500px) rotateX(5deg) rotateY(3deg) translateY(-15px) scale(1.02);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            padding-top: 80px; /* Space for nav if it becomes static */
         }
         .nav-list {
             flex-direction: column;
-            text-align: center;
             gap: 10px;
-        }
-        .nav-item {
-            width: 100%;
+            padding: 10px 0;
         }
         .nav-link {
-            display: block;
+            padding: 8px 15px;
         }
-        .courses-grid, .services-grid, .reviews-grid {
-            grid-template-columns: 1fr;
+        
+        .navigation {
+            position: absolute; /* Or static, if preferred. Absolute keeps it at top. */
+            /* If static, hero section might need more padding-top */
+            /* transform: none; // This was for fixed, if absolute or static, adjust Xcentering */
+            /* animation: none; */ /* Can keep if desired */
+            /* opacity: 1; */
+            width: auto; /* fit content */
+        }
+        .nav-container {
+            /* Optional: make it full width or centered */
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            margin-bottom: 70px;
         }
         .course-buttons {
-            flex-direction: column;
+            grid-template-columns: 1fr; 
         }
-        .button {
-            flex: 1 1 100%;
-            margin-bottom: 10px;
+        .floating-cta {
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
         }
+        .floating-cta .material-icons {
+            font-size: 1.8rem;
+        }
+        .review-card {
+            min-width: 300px; 
+            max-width: 320px;
+        }
+    }
+
+    /* Course Badges */
+    .course-badge {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: var(--secondary-gradient);
+        color: white;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        z-index: 3; 
+        animation: bounceBadge 2.5s ease-in-out infinite;
+        transform: translateZ(40px); 
+    }
+
+    @keyframes bounceBadge {
+        0%, 100% { transform: translateY(0) translateZ(40px) rotate(-3deg); }
+        50% { transform: translateY(-12px) translateZ(45px) rotate(3deg); }
+    }
+
+    /* Loading Animation */
+    .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--dark-gradient); 
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
+        visibility: visible;
+    }
+
+    .loader.fade-out {
+        opacity: 0;
+        visibility: hidden; 
+    }
+
+    .spinner {
+        width: 70px; 
+        height: 70px;
+        border: 4px solid rgba(255, 255, 255, 0.2);
+        border-top: 4px solid var(--highlight-color); 
+        border-radius: 50%;
+        animation: spin 1.2s linear infinite;
+    }
+    .loader-text {
+        margin-top: 20px;
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        animation: pulseText 1.5s infinite alternate;
+    }
+
+    @keyframes pulseText {
+        from { opacity: 0.7; }
+        to { opacity: 1; }
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
     }
 </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+        <p class="loader-text">Igniting Your Tech Future...</p>
+    </div>
 
-<div class="container">
-    <header class="header">
-        <h1>Emergency TechOps Institute</h1>
-        <p>Top-Rated Multi-Cloud DevOps & MLOps Courses and Services</p>
-    </header>
+    <!-- Animated Background -->
+    <div class="bg-animation" id="bgAnimation"></div>
 
+    <!-- Navigation -->
     <nav class="navigation">
-        <ul class="nav-list">
-            <li class="nav-item"><a href="#courses" class="nav-link">Courses</a></li>
-            <li class="nav-item"><a href="#job-support" class="nav-link">Job Support</a></li>
-            <li class="nav-item"><a href="#freelance" class="nav-link">Freelance Services</a></li>
-            <li class="nav-item"><a href="#development" class="nav-link">Development Services</a></li>
-            <li class="nav-item"><a href="#reviews" class="nav-link">Reviews</a></li>
-            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li><a href="#courses" class="nav-link">Courses</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Emergency TechOps Institute</h1>
+                <p class="hero-subtitle">Transform Your Career with Next-Gen Multi-Cloud DevOps & MLOps Training. Master the skills of tomorrow, today.</p>
+                 <a href="#courses" class="btn-3d btn-primary" style="margin-top: 20px; padding: 18px 35px; font-size: 1.1rem;">
+                    <span class="material-icons">rocket_launch</span> Explore Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Courses Section -->
-    <section id="courses" class="section">
-        <h2 class="section-title">Our Courses</h2>
-        <div class="courses-grid">
-            <!-- Course 1 -->
-            <div class="course-card">
-                <img src="https://miro.medium.com/v2/resize:fit:1400/1*-Iq5c95ZmaSGX4NnlcNudA.png" alt="Multi-Cloud DevOps">
-                <div class="course-sticker-ribbon">
-                    <span class="emoji-sticker">🚀</span> <span>Top Course</span>
-                </div>
-                <div class="course-content">
-                    <h3 class="course-title">Master Multi-Cloud DevOps (AWS, Azure, GCP)</h3>
-                    <p class="course-description">Learn to manage complex multi-cloud environments with hands-on expertise in AWS, Azure, and GCP DevOps. Master cloud-native solutions, infrastructure automation, and cost optimization strategies to become an in-demand multi-cloud DevOps expert.</p>
-                    <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 1, 2024 | 10:00 AM - 1:00 PM (IST)</p>
-                    <div class="course-buttons">
-                        <a href="https://youtu.be/fWa4Z7IogIg" target="_blank" class="button">
-                            <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
-                        </a>
-                        <a href="https://www.example.com/syllabus1" target="_blank" class="button">
-                            <span class="material-icons button-icon">download</span> Download Syllabus
-                        </a>
-                        <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp
-                        </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                            <span class="material-icons button-icon">email</span> Email Us
-                        </a>
+    <section id="courses" class="section hidden-initial">
+        <div class="container">
+            <h2 class="section-title">Premium Courses</h2>
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <div class="course-card hidden-initial">
+                    <div class="course-badge">🚀 Top Course</div>
+                    <div class="course-image-wrapper">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*-Iq5c95ZmaSGX4NnlcNudA.png" alt="Multi-Cloud DevOps" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Master Multi-Cloud DevOps (AWS, Azure, GCP)</h3>
+                        <p class="course-description">Dive deep into multi-cloud environments. Master AWS, Azure, & GCP DevOps, cloud-native solutions, IaC, and cost optimization.</p>
+                        <div class="course-details">
+                            <span class="material-icons">schedule</span>
+                            <span>Dec 1, 2024 | 10 AM - 1 PM (IST)</span>
+                        </div>
+                        <div class="course-buttons">
+                            <a href="https://youtu.be/fWa4Z7IogIg" target="_blank" class="btn-3d btn-primary">
+                                <span class="material-icons">play_circle_filled</span> Demo
+                            </a>
+                            <a href="#" class="btn-3d btn-secondary"> <!-- Add actual syllabus link -->
+                                <span class="material-icons">download</span> Syllabus
+                            </a>
+                            <a href="https://wa.me/91910665231" target="_blank" class="btn-3d btn-whatsapp">
+                                <span class="material-icons">sms</span> WhatsApp
+                            </a>
+                            <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
+                                <span class="material-icons">email</span> Email Us
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Course 2 -->
-            <div class="course-card">
-                <img src="https://lh4.googleusercontent.com/OtRptlupbdbe2oFCNmp9e2jbyRVXZ60egvdr7PzTjCSMECiWcvjeJQJi2MMck8_pP64rAjEQclSQ12XAn-ap4ebRFMRDbLtBEDsiRqjU2zK9cbCG0tqe2sFtzoZT86X16Lq_zyY0" alt="MLOps and Machine Learning">
-                <div class="course-sticker-badge">
-                    <span class="emoji-sticker">🔥</span> <span>Hot</span>
-                </div>
-                <div class="course-content">
-                    <h3 class="course-title">MLOps: From Development to Production</h3>
-                    <p class="course-description">Streamline your machine learning operations with MLOps tools and workflows. Learn model deployment on AWS Sagemaker, Azure Machine Learning, and Google AI Platform. Master CI/CD for ML pipelines, data versioning, and scalable ML models in real-world projects.</p>
-                    <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 5, 2024 | 2:00 PM - 5:00 PM (IST)</p>
-                    <div class="course-buttons">
-                        <a href="https://youtu.be/O6u6V-EZ9yQ" target="_blank" class="button">
-                            <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
-                        </a>
-                        <a href="https://www.example.com/syllabus2" target="_blank" class="button">
-                            <span class="material-icons button-icon">download</span> Download Syllabus
-                        </a>
-                        <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp
-                        </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                            <span class="material-icons button-icon">email</span> Email Us
-                        </a>
+                <!-- Course 2 -->
+                <div class="course-card hidden-initial">
+                    <div class="course-badge">🔥 Hot</div>
+                     <div class="course-image-wrapper">
+                        <img src="https://lh4.googleusercontent.com/OtRptlupbdbe2oFCNmp9e2jbyRVXZ60egvdr7PzTjCSMECiWcvjeJQJi2MMck8_pP64rAjEQclSQ12XAn-ap4ebRFMRDbLtBEDsiRqjU2zK9cbCG0tqe2sFtzoZT86X16Lq_zyY0" alt="MLOps" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">MLOps: Development to Production</h3>
+                        <p class="course-description">Streamline ML operations. Learn model deployment on AWS Sagemaker, Azure ML, and Google AI Platform with best MLOps practices.</p>
+                         <div class="course-details">
+                            <span class="material-icons">schedule</span>
+                            <span>Dec 5, 2024 | 2 PM - 5 PM (IST)</span>
+                        </div>
+                        <div class="course-buttons">
+                            <a href="https://youtu.be/O6u6V-EZ9yQ" target="_blank" class="btn-3d btn-primary">
+                                <span class="material-icons">play_circle_filled</span> Demo
+                            </a>
+                            <a href="#" class="btn-3d btn-secondary"> <!-- Add actual syllabus link -->
+                                <span class="material-icons">download</span> Syllabus
+                            </a>
+                             <a href="https://wa.me/91910665231" target="_blank" class="btn-3d btn-whatsapp">
+                                <span class="material-icons">sms</span> WhatsApp
+                            </a>
+                            <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
+                                <span class="material-icons">email</span> Email Us
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Course 3 -->
-            <div class="course-card">
-                <img src="https://juststickers.in/wp-content/uploads/2018/11/kubernetes-wordmark.png" alt="Advanced Kubernetes">
-                <div class="course-sticker-badge">
-                    <span class="emoji-sticker">🛡️</span> <span>Pro</span>
-                </div>
-                <div class="course-content">
-                    <h3 class="course-title">Advanced Kubernetes Mastery</h3>
-                    <p class="course-description">Become a Kubernetes expert by mastering advanced deployment strategies, autoscaling, load balancing, and Kubernetes Ingress Controllers. Explore real-time Kubernetes labs, multi-cloud cluster management, and Helm charts to ace DevOps roles.</p>
-                    <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 10, 2024 | 9:00 AM - 12:00 PM (IST)</p>
-                    <div class="course-buttons">
-                        <a href="https://youtu.be/kpJu9QkXKFA" target="_blank" class="button">
-                            <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
-                        </a>
-                        <a href="https://www.example.com/syllabus3" target="_blank" class="button">
-                            <span class="material-icons button-icon">download</span> Download Syllabus
-                        </a>
-                        <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp
-                        </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                            <span class="material-icons button-icon">email</span> Email Us
-                        </a>
+                <!-- Course 3 -->
+                <div class="course-card hidden-initial">
+                    <div class="course-badge">🛡️ Pro</div>
+                    <div class="course-image-wrapper">
+                        <img src="https://juststickers.in/wp-content/uploads/2018/11/kubernetes-wordmark.png" alt="Kubernetes" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Advanced Kubernetes Mastery</h3>
+                        <p class="course-description">Become a K8s expert. Master advanced deployments, autoscaling, load balancing, and Ingress controllers in depth.</p>
+                        <div class="course-details">
+                            <span class="material-icons">schedule</span>
+                            <span>Dec 10, 2024 | 9 AM - 12 PM (IST)</span>
+                        </div>
+                        <div class="course-buttons">
+                            <a href="https://youtu.be/kpJu9QkXKFA" target="_blank" class="btn-3d btn-primary">
+                                <span class="material-icons">play_circle_filled</span> Demo
+                            </a>
+                            <a href="#" class="btn-3d btn-secondary"> <!-- Add actual syllabus link -->
+                                <span class="material-icons">download</span> Syllabus
+                            </a>
+                             <a href="https://wa.me/91910665231" target="_blank" class="btn-3d btn-whatsapp">
+                                <span class="material-icons">sms</span> WhatsApp
+                            </a>
+                            <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
+                                <span class="material-icons">email</span> Email Us
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+                
+                <!-- Course 4 -->
+                <div class="course-card hidden-initial">
+                    <div class="course-badge">💻 Dev Focus</div>
+                     <div class="course-image-wrapper">
+                        <img src="https://images.credly.com/images/51aeb74b-ec87-4069-93fc-0ea449c8d77f/twitter_thumb_201604_node.png" alt="Node.js React.js" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Full-Stack: Node.js & React.js</h3>
+                        <p class="course-description">Build scalable web apps with Node.js and React.js. Cover REST APIs, frontend magic, and robust backend architecture.</p>
+                         <div class="course-details">
+                            <span class="material-icons">schedule</span>
+                            <span>Dec 12, 2024 | 11 AM - 2 PM (IST)</span>
+                        </div>
+                        <div class="course-buttons">
+                           <a href="#" target="_blank" class="btn-3d btn-primary"> <!-- Add actual demo link -->
+                                <span class="material-icons">play_circle_filled</span> Demo
+                            </a>
+                            <a href="#" class="btn-3d btn-secondary"> <!-- Add actual syllabus link -->
+                                <span class="material-icons">download</span> Syllabus
+                            </a>
+                             <a href="https://wa.me/91910665231" target="_blank" class="btn-3d btn-whatsapp">
+                                <span class="material-icons">sms</span> WhatsApp
+                            </a>
+                            <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
+                                <span class="material-icons">email</span> Email Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Course 5 -->
+                <div class="course-card hidden-initial">
+                    <div class="course-badge">⚙️ Automate</div>
+                    <div class="course-image-wrapper">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*sFSP-4uK7gEoBxHELIa7cw.jpeg" alt="CI/CD" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">CI/CD Automation for DevOps</h3>
+                        <p class="course-description">Automate your software lifecycle with Jenkins, GitHub Actions, & GitLab CI/CD. Build robust, efficient pipelines.</p>
+                        <div class="course-details">
+                            <span class="material-icons">schedule</span>
+                            <span>Dec 15, 2024 | 3 PM - 6 PM (IST)</span>
+                        </div>
+                        <div class="course-buttons">
+                            <a href="https://youtu.be/FiI8uO7Mw1A" target="_blank" class="btn-3d btn-primary">
+                                <span class="material-icons">play_circle_filled</span> Demo
+                            </a>
+                            <a href="#" class="btn-3d btn-secondary"> <!-- Add actual syllabus link -->
+                                <span class="material-icons">download</span> Syllabus
+                            </a>
+                            <a href="https://wa.me/91910665231" target="_blank" class="btn-3d btn-whatsapp">
+                                <span class="material-icons">sms</span> WhatsApp
+                            </a>
+                            <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
+                                <span class="material-icons">email</span> Email Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Course 4 -->
-            <div class="course-card">
-                <img src="https://images.credly.com/images/51aeb74b-ec87-4069-93fc-0ea449c8d77f/twitter_thumb_201604_node.png" alt="Node.Js React.Js Development">
-                <div class="course-sticker-ribbon">
-                    <span class="emoji-sticker">💻</span> <span>Dev Focus</span>
-                </div>
-                <div class="course-content">
-                    <h3 class="course-title">Full-Stack Development with Node.js and React.js</h3>
-                    <p class="course-description">Build scalable web applications with Node.js and React.js. Learn REST API integration, frontend development, and backend architecture. Gain skills in MongoDB, Express.js, and Redux to develop robust, full-stack applications.</p>
-                    <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 12, 2024 | 11:00 AM - 2:00 PM (IST)</p>
-                    <div class="course-buttons">
-                        <a href="https://www.youtube.com/watch?v=example4" target="_blank" class="button">
-                            <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
-                        </a>
-                        <a href="https://www.example.com/syllabus4" target="_blank" class="button">
-                            <span class="material-icons button-icon">download</span> Download Syllabus
-                        </a>
-                        <a href="https://wa.me/919100665231" target="_blank" class="button whatsapp-button">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp
-                        </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                            <span class="material-icons button-icon">email</span> Email Us
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Course 5 -->
-            <div class="course-card">
-                <img src="https://miro.medium.com/v2/resize:fit:1400/1*sFSP-4uK7gEoBxHELIa7cw.jpeg" alt="CI/CD Pipelines Mastery">
-                <div class="course-sticker-badge">
-                    <span class="emoji-sticker">⚙️</span> <span>Automate</span>
-                </div>
-                <div class="course-content">
-                    <h3 class="course-title">CI/CD Automation for DevOps</h3>
-                    <p class="course-description">Automate the software development lifecycle with industry-best CI/CD tools like Jenkins, GitHub Actions, and GitLab CI/CD. Learn to implement code pipelines, test automation, and continuous delivery for seamless production releases.</p>
-                    <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 15, 2024 | 3:00 PM - 6:00 PM (IST)</p>
-                    <div class="course-buttons">
-                        <a href="https://youtu.be/FiI8uO7Mw1A" target="_blank" class="button">
-                            <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
-                        </a>
-                        <a href="https://www.example.com/syllabus5" target="_blank" class="button">
-                            <span class="material-icons button-icon">download</span> Download Syllabus
-                        </a>
-                        <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp
-                        </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                            <span class="material-icons button-icon">email</span> Email Us
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Course 6 -->
-            <div class="course-card">
-                <img src="https://spinspire.com/sites/default/files/2023-03/1640019487-og-image.png" alt="Infrastructure as Code with Terraform">
-                <div class="course-sticker-ribbon">
-                    <span class="emoji-sticker">☁️</span> <span>Cloud IaC</span>
-                </div>
-                <div class="course-content">
-                    <h3 class="course-title">Terraform for Cloud Infrastructure Automation</h3>
-                    <p class="course-description">Define and manage your cloud infrastructure with Terraform. Build scalable, repeatable setups for AWS, Azure, and GCP. Learn state management, modular configurations, and infrastructure as code (IaC) principles to save time and reduce errors.</p>
-                    <p class="course-details"><span class="material-icons button-icon">schedule</span> Start Date: December 20, 2024 | 8:00 AM - 11:00 AM (IST)</p>
-                    <div class="course-buttons">
-                        <a href="https://youtu.be/QuBLvM5eNks" target="_blank" class="button">
-                            <span class="material-icons button-icon">play_circle_filled</span> Watch Demo
-                        </a>
-                        <a href="https://www.example.com/syllabus6" target="_blank" class="button">
-                            <span class="material-icons button-icon">download</span> Download Syllabus
-                        </a>
-                        <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp
-                        </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                            <span class="material-icons button-icon">email</span> Email Us
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Job Support Section -->
-    <section id="job-support" class="section">
-        <h2 class="section-title">Job Support Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-sticker-badge">
-                    <span class="emoji-sticker">🚨</span> <span>Urgent</span>
-                </div>
-                <h3 class="service-title">Emergency Job Support</h3>
-                <p class="service-description">Get immediate assistance with critical issues and roadblocks in your DevOps, MLOps, and CloudOps projects. Our experts are available to provide on-demand support to keep your projects on track.</p>
-                <ul class="service-list">
-                    <li>24/7 Emergency Assistance</li>
-                    <li>Expert DevOps, MLOps, CloudOps Engineers</li>
-                    <li>Remote Support & Troubleshooting</li>
-                    <li>Focus on AIOps, MLOps, DevOps, CloudOps, InfraOps</li>
-                </ul>
-                <div class="course-buttons">
-                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp for Support
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                        <span class="material-icons button-icon">email</span> Email for Job Support
+    <!-- Services Section -->
+    <section id="services" class="section hidden-initial">
+        <div class="container">
+            <h2 class="section-title">Our Expert Services</h2>
+            <div class="services-grid">
+                <div class="service-card hidden-initial">
+                    <span class="material-icons service-icon">support_agent</span>
+                    <h3 class="service-title">Dedicated Job Support</h3>
+                    <p class="service-description">Navigate complex projects with our expert job support. Get real-time assistance, troubleshooting, and guidance to excel in your role.</p>
+                    <a href="https://wa.me/91910665231?text=Hi%2C%20I'm%20interested%20in%20Job%20Support" target="_blank" class="btn-3d btn-primary" style="margin-top: 20px;">
+                        <span class="material-icons">call</span> Get Support
                     </a>
                 </div>
-            </div>
-
-            <div class="service-card">
-                <div class="service-sticker-ribbon">
-                    <span class="emoji-sticker">🛠️</span> <span>Task Help</span>
-                </div>
-                <h3 class="service-title">Task-Based Support</h3>
-                <p class="service-description">Need help with specific tasks? We offer specialized support for DevOps, MLOps, and CloudOps tasks. From scripting and automation to deployment and monitoring, we've got you covered.</p>
-                <ul class="service-list">
-                    <li>Custom Scripting & Automation</li>
-                    <li>Deployment & Configuration Management</li>
-                    <li>Monitoring & Alerting Setup</li>
-                    <li>CI/CD Pipeline Assistance</li>
-                    <li>Infrastructure as Code (IaC) Support</li>
-                </ul>
-                <div class="course-buttons">
-                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp for Tasks
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                        <span class="material-icons button-icon">email</span> Email Task Requests
+                <div class="service-card hidden-initial">
+                     <span class="material-icons service-icon">workspaces</span>
+                    <h3 class="service-title">Freelance DevOps Excellence</h3>
+                    <p class="service-description">Leverage our top-tier freelance DevOps engineers for your projects. Scalable, expert solutions for CI/CD, cloud, and automation.</p>
+                     <a href="mailto:freelance@emergencytechops.com" class="btn-3d btn-secondary" style="margin-top: 20px;">
+                        <span class="material-icons">business_center</span> Hire Experts
                     </a>
                 </div>
-            </div>
-
-            <div class="service-card">
-                <div class="service-sticker-badge">
-                    <span class="emoji-sticker">👤</span> <span>Profile Up</span>
-                </div>
-                <h3 class="service-title">Student Profile Building</h3>
-                <p class="service-description">Enhance your professional profile to stand out in the competitive tech job market. We provide guidance and support to build a compelling portfolio and online presence.</p>
-                <ul class="service-list">
-                    <li>Resume & LinkedIn Optimization</li>
-                    <li>Portfolio Project Guidance</li>
-                    <li>Skill Endorsement Strategies</li>
-                    <li>Career Counseling & Mentorship</li>
-                </ul>
-                <div class="course-buttons">
-                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> WhatsApp for Profile
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                        <span class="material-icons button-icon">email</span> Email Profile Building
+                <div class="service-card hidden-initial">
+                    <span class="material-icons service-icon">code</span>
+                    <h3 class="service-title">Custom Development</h3>
+                    <p class="service-description">From web applications to complex cloud-native solutions, our development team brings your ideas to life with cutting-edge tech.</p>
+                    <a href="mailto:development@emergencytechops.com" class="btn-3d btn-primary" style="margin-top: 20px; background: var(--secondary-gradient);">
+                        <span class="material-icons">developer_mode</span> Start Project
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Freelance Services Section -->
-    <section id="freelance" class="section">
-        <h2 class="section-title">Freelance Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-sticker-ribbon">
-                    <span class="emoji-sticker">🧑‍💻</span> <span>DevOps Pro</span>
-                </div>
-                <h3 class="service-title">DevOps Freelance Experts</h3>
-                <p class="service-description">Hire our expert DevOps freelancers for your projects. We offer skilled professionals in CI/CD pipeline setup, infrastructure automation, cloud migrations, and more.</p>
-                <ul class="service-list">
-                    <li>CI/CD Pipeline Design & Implementation</li>
-                    <li>Infrastructure Automation with Terraform/Ansible</li>
-                    <li>Cloud Migration & Optimization</li>
-                    <li>Kubernetes & Containerization Solutions</li>
-                </ul>
-                <div class="course-buttons">
-                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Enquire Freelance DevOps
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                        <span class="material-icons button-icon">email</span> Email Freelance Inquiry
-                    </a>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="service-sticker-badge">
-                    <span class="emoji-sticker">🧠</span> <span>MLOps Wiz</span>
-                </div>
-                <h3 class="service-title">MLOps Freelance Consultants</h3>
-                <p class="service-description">Leverage our MLOps freelance consultants to streamline your machine learning projects. From model deployment to monitoring and scaling, we provide end-to-end MLOps expertise.</p>
-                <ul class="service-list">
-                    <li>ML Model Deployment & Management</li>
-                    <li>ML Pipeline Automation</li>
-                    <li>Data Versioning & Management</li>
-                    <li>Scalable ML Infrastructure Setup</li>
-                </ul>
-                <div class="course-buttons">
-                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Enquire Freelance MLOps
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                        <span class="material-icons button-icon">email</span> Email Freelance Inquiry
-                    </a>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="service-sticker-ribbon">
-                    <span class="emoji-sticker">💡</span> <span>Smart Ops</span>
-                </div>
-                <h3 class="service-title">AIOps & CloudOps Freelancers</h3>
-                <p class="service-description">Enhance your IT operations with AIOps and CloudOps freelance services. Our experts can help you implement AI-driven automation, cloud cost optimization, and infrastructure management.</p>
-                <ul class="service-list">
-                    <li>AIOps Implementation & Automation</li>
-                    <li>Cloud Cost Optimization Strategies</li>
-                    <li>Infrastructure Monitoring & Management</li>
-                    <li>Cloud Security & Compliance</li>
-                </ul>
-                <div class="course-buttons">
-                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Enquire Freelance AIOps/CloudOps
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                        <span class="material-icons button-icon">email</span> Email Freelance Inquiry
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Development Services Section -->
-    <section id="development" class="section">
-        <h2 class="section-title">Development Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-sticker-badge">
-                    <span class="emoji-sticker">🛠️</span> <span>Build It</span>
-                </div>
-                <h3 class="service-title">Custom DevOps Tooling Development</h3>
-                <p class="service-description">Need a custom DevOps tool or integration? Our development team can build tailored solutions to streamline your workflows and enhance your DevOps capabilities.</p>
-                <ul class="service-list">
-                    <li>Custom CI/CD Tool Development</li>
-                    <li>Automation Scripting & Tooling</li>
-                    <li>API Integrations & Development</li>
-                    <li>Monitoring & Alerting Solutions</li>
-                </ul>
-                <div class="course-buttons">
-                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Discuss Custom Tooling
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                        <span class="material-icons button-icon">email</span> Email Development Inquiry
-                    </a>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="service-sticker-ribbon">
-                    <span class="emoji-sticker">📊</span> <span>ML Pipelines</span>
-                </div>
-                <h3 class="service-title">MLOps Pipeline Development</h3>
-                <p class="service-description">Develop robust and scalable MLOps pipelines with our expert development services. We build automated pipelines for model training, validation, deployment, and monitoring.</p>
-                <ul class="service-list">
-                    <li>End-to-End ML Pipeline Development</li>
-                    <li>Automated Model Training & Deployment</li>
-                    <li>Data Pipeline Development</li>
-                    <li>MLOps Platform Integration</li>
-                </ul>
-                <div class="course-buttons">
-                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Discuss MLOps Development
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                        <span class="material-icons button-icon">email</span> Email Development Inquiry
-                    </a>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="service-sticker-badge">
-                    <span class="emoji-sticker">☁️</span> <span>Cloud Infra</span>
-                </div>
-                <h3 class="service-title">Cloud Infrastructure Development</h3>
-                <p class="service-description">Build and manage your cloud infrastructure with our development expertise. We offer Infrastructure as Code (IaC) development, cloud architecture design, and deployment automation.</p>
-                <ul class="service-list">
-                    <li>Infrastructure as Code (IaC) Development</li>
-                    <li>Cloud Architecture Design & Implementation</li>
-                    <li>Automated Cloud Deployment Solutions</li>
-                    <li>Multi-Cloud & Hybrid Cloud Setups</li>
-                </ul>
-                <div class="course-buttons">
-                    <a href="https://wa.me/91910665231" target="_blank" class="button whatsapp-button">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;"> Discuss Cloud Development
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=technicalsupport@emergencytechops.com" target="_blank" class="button email-button">
-                        <span class="material-icons button-icon">email</span> Email Development Inquiry
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Reviews Section -->
-    <section id="reviews" class="reviews-section">
-        <h2 class="reviews-title">What Our Students Say</h2>
-        <div class="reviews-grid">
-            <!-- Reviews - (same as before, just inside reviews-grid) -->
-            <div class="review-card">
-                <p class="review-author"><strong>Arun from Infosys:</strong></p>
-                <p class="review-text">"The Multi-Cloud DevOps training was a game-changer for me. The practical labs made it easy to understand real-world applications."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Keerthana from Wipro:</strong></p>
-                <p class="review-text">"Emergency TechOps Institute's MLOps course helped me master deployment techniques and optimize ML models effectively. Highly recommended!"</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Balaji from Cognizant:</strong></p>
-                <p class="review-text">"The Kubernetes Masterclass provided excellent insights on container orchestration and scaling applications. The trainers were exceptional!"</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Lakshmi from Infosys:</strong></p>
-                <p class="review-text">"I found the Terraform and AWS Integration course very comprehensive. It helped me improve cloud infrastructure automation with real-time labs."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Raghav from TCS:</strong></p>
-                <p class="review-text">"The Multi-Cloud DevOps sessions covered everything from GCP, AWS, to Azure. The labs were incredibly detailed, making me job-ready!"</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Sreeja from Accenture:</strong></p>
-                <p class="review-text">"The Jenkins and CI/CD Pipeline course was well structured. I learned efficient ways to implement and automate continuous deployment."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Prakash from HCL:</strong></p>
-                <p class="review-text">"Advanced Docker sessions were very helpful. I can now confidently handle containerized applications and solve deployment issues."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Meena from Tech Mahindra:</strong></p>
-                <p class="review-text">"I was impressed with the Emergency TechOps Institute's AI-DevOps course. It gave me hands-on experience with AI-powered automation in cloud environments."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Karthik from Capgemini:</strong></p>
-                <p class="review-text">"The Kubernetes Networking and Ingress workshop helped me understand traffic routing in Kubernetes. It's a must-do for every cloud engineer."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Deepa from Infosys:</strong></p>
-                <p class="review-text">"The Multi-Cloud Infrastructure training was exceptional. The practical approach helped me set up and manage VPCs in GCP, AWS, and Azure."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Venkat from DXC Technology:</strong></p>
-                <p class="review-text">"Emergency TechOps Institute's MLOps course covered the end-to-end machine learning lifecycle, which boosted my confidence in managing production workloads."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Sudha from IBM:</strong></p>
-                <p class="review-text">"The GitOps and Continuous Deployment sessions were very informative. Learning GitHub Actions was incredibly useful for our team's workflow."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Krishna from HCL:</strong></p>
-                <p class="review-text">"I learned a lot from the Helm workshop. It gave me practical skills for deploying microservices in Kubernetes using Helm charts."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Madhavi from Infosys:</strong></p>
-                <p class="review-text">"The AWS and Terraform modules were great. I enjoyed the hands-on labs, which taught me how to automate infrastructure efficiently."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Suresh from Wipro:</strong></p>
-                <p class="review-text">"The Jenkins and CI/CD course helped me automate our builds and deployments. The instructors were very knowledgeable, and the examples were relatable."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Padma from TCS:</strong></p>
-                <p class="review-text">"Emergency TechOps Institute's Kubernetes Crash Course was perfect for getting up to speed quickly. The labs were practical and easy to follow."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Girish from Infosys:</strong></p>
-                <p class="review-text">"I really enjoyed the Multi-Cloud Deployment Strategies course. It covered Azure, AWS, and GCP in depth, with a lot of practical exercises."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Anjali from Capgemini:</strong></p>
-                <p class="review-text">"The Docker Swarm and Kubernetes comparison lab gave me a clear understanding of different orchestration tools. It was very enlightening."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Vikram from Infosys:</strong></p>
-                <p class="review-text">"The Prometheus and Grafana monitoring course gave me essential skills for observability in cloud environments. The hands-on approach was excellent."</p>
-                <p class="stars">★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p class="review-author"><strong>Sandhya from HCL:</strong></p>
-                <p class="review-text">"Emergency TechOps Institute's course on Azure DevOps was exactly what I needed to understand cloud-native CI/CD workflows. Highly effective!"</p>
-                <p class="stars">★★★★★</p>
+    <section id="reviews" class="section hidden-initial">
+        <div class="container">
+            <h2 class="section-title">What Our Students Say</h2>
+            <div class="reviews-container">
+                <div class="reviews-wrapper"> <!-- This wrapper helps if you need to constrain width for some reason -->
+                    <div class="reviews-grid" id="reviewsGrid">
+                        <!-- Review 1 -->
+                        <div class="review-card">
+                           <div class="review-content">
+                                <div class="stars">★★★★★</div>
+                                <p class="review-text">"The Multi-Cloud DevOps course was a game-changer! The instructors are experts and the hands-on labs were incredibly valuable. Highly recommend!"</p>
+                                <p class="review-author">Priya S. <span>- Cloud Engineer</span></p>
+                           </div>
+                        </div>
+                        <!-- Review 2 -->
+                        <div class="review-card">
+                             <div class="review-content">
+                                <div class="stars">★★★★★</div>
+                                <p class="review-text">"MLOps seemed daunting, but ETI made it accessible and practical. I'm now confidently deploying models in production. Thank you!"</p>
+                                <p class="review-author">Raj K. <span>- Data Scientist</span></p>
+                            </div>
+                        </div>
+                        <!-- Review 3 -->
+                        <div class="review-card">
+                            <div class="review-content">
+                                <div class="stars">★★★★★</div>
+                                <p class="review-text">"The Kubernetes deep dive was exactly what I needed. Complex concepts explained clearly with real-world scenarios. My skills have leveled up significantly."</p>
+                                <p class="review-author">Anjali M. <span>- DevOps Lead</span></p>
+                            </div>
+                        </div>
+                         <!-- Review 4 -->
+                        <div class="review-card">
+                            <div class="review-content">
+                                <div class="stars">★★★★★</div>
+                                <p class="review-text">"Job support from ETI was phenomenal. They helped me overcome critical blockers on a challenging project. True professionals!"</p>
+                                <p class="review-author">Vikram C. <span>- Senior Developer</span></p>
+                            </div>
+                        </div>
+                        <!-- Review 5 -->
+                        <div class="review-card">
+                            <div class="review-content">
+                                <div class="stars">★★★★★</div>
+                                <p class="review-text">"Best institute for anyone serious about a career in modern TechOps. The curriculum is up-to-date and the trainers are industry veterans."</p>
+                                <p class="review-author">Fatima Z. <span>- Solutions Architect</span></p>
+                            </div>
+                        </div>
+                        <!-- Duplicates will be added by JS for seamless scroll -->
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <h2>Ready to Elevate Your Tech Skills?</h2>
-        <p>Contact us today for more information about our courses and services.</p>
-        <p>Email: <a href="mailto:technicalsupport@emergencytechops.com" class="contact-link">technicalsupport@emergencytechops.com</a> | WhatsApp: <a href="https://wa.me/91910665231" class="contact-link">+91 91066 5231</a></p>
+    <section id="contact" class="section glass-container hidden-initial">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="contact-description">
+                    Ready to elevate your tech skills or need expert support for your projects?
+                    Reach out to us! We're excited to help you achieve your goals.
+                </p>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/91910665231" target="_blank" class="btn-3d btn-whatsapp">
+                        <span class="material-icons">sms</span> Chat on WhatsApp
+                    </a>
+                    <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
+                        <span class="material-icons">email</span> Send Us an Email
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- Floating Action Button -->
+    <a href="https://wa.me/91910665231?text=Hi%2C%20I%20have%20a%20question%20about%20your%20courses." target="_blank" class="floating-cta" title="Quick Enquiry">
+        <span class="material-icons">question_answer</span>
+    </a>
+
+    <!-- Footer -->
     <footer class="footer">
-        © 2024 Emergency TechOps Institute. All Rights Reserved.
+        <div class="container">
+            <p>© <span id="currentYear"></span> Emergency TechOps Institute. All Rights Reserved.</p>
+            <p>Designed with <span style="color: var(--secondary-gradient); display: inline-block; background: var(--secondary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">❤️</span> by ETI Team. Powered by Next-Gen Tech.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
     </footer>
 
-</div>
+<script>
+    // --- Loader ---
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        setTimeout(() => { 
+            loader.classList.add('fade-out');
+        }, 500); 
+    });
 
+    // --- Animated Background Particles ---
+    const bgAnimation = document.getElementById('bgAnimation');
+    const numParticles = 50; 
+
+    if (bgAnimation) {
+        for (let i = 0; i < numParticles; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 5 + 2; 
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}%`;
+            // Start particles at random vertical positions for better initial distribution
+            particle.style.setProperty('--initial-translate-y', `${Math.random() * 100}vh`); 
+            // The CSS @keyframes float animation will handle the transform for floating.
+            const duration = Math.random() * 15 + 20; 
+            particle.style.animationDuration = `${duration}s`;
+            particle.style.animationDelay = `${Math.random() * -duration}s`; 
+            bgAnimation.appendChild(particle);
+        }
+    }
+    
+    // Mouse move interaction for subtle parallax on the background container
+    document.addEventListener('mousemove', (e) => {
+        if (!bgAnimation) return;
+        const { clientX, clientY } = e;
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+
+        // Move the entire particle container for a subtle parallax effect
+        // This avoids conflict with individual particle CSS animations
+        const moveX = (clientX - centerX) * -0.005; // Inverted for natural parallax
+        const moveY = (clientY - centerY) * -0.005; // Inverted for natural parallax
+        
+        bgAnimation.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+    });
+
+
+    // --- Smooth Scrolling for Nav Links ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start' 
+                });
+            }
+        });
+    });
+
+    // --- Scroll-triggered Animations (Intersection Observer) ---
+    const observerOptions = {
+        root: null, 
+        rootMargin: '0px',
+        threshold: 0.1 
+    };
+
+    const revealOnScroll = (entries, observer) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Add 'visible' class to trigger transition
+                entry.target.classList.remove('hidden-initial');
+                if (entry.target.classList.contains('section')) {
+                     entry.target.classList.add('visible-section');
+                } else if (entry.target.matches('.course-card, .service-card')) {
+                     entry.target.classList.add('visible-card');
+                }
+                
+                // Optional: Stagger card animations if desired
+                // if (entry.target.matches('.course-card, .service-card')) {
+                //    entry.target.style.transitionDelay = `${index * 100}ms`;
+                // }
+
+                observer.unobserve(entry.target); 
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(revealOnScroll, observerOptions);
+    // Observe all elements that need to be revealed
+    document.querySelectorAll('.section.hidden-initial, .course-card.hidden-initial, .service-card.hidden-initial').forEach(el => {
+        observer.observe(el);
+    });
+
+    // --- Reviews Carousel Duplication for Seamless Scroll ---
+    const reviewsGrid = document.getElementById('reviewsGrid');
+    if (reviewsGrid && reviewsGrid.children.length > 0) { // Check if there are children to duplicate
+        const content = reviewsGrid.innerHTML;
+        reviewsGrid.innerHTML += content; // Duplicate content once
+    }
+
+
+    // --- Current Year for Footer ---
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
+
+</script>
 </body>
 </html>
