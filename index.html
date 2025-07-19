@@ -3,24 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emergency TechOps Institute - Multi-Cloud DevOps, MLOps & More</title>
-<meta name="description" content="Elevate your tech career with Emergency TechOps Institute. Expert-led courses and services in Multi-Cloud DevOps, MLOps, AIOps, Job Support, Freelancing, and Development.">
-<meta name="keywords" content="DevOps training, MLOps courses, AIOps, CloudOps, InfraOps, Job Support, Freelance DevOps, Development services, Kubernetes, Terraform, CI/CD, Cloud certifications, Emergency TechOps">
+<title>Emergency TechOps Institute - Multi-Cloud DevOps + AI Mastery</title>
+<meta name="description" content="Join our exclusive Multi-Cloud DevOps + AI batch starting July 2025. Master AWS, Azure, GCP, MLOps, AIOps with hands-on training. Expert-led live sessions.">
+<meta name="keywords" content="Multi-Cloud DevOps, AI, MLOps, AIOps, AWS, Azure, GCP, DevOps training, AI training, Emergency TechOps, July 2025 batch">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
     :root {
         --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --ai-gradient: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
         --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
-        --glass-bg: rgba(255, 255, 255, 0.05);
+        --glass-bg: rgba(255, 255, 255, 0.08);
         --glass-border: rgba(255, 255, 255, 0.15);
         --text-primary: #e0e0e0;
         --text-secondary: #a0a0c0;
         --shadow-glow: 0 8px 32px rgba(49, 71, 203, 0.3);
         --shadow-intense: 0 20px 60px rgba(0, 0, 0, 0.6);
         --highlight-color: #00f2fe;
+        --urgent-color: #ff4757;
     }
 
     * {
@@ -45,7 +48,7 @@
         line-height: 1.6; 
     }
 
-    /* Animated Background Particles */
+    /* Enhanced Animated Background */
     .bg-animation {
         position: fixed;
         top: 0;
@@ -65,6 +68,11 @@
         will-change: transform, opacity;
     }
 
+    .ai-particle {
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        animation: aiFloat 20s infinite linear;
+    }
+
     @keyframes float {
         0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
         10% { opacity: 0.7; transform: translateY(90vh) rotate(72deg) scale(1); }
@@ -72,11 +80,18 @@
         100% { transform: translateY(-100vh) rotate(720deg) scale(0.5); opacity: 0; }
     }
 
+    @keyframes aiFloat {
+        0% { transform: translateY(100vh) rotate(0deg) scale(0.3); opacity: 0; }
+        10% { opacity: 0.9; transform: translateY(90vh) rotate(90deg) scale(0.8); }
+        90% { opacity: 0.9; transform: translateY(10vh) rotate(810deg) scale(0.8); }
+        100% { transform: translateY(-100vh) rotate(900deg) scale(0.3); opacity: 0; }
+    }
+
     /* Glass Morphism Container */
     .glass-container {
         background: var(--glass-bg);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border: 1px solid var(--glass-border);
         border-radius: 25px;
         box-shadow: var(--shadow-glow);
@@ -88,7 +103,7 @@
         padding: 0 25px; 
     }
 
-    /* 3D Hero Section */
+    /* Enhanced Hero Section */
     .hero-section {
         min-height: 100vh;
         display: flex;
@@ -104,32 +119,33 @@
     .hero-content {
         z-index: 2;
         transform-style: preserve-3d;
-        animation: heroEntrance 1s ease-out, heroFloat 8s ease-in-out infinite alternate 1s;
+        animation: heroEntrance 1.5s ease-out, heroFloat 10s ease-in-out infinite alternate 1.5s;
         padding: 20px; 
     }
 
     @keyframes heroEntrance {
-        from { opacity: 0; transform: translateY(50px) scale(0.9); }
-        to { opacity: 1; transform: translateY(0) scale(1); }
+        from { opacity: 0; transform: translateY(80px) scale(0.8) rotateX(-15deg); }
+        to { opacity: 1; transform: translateY(0) scale(1) rotateX(0deg); }
     }
 
     @keyframes heroFloat {
-        0% { transform: perspective(1200px) rotateX(2deg) rotateY(-1deg) translateY(0px) translateZ(0px); }
-        100% { transform: perspective(1200px) rotateX(-2deg) rotateY(1deg) translateY(-25px) translateZ(10px); }
+        0% { transform: perspective(1500px) rotateX(3deg) rotateY(-2deg) translateY(0px) translateZ(0px); }
+        100% { transform: perspective(1500px) rotateX(-3deg) rotateY(2deg) translateY(-30px) translateZ(15px); }
     }
 
     .hero-title {
-        font-size: clamp(2.5rem, 7vw, 4.8rem); 
-        font-weight: 800;
-        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f7b801, #ff6b6b);
-        background-size: 300% 300%;
+        font-size: clamp(2.5rem, 7vw, 5.2rem); 
+        font-weight: 900;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f7b801, #ff6b35, #ff6b6b);
+        background-size: 400% 400%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        animation: gradientShift 5s ease infinite;
+        animation: gradientShift 6s ease infinite;
         margin-bottom: 1.5rem;
-        text-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
-        line-height: 1.2; 
+        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        line-height: 1.1; 
+        letter-spacing: -1px;
     }
 
     @keyframes gradientShift {
@@ -139,56 +155,76 @@
     }
 
     .hero-subtitle {
-        font-size: clamp(1.0rem, 2.5vw, 1.6rem); 
-        font-weight: 300;
+        font-size: clamp(1.1rem, 2.8vw, 1.8rem); 
+        font-weight: 400;
         color: var(--text-secondary);
         margin-bottom: 2.5rem;
         opacity: 0;
-        animation: fadeInUp 1.2s ease 0.7s forwards;
-        max-width: 650px; 
+        animation: fadeInUp 1.5s ease 1s forwards;
+        max-width: 750px; 
         margin-left: auto;
         margin-right: auto;
     }
 
     @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(40px) scale(0.95); }
+        from { opacity: 0; transform: translateY(50px) scale(0.9); }
         to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Announcement Banner */
+    .announcement-banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(90deg, var(--urgent-color), #ff3742);
+        color: white;
+        text-align: center;
+        padding: 12px 20px;
+        font-weight: 600;
+        font-size: clamp(0.85rem, 2vw, 1rem);
+        z-index: 1001;
+        animation: slideDown 1s ease-out, pulse 2s infinite alternate 2s;
+        box-shadow: 0 2px 15px rgba(255, 71, 87, 0.4);
+    }
+
+    @keyframes slideDown {
+        from { transform: translateY(-100%); }
+        to { transform: translateY(0); }
     }
 
     /* Navigation */
     .navigation {
         position: fixed;
-        top: 25px;
+        top: 65px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 1000;
         opacity: 0;
-        animation: navSlideIn 1s ease-out 1.2s forwards;
+        animation: navSlideIn 1s ease-out 1.5s forwards;
         will-change: transform, opacity; 
-        width: auto; 
     }
 
     @keyframes navSlideIn {
-        from { opacity: 0; transform: translateX(-50%) translateY(-60px) rotateX(-20deg); }
+        from { opacity: 0; transform: translateX(-50%) translateY(-80px) rotateX(-25deg); }
         to { opacity: 1; transform: translateX(-50%) translateY(0) rotateX(0deg); }
     }
 
     .nav-container {
-        background: rgba(10, 10, 20, 0.5);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(10, 10, 20, 0.6);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 50px; 
-        padding: 10px 25px; 
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        padding: 12px 30px; 
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
         transform-style: preserve-3d;
-        transition: transform 0.3s ease-out;
     }
 
     .nav-list {
         display: flex;
         list-style: none;
-        gap: 20px; 
+        gap: 25px; 
         align-items: center;
         margin: 0; 
         padding: 0; 
@@ -197,12 +233,13 @@
     .nav-link {
         color: var(--text-primary);
         text-decoration: none;
-        font-weight: 500;
-        font-size: clamp(0.9rem, 1.5vw, 1rem); 
-        padding: 12px 15px; 
-        transition: color 0.35s ease-out, transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        font-weight: 600;
+        font-size: clamp(0.9rem, 1.8vw, 1.05rem); 
+        padding: 14px 18px; 
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative;
         transform: translateZ(10px); 
+        border-radius: 25px;
     }
 
     .nav-link::after {
@@ -210,221 +247,167 @@
         position: absolute;
         left: 50%; 
         transform: translateX(-50%); 
-        bottom: 6px; 
+        bottom: 8px; 
         width: 0; 
-        height: 2.5px; 
+        height: 3px; 
         background: var(--accent-gradient); 
-        border-radius: 2px;
-        transition: width 0.3s ease-out;
+        border-radius: 3px;
+        transition: width 0.4s ease-out;
+        box-shadow: 0 0 10px var(--highlight-color);
     }
 
     .nav-link:hover {
-        transform: translateY(-3px) translateZ(20px) scale(1.05); 
+        transform: translateY(-4px) translateZ(25px) scale(1.08); 
         color: var(--highlight-color); 
+        background: rgba(255, 255, 255, 0.05);
     }
 
     .nav-link:hover::after {
-        width: 60%; 
+        width: 70%; 
     }
 
+    /* Featured New Batch Section */
+    .featured-batch {
+        padding: clamp(80px, 12vw, 140px) 0 clamp(60px, 10vw, 100px) 0;
+        position: relative;
+        background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(247, 147, 30, 0.1) 100%);
+        border-top: 1px solid rgba(255, 107, 53, 0.2);
+        border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+    }
 
-    /* Sections */
-    .section {
-        padding: clamp(60px, 10vw, 120px) 0; 
+    .batch-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 2px solid var(--glass-border);
+        border-radius: 30px;
+        padding: clamp(40px, 6vw, 60px);
         position: relative;
         overflow: hidden; 
-    }
-    
-    .section.hidden-initial { 
-        opacity: 0;
-        transform: translateY(50px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .section.visible-section {
-        opacity: 1;
-        transform: translateY(0);
+        animation: batchPulse 3s ease-in-out infinite alternate;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
     }
 
+    @keyframes batchPulse {
+        0% { box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(255, 107, 53, 0.4); }
+        100% { box-shadow: 0 30px 100px rgba(0, 0, 0, 0.4), 0 0 0 20px rgba(255, 107, 53, 0); }
+    }
 
-    .section-title {
-        font-size: clamp(2rem, 5vw, 3.2rem); 
-        font-weight: 700;
+    .batch-header {
         text-align: center;
-        margin-bottom: clamp(60px, 8vw, 90px); 
-        background: var(--primary-gradient);
+        margin-bottom: 40px;
+    }
+
+    .batch-title {
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        font-weight: 900;
+        background: var(--ai-gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        position: relative;
-        text-shadow: 0 3px 15px rgba(102, 126, 234, 0.2);
+        margin-bottom: 15px;
         line-height: 1.2;
     }
 
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: -20px; 
-        left: 50%;
-        transform: translateX(-50%);
-        width: clamp(80px, 15vw, 120px); 
-        height: 4px; 
-        background: var(--accent-gradient);
-        border-radius: 3px;
-        box-shadow: 0 0 15px var(--highlight-color);
+    .batch-subtitle {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        color: var(--text-secondary);
+        font-weight: 400;
     }
 
-    /* 3D Course Cards & Service Cards */
-    .courses-grid, .services-grid {
+    .batch-info {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax( clamp(300px, 80vw, 380px) , 1fr)); 
-        gap: clamp(25px, 5vw, 50px); 
-        margin-top: clamp(40px, 6vw, 70px);
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
     }
 
-    .course-card, .service-card { 
+    .info-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 25px;
+        text-align: center;
+        transition: all 0.3s ease;
         position: relative;
-        background: var(--glass-bg);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border: 1px solid var(--glass-border);
-        border-radius: 25px; 
         overflow: hidden;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transform-style: preserve-3d; 
-        box-shadow: var(--shadow-glow);
-        will-change: transform, box-shadow;
-    }
-    
-    .course-card.hidden-initial, .service-card.hidden-initial { 
-        opacity: 0;
-        transform: translateY(40px) rotateX(-10deg) scale(0.95);
-    }
-    .course-card.visible-card, .service-card.visible-card {
-        opacity: 1;
-        transform: translateY(0) rotateX(0deg) scale(1);
-         transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
     }
 
-    .course-card:hover {
-        transform: perspective(1500px) rotateX(8deg) rotateY(6deg) translateY(-20px) scale(1.02); 
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 15px var(--highlight-color) inset;
-        border-color: rgba(79, 172, 254, 0.6);
-    }
-    
-    .course-card::after { 
-        content: "";
+    .info-card::before {
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
-        background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.1) 45%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.1) 55%, transparent 70%);
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        pointer-events: none;
-        transform: translateX(-100%) skewX(-20deg);
+        height: 3px;
+        background: var(--ai-gradient);
     }
 
-    .course-card:hover::after {
-        opacity: 1;
-        transform: translateX(0) skewX(-20deg);
-        animation: glareAnim 1.5s ease-out;
+    .info-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        background: rgba(255, 255, 255, 0.08);
     }
 
-    @keyframes glareAnim {
-        0% { transform: translateX(-150%) skewX(-20deg); opacity: 0.5; }
-        100% { transform: translateX(150%) skewX(-20deg); opacity: 0; }
-    }
-
-    .course-image-wrapper {
-        width: 100%;
-        height: 220px; 
-        overflow: hidden; 
-        border-top-left-radius: 24px; 
-        border-top-right-radius: 24px;
-        transform: translateZ(10px); 
-    }
-
-    .course-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .course-card:hover .course-image {
-        transform: scale(1.12) rotate(1.5deg); 
-        filter: brightness(1.1) saturate(1.15);
-    }
-
-    .course-content, .service-content { 
-        padding: clamp(20px, 4vw, 30px); 
-        position: relative;
-        transform: translateZ(30px);
-    }
-
-    .course-title, .service-title {
-        font-size: clamp(1.3rem, 3vw, 1.6rem); 
-        font-weight: 700;
+    .info-icon {
+        font-size: 2.5rem;
         margin-bottom: 15px;
+        background: var(--ai-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .info-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 10px;
         color: var(--text-primary);
-        line-height: 1.3;
-        transition: color 0.3s ease;
-    }
-    .course-card:hover .course-title, .service-card:hover .service-title {
-        color: var(--highlight-color);
     }
 
-    .course-description, .service-description {
+    .info-detail {
         color: var(--text-secondary);
-        line-height: 1.65; 
-        margin-bottom: 25px;
-        font-size: clamp(0.85rem, 2vw, 0.95rem); 
+        font-size: 0.95rem;
+        line-height: 1.5;
     }
 
-    .course-details { /* Date and time removed, so this might be empty or used for other details */
-        display: flex;
-        align-items: center;
-        gap: 10px; 
-        color: rgba(224, 224, 224, 0.8);
-        font-size: clamp(0.8rem, 1.8vw, 0.9rem);
-        margin-bottom: 25px;
-        min-height: 1.5em; /* Keep some space even if empty to prevent layout jump */
-    }
-    .course-details .material-icons { /* Style if you add icons back */
-        color: var(--highlight-color);
-        font-size: 1.1rem; 
+    .demo-highlight {
+        background: linear-gradient(135deg, rgba(255, 71, 87, 0.2), rgba(255, 55, 66, 0.2));
+        border: 2px solid var(--urgent-color);
+        animation: demoGlow 2s ease-in-out infinite alternate;
     }
 
-    /* 3D Buttons */
-    .course-buttons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px; 
+    @keyframes demoGlow {
+        0% { box-shadow: 0 0 20px rgba(255, 71, 87, 0.3); }
+        100% { box-shadow: 0 0 30px rgba(255, 71, 87, 0.6); }
     }
 
+
+
+    /* Enhanced Buttons */
     .btn-3d {
-        padding: clamp(10px, 2.5vw, 14px) clamp(15px, 3vw, 20px); 
+        padding: clamp(12px, 3vw, 16px) clamp(20px, 4vw, 28px); 
         border: none;
         border-radius: 50px;
-        font-weight: 600;
-        font-size: clamp(0.85rem, 2vw, 0.95rem); 
+        font-weight: 700;
+        font-size: clamp(0.9rem, 2.2vw, 1.05rem); 
         text-decoration: none;
         text-align: center;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         position: relative;
         overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px; 
+        gap: 10px; 
         transform-style: preserve-3d;
-        transform: perspective(800px) rotateX(0deg) translateZ(20px); 
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+        transform: perspective(1000px) rotateX(0deg) translateZ(20px); 
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         will-change: transform, box-shadow;
+        cursor: pointer;
     }
+
     .btn-3d .material-icons {
-        font-size: clamp(1.1em, 2.2vw, 1.2em); 
+        font-size: clamp(1.2em, 2.5vw, 1.4em); 
     }
 
     .btn-primary {
@@ -437,340 +420,1048 @@
         color: white;
     }
 
+    .btn-ai {
+        background: var(--ai-gradient);
+        color: white;
+    }
+
+    .btn-demo {
+        background: linear-gradient(135deg, var(--urgent-color), #ff3742);
+        color: white;
+        animation: buttonPulse 2s infinite;
+    }
+
+    @keyframes buttonPulse {
+        0%, 100% { transform: perspective(1000px) rotateX(0deg) translateZ(20px) scale(1); }
+        50% { transform: perspective(1000px) rotateX(0deg) translateZ(25px) scale(1.05); }
+    }
+
     .btn-whatsapp {
         background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
         color: white;
     }
 
-    .btn-email {
-        background: linear-gradient(135deg, #ea4335 0%, #c5221f 100%);
-        color: white;
-    }
-
     .btn-3d:hover {
-        transform: perspective(800px) rotateX(-10deg) translateY(-5px) translateZ(25px) scale(1.03); 
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        transform: perspective(1000px) rotateX(-12deg) translateY(-8px) translateZ(30px) scale(1.05); 
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
     
     .btn-3d:active {
-        transform: perspective(800px) rotateX(-4deg) translateY(-1px) translateZ(12px) scale(0.96); 
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+        transform: perspective(1000px) rotateX(-6deg) translateY(-2px) translateZ(15px) scale(0.98); 
     }
-
 
     .btn-3d::before { 
         content: '';
         position: absolute;
         top: 0;
-        left: -150%;
-        width: 80%;
+        left: -200%;
+        width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-        transition: left 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-        transform: skewX(-25deg);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        transform: skewX(-30deg);
     }
 
     .btn-3d:hover::before {
-        left: 150%;
+        left: 200%;
     }
 
-    /* Floating Action Button */
-    .floating-cta {
+    /* Syllabus Modal */
+    .modal {
+        display: none;
         position: fixed;
-        bottom: clamp(20px, 4vw, 40px); 
-        right: clamp(20px, 4vw, 40px);
-        width: clamp(60px, 10vw, 75px); 
-        height: clamp(60px, 10vw, 75px);
-        background: var(--secondary-gradient);
-        border-radius: 50%;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        animation: modalFadeIn 0.3s ease-out;
+    }
+
+    .modal.show {
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 12px 35px rgba(245, 87, 108, 0.5);
-        z-index: 1000;
-        animation: pulse 2.5s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
-        cursor: pointer;
-        transition: all 0.35s ease-out;
-        transform: scale(1);
-    }
-    .floating-cta .material-icons {
-        font-size: clamp(1.8rem, 4vw, 2.2rem); 
-        color: white;
     }
 
-    .floating-cta:hover {
-        transform: scale(1.12) rotate(8deg); 
-        box-shadow: 0 15px 40px rgba(245, 87, 108, 0.65);
+    @keyframes modalFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); filter: brightness(1); }
-        50% { transform: scale(1.05); filter: brightness(1.1); } 
+    .modal-content {
+        background: var(--glass-bg);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid var(--glass-border);
+        border-radius: 25px;
+        padding: 40px;
+        width: 90%;
+        max-width: 800px;
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+        animation: modalSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
     }
 
-    /* Service Cards */
-    .service-card::before { 
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px; 
-        background: var(--accent-gradient);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.4s ease-out;
-        box-shadow: 0 0 10px var(--highlight-color);
+    @keyframes modalSlideIn {
+        from { opacity: 0; transform: scale(0.7) translateY(50px); }
+        to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
-    .service-card:hover::before {
-        transform: scaleX(1);
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--glass-border);
     }
 
-    .service-card:hover {
-        transform: perspective(1200px) rotateX(4deg) translateY(-12px) scale(1.015); 
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-        border-color: rgba(79, 172, 254, 0.5);
-    }
-
-    .service-icon {
-        font-size: clamp(2.5rem, 5vw, 3rem); 
-        margin-bottom: 20px;
-        display: inline-block;
-        background: var(--accent-gradient);
+    .modal-title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        background: var(--ai-gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
 
-    /* Reviews Carousel */
-    .reviews-container {
+    .close {
+        color: var(--text-secondary);
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .close:hover {
+        color: white;
+        background: rgba(255, 71, 87, 0.8);
+        transform: scale(1.1);
+    }
+
+    .syllabus-section {
+        margin-bottom: 25px;
+    }
+
+    .syllabus-section h3 {
+        color: var(--highlight-color);
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+    .syllabus-section ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .syllabus-section li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+        color: var(--text-secondary);
+        line-height: 1.5;
+    }
+
+    .syllabus-section li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--highlight-color);
+        font-weight: bold;
+    }
+
+    /* Enhanced Syllabus Modal Styles */
+    .enhanced-syllabus {
+        max-width: 1000px;
+        max-height: 85vh;
+    }
+
+    .syllabus-section.collapsible {
+        margin-bottom: 20px;
+        border: 1px solid var(--glass-border);
+        border-radius: 15px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    .syllabus-header {
+        padding: 20px 25px;
+        background: linear-gradient(135deg, var(--primary-gradient));
+        color: white;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
-        margin-top: clamp(40px, 6vw, 70px);
-        padding: 20px 0; 
     }
 
-    .reviews-wrapper { 
-        display: flex;
-        width: fit-content; 
-    }
-
-    .reviews-grid {
-        display: flex;
-        gap: clamp(20px, 4vw, 30px); 
-        animation: scrollReviews 70s linear infinite; 
-        width: fit-content; 
-    }
-
-    @keyframes scrollReviews {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); } 
-    }
-
-    .review-card {
-        min-width: clamp(280px, 75vw, 360px); 
-        max-width: clamp(300px, 80vw, 380px);
-        background: var(--glass-bg);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px; 
-        padding: clamp(25px, 4vw, 35px); 
-        position: relative;
-        flex-shrink: 0;
-        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-        transform-style: preserve-3d;
-    }
-    .review-card:hover {
-        transform: translateY(-8px) scale(1.02); 
-        box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-    }
-
-    .review-card::before {
-        content: '“'; 
+    .syllabus-header::before {
+        content: '';
         position: absolute;
-        top: 5px;
-        left: clamp(15px, 3vw, 25px);
-        font-size: clamp(3.5rem, 8vw, 5rem); 
-        color: rgba(79, 172, 254, 0.2);
-        font-family: 'Times New Roman', Times, serif;
-        z-index: 0;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+        transform: rotate(45deg);
+        transition: all 0.6s;
+        opacity: 0;
     }
-    .review-content {
-        position: relative; 
+
+    .syllabus-header:hover::before {
+        opacity: 1;
+        animation: shine 0.6s ease-in-out;
+    }
+
+    @keyframes shine {
+        0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    .syllabus-header h3 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+
+    .toggle-arrow {
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+        font-weight: bold;
+    }
+
+    .collapsible.active .toggle-arrow {
+        transform: rotate(180deg);
+    }
+
+    .syllabus-content {
+        padding: 25px;
+        display: none;
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    .collapsible.active .syllabus-content {
+        display: block;
+        animation: slideDownSyllabus 0.4s ease-out;
+    }
+
+    @keyframes slideDownSyllabus {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .tech-item {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 18px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tech-item:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.12);
+        border-color: var(--highlight-color);
+        box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+    }
+
+    .tech-item.ai-enhanced {
+        background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.1));
+        border: 1px solid rgba(255, 107, 53, 0.3);
+    }
+
+    .tech-item.ai-enhanced:hover {
+        background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(247, 147, 30, 0.2));
+        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    }
+
+    .tech-category {
+        font-weight: 700;
+        color: var(--highlight-color);
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+    }
+
+    .tech-list {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .cloud-section {
+        margin: 25px 0;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        border-left: 4px solid var(--highlight-color);
+    }
+
+    .cloud-section h4 {
+        color: var(--text-primary);
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+    .tech-badges-section {
+        margin: 25px 0;
+    }
+
+    .tech-badges-section h4 {
+        color: var(--text-primary);
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .tech-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .tech-badge {
+        background: linear-gradient(45deg, var(--primary-gradient));
+        color: white;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .tech-badge:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .project-showcase {
+        display: grid;
+        gap: 20px;
+    }
+
+    .project-item {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+        padding: 25px;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .project-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--ai-gradient);
+    }
+
+    .project-item:hover {
+        transform: translateY(-5px);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.05));
+        box-shadow: 0 15px 35px rgba(79, 172, 254, 0.2);
+    }
+
+    .project-item h4 {
+        color: var(--text-primary);
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .project-item p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+    }
+
+    /* Multi-Cloud DevOps AI Animation Styles */
+    .tech-animation-container {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        border: 2px solid rgba(102, 126, 234, 0.3);
+        border-radius: 25px;
+        padding: 40px 25px;
+        margin: 30px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(15px);
+    }
+
+    .animation-title {
+        font-size: 1.6rem;
+        font-weight: 800;
+        background: var(--ai-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .animation-subtitle {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-top: 25px;
+        font-style: italic;
+    }
+
+    .tech-ecosystem {
+        position: relative;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* AI Eye Animation */
+    .ai-eye-container {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+
+    .ai-eye {
+        width: 80px;
+        height: 80px;
+        background: radial-gradient(circle, #ff6b35, #f7931e);
+        border-radius: 50%;
+        position: relative;
+        animation: aiPulse 3s ease-in-out infinite;
+        box-shadow: 0 0 30px rgba(255, 107, 53, 0.6);
+        cursor: pointer;
+    }
+
+    .eye-iris {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #00f2fe, #4facfe);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: eyeMove 4s ease-in-out infinite;
+    }
+
+    .eye-pupil {
+        width: 20px;
+        height: 20px;
+        background: #0c0c0c;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: pupilMove 6s ease-in-out infinite;
+    }
+
+    .ai-label {
+        margin-top: 10px;
+        font-size: 0.8rem;
+        color: var(--highlight-color);
+        font-weight: 600;
+    }
+
+    @keyframes aiPulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 107, 53, 0.6); }
+        50% { transform: scale(1.1); box-shadow: 0 0 40px rgba(255, 107, 53, 0.8); }
+    }
+
+    @keyframes eyeMove {
+        0%, 100% { transform: translate(-50%, -50%) translateX(0px); }
+        25% { transform: translate(-50%, -50%) translateX(5px); }
+        75% { transform: translate(-50%, -50%) translateX(-5px); }
+    }
+
+    @keyframes pupilMove {
+        0%, 100% { transform: translate(-50%, -50%) scale(1); }
+        50% { transform: translate(-50%, -50%) scale(0.8); }
+    }
+
+    /* Cloud Providers */
+    .cloud-providers {
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 40px;
+        z-index: 5;
+    }
+
+    .cloud-logo {
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .logo-icon {
+        font-size: 2.5rem;
+        margin-bottom: 8px;
+        animation: cloudFloat 4s ease-in-out infinite;
+    }
+
+    .logo-text {
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .logo-glow {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .aws-logo .logo-text { color: #ff9900; }
+    .aws-logo .logo-glow { background: radial-gradient(circle, rgba(255, 153, 0, 0.3), transparent); }
+    .aws-logo:hover .logo-glow { opacity: 1; }
+
+    .azure-logo .logo-text { color: #0078d4; }
+    .azure-logo .logo-glow { background: radial-gradient(circle, rgba(0, 120, 212, 0.3), transparent); }
+    .azure-logo:hover .logo-glow { opacity: 1; }
+
+    .gcp-logo .logo-text { color: #4285f4; }
+    .gcp-logo .logo-glow { background: radial-gradient(circle, rgba(66, 133, 244, 0.3), transparent); }
+    .gcp-logo:hover .logo-glow { opacity: 1; }
+
+    @keyframes cloudFloat {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        33% { transform: translateY(-10px) rotate(2deg); }
+        66% { transform: translateY(-5px) rotate(-1deg); }
+    }
+
+    .cloud-logo:nth-child(1) { animation-delay: 0s; }
+    .cloud-logo:nth-child(2) { animation-delay: 1.3s; }
+    .cloud-logo:nth-child(3) { animation-delay: 2.6s; }
+
+    /* DevOps Tools */
+    .devops-tools {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+    }
+
+    .tool-icon {
+        position: absolute;
+        font-size: 2rem;
+        animation: toolFloat 5s ease-in-out infinite;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+    }
+
+    .tool-icon:hover {
+        transform: scale(1.2);
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .docker-icon { top: 80px; left: 10%; animation-delay: 0s; }
+    .k8s-icon { top: 120px; right: 15%; animation-delay: 1s; }
+    .terraform-icon { top: 180px; left: 20%; animation-delay: 2s; }
+    .jenkins-icon { top: 160px; right: 25%; animation-delay: 3s; }
+    .monitoring-icon { top: 100px; left: 45%; animation-delay: 4s; }
+
+    @keyframes toolFloat {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        25% { transform: translateY(-15px) rotate(5deg); }
+        50% { transform: translateY(-8px) rotate(-3deg); }
+        75% { transform: translateY(-12px) rotate(2deg); }
+    }
+
+    /* Connection Lines */
+    .connection-lines {
+        position: absolute;
+        width: 100%;
+        height: 100%;
         z-index: 1;
     }
 
-    .stars {
-        color: #ffd700;
-        font-size: clamp(1rem, 2.5vw, 1.2rem); 
-        margin-bottom: 15px;
-        letter-spacing: 1.5px;
-    }
-    .review-text {
-        font-style: italic;
-        color: var(--text-secondary);
-        margin-bottom: 15px;
-        line-height: 1.6;
-        font-size: clamp(0.85rem, 2vw, 0.95rem); 
-    }
-    .review-author {
-        font-weight: 600;
-        font-size: clamp(0.9rem, 2.2vw, 1rem);
-        color: var(--text-primary);
-    }
-    .review-author span {
-        font-weight: 400;
-        color: var(--text-secondary);
-        font-size: 0.9em;
-        display: block;
+    .connection-line {
+        position: absolute;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--highlight-color), transparent);
+        animation: dataFlow 3s ease-in-out infinite;
+        opacity: 0.6;
     }
 
+    .line-1 {
+        top: 40%;
+        left: 20%;
+        width: 60%;
+        transform: rotate(15deg);
+        animation-delay: 0s;
+    }
+
+    .line-2 {
+        top: 60%;
+        left: 10%;
+        width: 80%;
+        transform: rotate(-10deg);
+        animation-delay: 1s;
+    }
+
+    .line-3 {
+        top: 30%;
+        right: 15%;
+        width: 50%;
+        transform: rotate(45deg);
+        animation-delay: 2s;
+    }
+
+    .line-4 {
+        bottom: 30%;
+        left: 25%;
+        width: 50%;
+        transform: rotate(-30deg);
+        animation-delay: 3s;
+    }
+
+    @keyframes dataFlow {
+        0% { opacity: 0.2; transform: scaleX(0); }
+        50% { opacity: 0.8; transform: scaleX(1); }
+        100% { opacity: 0.2; transform: scaleX(0); }
+    }
+
+    /* Data Particles */
+    .data-particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .particle {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: var(--highlight-color);
+        border-radius: 50%;
+        animation: particleMove 6s linear infinite;
+        box-shadow: 0 0 10px var(--highlight-color);
+    }
+
+    .p1 { top: 20%; left: 10%; animation-delay: 0s; }
+    .p2 { top: 40%; right: 20%; animation-delay: 1.2s; }
+    .p3 { bottom: 30%; left: 30%; animation-delay: 2.4s; }
+    .p4 { top: 60%; right: 10%; animation-delay: 3.6s; }
+    .p5 { bottom: 20%; right: 40%; animation-delay: 4.8s; }
+
+    @keyframes particleMove {
+        0% { transform: translateX(0) translateY(0) scale(0.5); opacity: 0; }
+        10% { opacity: 1; transform: scale(1); }
+        90% { opacity: 1; }
+        100% { transform: translateX(100px) translateY(-50px) scale(0.5); opacity: 0; }
+    }
+
+    /* Contact Info Enhancement */
+    .contact-info {
+        background: linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(18, 140, 126, 0.1));
+        border: 2px solid #25d366;
+        border-radius: 20px;
+        padding: 20px;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .contact-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #25d366;
+        margin-bottom: 15px;
+    }
+
+    .phone-number {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: var(--text-primary);
+        margin: 10px 0;
+        letter-spacing: 1px;
+    }
+
+    .phone-label {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    /* Enhanced Sections */
+    .section {
+        padding: clamp(80px, 12vw, 140px) 0; 
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .section.hidden-initial { 
+        opacity: 0;
+        transform: translateY(60px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .section.visible-section {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .section-title {
+        font-size: clamp(2.2rem, 5.5vw, 3.8rem); 
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: clamp(70px, 10vw, 100px); 
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        text-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        line-height: 1.1;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -25px; 
+        left: 50%;
+        transform: translateX(-50%);
+        width: clamp(100px, 18vw, 140px); 
+        height: 5px; 
+        background: var(--accent-gradient);
+        border-radius: 5px;
+        box-shadow: 0 0 20px var(--highlight-color);
+    }
+
+    /* Enhanced Course Cards */
+    .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(clamp(320px, 85vw, 400px), 1fr)); 
+        gap: clamp(30px, 6vw, 60px); 
+        margin-top: clamp(50px, 8vw, 80px);
+    }
+
+    .course-card { 
+        position: relative;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 30px; 
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform-style: preserve-3d;
+        box-shadow: var(--shadow-glow);
+        will-change: transform, box-shadow;
+    }
+    
+    .course-card.hidden-initial { 
+        opacity: 0;
+        transform: translateY(50px) rotateX(-15deg) scale(0.9);
+    }
+    .course-card.visible-card {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg) scale(1);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+    }
+
+    .course-card:hover {
+        transform: perspective(2000px) rotateX(10deg) rotateY(8deg) translateY(-25px) scale(1.03); 
+        box-shadow: 0 35px 80px rgba(0, 0, 0, 0.6), 0 0 20px var(--highlight-color) inset;
+        border-color: rgba(79, 172, 254, 0.8);
+    }
+
+    /* Enhanced Course Images */
+    .course-image-wrapper {
+        width: 100%;
+        height: 240px; 
+        overflow: hidden; 
+        border-top-left-radius: 29px; 
+        border-top-right-radius: 29px;
+        transform: translateZ(15px); 
+        position: relative; 
+    }
+
+    .course-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .course-card:hover .course-image {
+        transform: scale(1.15) rotate(2deg); 
+        filter: brightness(1.2) saturate(1.2) contrast(1.1);
+    }
+
+    .course-content { 
+        padding: clamp(25px, 5vw, 35px); 
+        position: relative;
+        transform: translateZ(30px);
+    }
+
+    .course-title {
+        font-size: clamp(1.4rem, 3.2vw, 1.7rem); 
+        font-weight: 800;
+        margin-bottom: 18px;
+        color: var(--text-primary);
+        line-height: 1.3;
+        transition: color 0.3s ease;
+    }
+
+    .course-card:hover .course-title {
+        color: var(--highlight-color);
+    }
+
+    .course-description {
+        color: var(--text-secondary);
+        line-height: 1.7; 
+        margin-bottom: 30px;
+        font-size: clamp(0.9rem, 2.2vw, 1rem); 
+    }
+
+    .course-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px; 
+    }
+
+    /* Enhanced Badge */
+    .course-badge {
+        position: absolute;
+        top: clamp(20px, 4vw, 30px); 
+        right: clamp(20px, 4vw, 30px);
+        background: var(--ai-gradient);
+        color: white;
+        padding: clamp(8px, 2vw, 12px) clamp(15px, 3vw, 22px); 
+        border-radius: 25px;
+        font-size: clamp(0.8rem, 2vw, 0.9rem); 
+        font-weight: 700;
+        z-index: 3; 
+        animation: bounceBadge 3s ease-in-out infinite;
+        transform: translateZ(50px); 
+        box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+    }
+
+    @keyframes bounceBadge {
+        0%, 100% { transform: translateY(0) translateZ(50px) rotate(-4deg) scale(1); }
+        50% { transform: translateY(-12px) translateZ(55px) rotate(4deg) scale(1.05); } 
+    }
+
+    /* Floating Action Button */
+    .floating-cta {
+        position: fixed;
+        bottom: clamp(25px, 5vw, 50px); 
+        right: clamp(25px, 5vw, 50px);
+        width: clamp(70px, 12vw, 85px); 
+        height: clamp(70px, 12vw, 85px);
+        background: var(--success-gradient);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 15px 45px rgba(56, 239, 125, 0.5);
+        z-index: 1000;
+        animation: floatPulse 3s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        cursor: pointer;
+        transition: all 0.4s ease-out;
+        transform: scale(1);
+    }
+
+    .floating-cta .material-icons {
+        font-size: clamp(2rem, 5vw, 2.5rem); 
+        color: white;
+    }
+
+    .floating-cta:hover {
+        transform: scale(1.15) rotate(12deg); 
+        box-shadow: 0 20px 60px rgba(56, 239, 125, 0.7);
+    }
+
+    @keyframes floatPulse {
+        0%, 100% { transform: scale(1) translateY(0); filter: brightness(1); }
+        50% { transform: scale(1.08) translateY(-8px); filter: brightness(1.15); } 
+    }
 
     /* Contact Section */
     .contact-section { 
         text-align: center;
-        padding: clamp(60px, 10vw, 100px) clamp(15px, 3vw, 20px); 
-        margin: clamp(80px, 12vw, 120px) auto; 
+        padding: clamp(80px, 12vw, 120px) clamp(20px, 4vw, 30px); 
+        margin: clamp(100px, 15vw, 150px) auto; 
         max-width: 1200px; 
         position: relative; 
     }
+
     .contact-content {
-        max-width: 700px;
+        max-width: 800px;
         margin: 0 auto;
     }
+
     .contact-section .section-title {
-        font-size: clamp(1.8rem, 4vw, 3rem); 
+        font-size: clamp(2rem, 5vw, 3.5rem); 
     }
+
     .contact-description {
-        font-size: clamp(0.95rem, 2.2vw, 1.1rem); 
+        font-size: clamp(1rem, 2.5vw, 1.2rem); 
         color: var(--text-secondary);
-        line-height: 1.7;
-        margin-bottom: 40px;
+        line-height: 1.8;
+        margin-bottom: 50px;
     }
+
     .contact-buttons {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 25px;
         align-items: center;
     }
+
     @media (min-width: 600px) {
         .contact-buttons {
             flex-direction: row;
             justify-content: center;
-            gap: 25px; 
+            gap: 30px; 
         }
     }
-    .contact-buttons .btn-3d {
-        min-width: clamp(180px, 40vw, 220px); 
-    }
 
+    .contact-buttons .btn-3d {
+        min-width: clamp(200px, 45vw, 250px); 
+    }
 
     /* Footer */
     .footer {
         text-align: center;
-        padding: clamp(30px, 6vw, 50px) 20px; 
-        background: rgba(0,0,0,0.2);
+        padding: clamp(40px, 8vw, 60px) 25px; 
+        background: rgba(0,0,0,0.3);
         border-top: 1px solid var(--glass-border);
-        margin-top: clamp(50px, 8vw, 80px);
+        margin-top: clamp(60px, 10vw, 100px);
     }
+
     .footer p {
         color: var(--text-secondary);
-        font-size: clamp(0.8rem, 1.8vw, 0.9rem); 
-        margin-bottom: 0.5rem;
+        font-size: clamp(0.85rem, 2vw, 0.95rem); 
+        margin-bottom: 0.8rem;
     }
+
     .footer a {
         color: var(--highlight-color);
         text-decoration: none;
-        font-weight: 500;
+        font-weight: 600;
     }
+
     .footer a:hover {
         text-decoration: underline;
     }
 
-
-    /* Responsive Design - Mobile Specific Adjustments */
-    @media (max-width: 768px) {
-        .hero-section {
-             padding-top: 0; 
-             justify-content: flex-start; 
-        }
-        .hero-content {
-            margin-top: 20px; 
-        }
-
-        .navigation {
-            position: static; 
-            transform: none; 
-            animation: none; 
-            opacity: 1; 
-            margin: 30px auto 20px auto; 
-            width: fit-content; 
-        }
-        .nav-container {
-            padding: 8px 15px; 
-        }
-        .nav-list {
-            flex-direction: column;
-            gap: 8px; 
-        }
-        .nav-link {
-            padding: 10px 20px; 
-            font-size: 1rem; 
-        }
-        .nav-link::after { 
-            bottom: 5px; 
-            height: 2px;
-        }
-        
-        .course-buttons {
-            grid-template-columns: 1fr; 
-        }
-
-        .course-card:hover, .service-card:hover {
-            transform: translateY(-10px) scale(1.01); 
-        }
-         .btn-3d:hover {
-            transform: translateY(-3px) scale(1.02);
-        }
-
+    .footer-contact {
+        text-align: center;
+        padding: 30px 0;
+        border-bottom: 1px solid var(--glass-border);
+        margin-bottom: 25px;
     }
-    @media (max-width: 480px) {
-        .courses-grid, .services-grid {
-             grid-template-columns: 1fr; 
-        }
-        .btn-3d {
+
+    .footer-contact h3 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 20px;
+    }
+
+    .footer-phone {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        color: var(--text-secondary);
+    }
+
+    .footer-phone-link {
+        font-size: 1.4rem;
+        font-weight: 900;
+        color: #25d366;
+        text-decoration: none;
+        margin-left: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .footer-phone-link:hover {
+        color: var(--highlight-color);
+        text-decoration: none;
+        transform: scale(1.05);
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .footer-button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-primary);
+        text-decoration: none;
+        border-radius: 25px;
+        border: 1px solid var(--glass-border);
+        transition: all 0.3s ease;
             font-size: 0.9rem; 
-        }
-        .hero-title {
-            font-size: clamp(2rem, 10vw, 2.5rem);
-        }
-        .hero-subtitle {
-            font-size: clamp(0.9rem, 4vw, 1rem);
-        }
-    }
-
-
-    /* Course Badges */
-    .course-badge {
-        position: absolute;
-        top: clamp(15px, 3vw, 25px); 
-        right: clamp(15px, 3vw, 25px);
-        background: var(--secondary-gradient);
-        color: white;
-        padding: clamp(6px, 1.5vw, 8px) clamp(12px, 2.5vw, 18px); 
-        border-radius: 20px;
-        font-size: clamp(0.75rem, 1.8vw, 0.85rem); 
         font-weight: 600;
-        z-index: 3; 
-        animation: bounceBadge 2.5s ease-in-out infinite;
-        transform: translateZ(40px); 
     }
 
-    @keyframes bounceBadge {
-        0%, 100% { transform: translateY(0) translateZ(40px) rotate(-3deg); }
-        50% { transform: translateY(-10px) translateZ(43px) rotate(2deg); } 
+    .footer-button:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+        text-decoration: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-button .material-icons {
+        font-size: 1.1rem;
+    }
+
+    .footer-bottom {
+        text-align: center;
     }
 
     /* Loading Animation */
@@ -787,7 +1478,7 @@
         justify-content: center;
         z-index: 9999;
         opacity: 1;
-        transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
+        transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
         visibility: visible;
     }
 
@@ -797,22 +1488,24 @@
     }
 
     .spinner {
-        width: 60px; 
-        height: 60px;
-        border: 4px solid rgba(255, 255, 255, 0.2);
-        border-top: 4px solid var(--highlight-color); 
+        width: 80px; 
+        height: 80px;
+        border: 5px solid rgba(255, 255, 255, 0.2);
+        border-top: 5px solid var(--ai-gradient); 
         border-radius: 50%;
-        animation: spin 1.2s linear infinite;
+        animation: spin 1.5s linear infinite;
     }
+
     .loader-text {
-        margin-top: 20px;
-        font-size: 1.1rem;
+        margin-top: 25px;
+        font-size: 1.2rem;
         color: var(--text-secondary);
-        animation: pulseText 1.5s infinite alternate;
+        animation: pulseText 2s infinite alternate;
+        font-weight: 600;
     }
 
     @keyframes pulseText {
-        from { opacity: 0.7; }
+        from { opacity: 0.6; }
         to { opacity: 1; }
     }
 
@@ -820,13 +1513,131 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+
+    /* Additional Interactive Animations */
+    @keyframes sparkle {
+        0% { opacity: 0; transform: scale(0) rotate(0deg); }
+        50% { opacity: 1; transform: scale(1) rotate(180deg); }
+        100% { opacity: 0; transform: scale(0) rotate(360deg); }
+    }
+
+    @keyframes techPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(102, 126, 234, 0.6); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes slideInFromLeft {
+        from { opacity: 0; transform: translateX(-50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(100px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Enhanced button grid for better mobile layout */
+    .batch-actions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .announcement-banner {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .hero-section {
+            padding-top: 60px; 
+        }
+
+        .navigation {
+            position: static; 
+            transform: none; 
+            animation: none; 
+            opacity: 1; 
+            margin: 20px auto; 
+            width: fit-content; 
+        }
+
+        .nav-container {
+            padding: 10px 20px; 
+        }
+
+        .nav-list {
+            flex-direction: column;
+            gap: 10px; 
+        }
+
+        .nav-link {
+            padding: 12px 25px; 
+        }
+
+        .batch-info {
+            grid-template-columns: 1fr;
+        }
+
+        .batch-actions {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .course-buttons {
+            grid-template-columns: 1fr; 
+        }
+
+        .course-card:hover {
+            transform: translateY(-15px) scale(1.02); 
+        }
+
+        .btn-3d:hover {
+            transform: translateY(-5px) scale(1.03);
+        }
+
+        .modal-content {
+            padding: 25px;
+            width: 95%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .courses-grid {
+            grid-template-columns: 1fr; 
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 12vw, 2.8rem);
+        }
+
+        .batch-actions .btn-3d {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
 </style>
 </head>
 <body>
     <!-- Loading Screen -->
     <div class="loader" id="loader">
         <div class="spinner"></div>
-        <p class="loader-text">Igniting Your Tech Future...</p>
+        <p class="loader-text">Preparing Your AI-Powered Future...</p>
+    </div>
+
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        🚀 New Batch Alert: Multi-Cloud DevOps + AI Mastery | FREE Demo July 26-27 | Regular Classes Start July 28 | Limited Seats!
     </div>
 
     <!-- Animated Background -->
@@ -836,9 +1647,8 @@
     <nav class="navigation">
         <div class="nav-container">
             <ul class="nav-list">
-                <li><a href="#courses" class="nav-link">Courses</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#featured" class="nav-link">New Batch</a></li>
+                <li><a href="#courses" class="nav-link">All Courses</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -848,246 +1658,461 @@
     <section class="hero-section">
         <div class="hero-content">
             <h1 class="hero-title">Emergency TechOps Institute</h1>
-            <p class="hero-subtitle">Transform Your Career with Next-Gen Multi-Cloud DevOps & MLOps Training. Master the skills of tomorrow, today.</p>
-             <a href="#courses" class="btn-3d btn-primary" style="margin-top: 25px; padding: 16px 30px; font-size: clamp(0.95rem, 2.2vw, 1.1rem);">
-                <span class="material-icons">rocket_launch</span> Explore Courses
+            <p class="hero-subtitle">Master Multi-Cloud DevOps + AI in our exclusive July 2025 batch. Transform your career with hands-on training in AWS, Azure, GCP, MLOps & AIOps.</p>
+            <a href="#featured" class="btn-3d btn-ai" style="margin-top: 30px; padding: 18px 35px; font-size: clamp(1rem, 2.5vw, 1.2rem);">
+                <span class="material-icons">rocket_launch</span> Join New Batch
             </a>
         </div>
     </section>
 
-    <!-- Courses Section -->
-    <section id="courses" class="section hidden-initial">
+    <!-- Featured New Batch Section -->
+    <section id="featured" class="featured-batch section hidden-initial">
         <div class="container">
-            <h2 class="section-title">Premium Courses</h2>
-            <div class="courses-grid">
-                <!-- Course 1 -->
-                <div class="course-card hidden-initial">
-                    <div class="course-badge">🚀 Top Course</div>
-                    <div class="course-image-wrapper">
-                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*-Iq5c95ZmaSGX4NnlcNudA.png" alt="Multi-Cloud DevOps" class="course-image">
+            <div class="batch-card">
+                <div class="batch-header">
+                    <h2 class="batch-title">Multi-Cloud DevOps + AI Mastery</h2>
+                    <p class="batch-subtitle">Exclusive July 2025 Batch - Transform Your Career with Next-Gen Skills</p>
                     </div>
-                    <div class="course-content">
-                        <h3 class="course-title">Master Multi-Cloud DevOps (AWS, Azure, GCP)</h3>
-                        <p class="course-description">Dive deep into multi-cloud environments. Master AWS, Azure, & GCP DevOps, cloud-native solutions, IaC, and cost optimization.</p>
-                        <div class="course-details">
-                            <!-- Date and time removed -->
+
+                <div class="batch-info">
+                    <div class="info-card demo-highlight">
+                        <div class="info-icon">🎯</div>
+                        <h3 class="info-title">FREE Demo Sessions</h3>
+                        <p class="info-detail">July 26 & 27, 2025<br>10:00 AM IST<br><strong>Don't Miss Out!</strong></p>
                         </div>
-                        <div class="course-buttons">
-                            <a href="https://youtu.be/fWa4Z7IogIg" target="_blank" class="btn-3d btn-primary">
-                                <span class="material-icons">play_circle_filled</span> Demo
-                            </a>
-                            <a href="#" class="btn-3d btn-secondary"> 
-                                <span class="material-icons">download</span> Syllabus
-                            </a>
-                            <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
-                                <span class="material-icons">sms</span> WhatsApp
-                            </a>
-                            <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
-                                <span class="material-icons">email</span> Email Us
+                    
+                    <div class="info-card">
+                        <div class="info-icon">📅</div>
+                        <h3 class="info-title">Regular Classes</h3>
+                        <p class="info-detail">Starting July 28, 2025<br>7:00 PM - 8:30 PM IST<br>Mon to Fri</p>
+                        </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">🎓</div>
+                        <h3 class="info-title">What You'll Master</h3>
+                        <p class="info-detail">AWS, Azure, GCP<br>MLOps, AIOps, DevSecOps<br>Hands-on Projects</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">👨‍💻</div>
+                        <h3 class="info-title">Expert Instructors</h3>
+                        <p class="info-detail">Industry Veterans<br>Live Interactive Sessions<br>24/7 Support</p>
+                    </div>
+                </div>
+
+                                <!-- Multi-Cloud DevOps AI Animation -->
+                <div class="tech-animation-container">
+                    <div class="animation-title">🤖 AI-Powered Multi-Cloud DevOps Mastery</div>
+                    <div class="tech-ecosystem">
+                        <!-- AI Watching Eye -->
+                        <div class="ai-eye-container">
+                            <div class="ai-eye">
+                                <div class="eye-iris">
+                                    <div class="eye-pupil"></div>
+                                </div>
+                            </div>
+                            <div class="ai-label">AI Monitoring</div>
+                        </div>
+
+                        <!-- Cloud Providers -->
+                        <div class="cloud-providers">
+                            <div class="cloud-logo aws-logo">
+                                <div class="logo-icon">☁️</div>
+                                <div class="logo-text">AWS</div>
+                                <div class="logo-glow"></div>
+                            </div>
+                            <div class="cloud-logo azure-logo">
+                                <div class="logo-icon">☁️</div>
+                                <div class="logo-text">Azure</div>
+                                <div class="logo-glow"></div>
+                            </div>
+                            <div class="cloud-logo gcp-logo">
+                                <div class="logo-icon">☁️</div>
+                                <div class="logo-text">GCP</div>
+                                <div class="logo-glow"></div>
+                            </div>
+                        </div>
+
+                        <!-- DevOps Tools -->
+                        <div class="devops-tools">
+                            <div class="tool-icon docker-icon">🐳</div>
+                            <div class="tool-icon k8s-icon">⚙️</div>
+                            <div class="tool-icon terraform-icon">🏗️</div>
+                            <div class="tool-icon jenkins-icon">🔄</div>
+                            <div class="tool-icon monitoring-icon">📊</div>
+                        </div>
+
+                        <!-- Connecting Lines -->
+                        <div class="connection-lines">
+                            <div class="connection-line line-1"></div>
+                            <div class="connection-line line-2"></div>
+                            <div class="connection-line line-3"></div>
+                            <div class="connection-line line-4"></div>
+                        </div>
+
+                        <!-- Data Flow Particles -->
+                        <div class="data-particles">
+                            <div class="particle p1"></div>
+                            <div class="particle p2"></div>
+                            <div class="particle p3"></div>
+                            <div class="particle p4"></div>
+                            <div class="particle p5"></div>
+                        </div>
+                    </div>
+                    <div class="animation-subtitle">Watch AI orchestrate your multi-cloud infrastructure seamlessly</div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="contact-title">📞 Direct Contact</div>
+                    <div class="phone-label">Call or WhatsApp:</div>
+                    <div class="phone-number">+91 9100665231</div>
+                    <div class="phone-label">Available 24/7 for any queries</div>
+                </div>
+
+                <div class="batch-actions">
+                    <a href="https://meet.google.com/rja-nsvx-qsw" target="_blank" class="btn-3d btn-demo">
+                        <span class="material-icons">videocam</span> Join FREE Demo
+                    </a>
+                    <button onclick="openSyllabus()" class="btn-3d btn-ai">
+                        <span class="material-icons">description</span> View Complete Syllabus
+                    </button>
+                    <a href="https://wa.me/919100665231?text=Hi%2C%20I%20want%20to%20join%20the%20Multi-Cloud%20DevOps%20%2B%20AI%20batch" target="_blank" class="btn-3d btn-whatsapp">
+                        <span class="material-icons">chat</span> WhatsApp Now
+                    </a>
+                    <a href="tel:+919100665231" class="btn-3d btn-primary">
+                        <span class="material-icons">call</span> Call Direct
                             </a>
                         </div>
                     </div>
                 </div>
+    </section>
 
-                <!-- Course 2 -->
-                <div class="course-card hidden-initial">
-                    <div class="course-badge">🔥 Hot</div>
-                     <div class="course-image-wrapper">
-                        <img src="https://lh4.googleusercontent.com/OtRptlupbdbe2oFCNmp9e2jbyRVXZ60egvdr7PzTjCSMECiWcvjeJQJi2MMck8_pP64rAjEQclSQ12XAn-ap4ebRFMRDbLtBEDsiRqjU2zK9cbCG0tqe2sFtzoZT86X16Lq_zyY0" alt="MLOps" class="course-image">
+    <!-- Enhanced Syllabus Modal -->
+    <div id="syllabusModal" class="modal">
+        <div class="modal-content enhanced-syllabus">
+            <div class="modal-header">
+                <h2 class="modal-title">🚀 DevOps Engineering Mastery - Complete Syllabus</h2>
+                <span class="close" onclick="closeSyllabus()">&times;</span>
                     </div>
+            
+            <div class="syllabus-section collapsible active">
+                <div class="syllabus-header" onclick="toggleSection(this)">
+                    <h3>🌐 1. Networking & Cloud Foundations</h3>
+                    <span class="toggle-arrow">⌄</span>
+                        </div>
+                <div class="syllabus-content">
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-category">🔌 Networking Fundamentals</div>
+                            <div class="tech-list">LAN, WAN, VPN, Internet, Firewalls, Switches, Routers, Load Balancers</div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-category">📊 IP Addressing</div>
+                            <div class="tech-list">Public/Private IPs, Subnets, CIDR, DNS Resolution & Caching</div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-category">☁️ Cloud vs On-Premises</div>
+                            <div class="tech-list">Physical vs VPC/VNets, CapEx vs OpEx, Scalability, Global reach</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+            <div class="syllabus-section collapsible">
+                <div class="syllabus-header" onclick="toggleSection(this)">
+                    <h3>☁️ 2. Multi-Cloud Services Mastery</h3>
+                    <span class="toggle-arrow">⌄</span>
+                    </div>
+                <div class="syllabus-content">
+                    <div class="cloud-section">
+                        <h4>🟠 AWS Services</h4>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <div class="tech-category">Compute</div>
+                                <div class="tech-list">EC2, Lambda, ECS, EKS, Elastic Beanstalk</div>
+                        </div>
+                            <div class="tech-item">
+                                <div class="tech-category">Storage</div>
+                                <div class="tech-list">S3, EBS, EFS, Glacier, FSx</div>
+                        </div>
+                            <div class="tech-item">
+                                <div class="tech-category">Database</div>
+                                <div class="tech-list">RDS, DynamoDB, Aurora, Redshift</div>
+                    </div>
+                            <div class="tech-item">
+                                <div class="tech-category">Security</div>
+                                <div class="tech-list">IAM, KMS, WAF, Shield, Cognito</div>
+                </div>
+                    </div>
+                        </div>
+                    
+                    <div class="cloud-section">
+                        <h4>🔵 Azure Services</h4>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <div class="tech-category">Compute</div>
+                                <div class="tech-list">VMs, App Service, Functions, AKS</div>
+                        </div>
+                            <div class="tech-item">
+                                <div class="tech-category">Storage</div>
+                                <div class="tech-list">Blob, File, Disk, Archive Storage</div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-category">Database</div>
+                                <div class="tech-list">SQL Database, Cosmos DB, PostgreSQL</div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-category">DevOps</div>
+                                <div class="tech-list">Azure DevOps, ARM Templates, Pipelines</div>
+                            </div>
+                    </div>
+                </div>
+
+                    <div class="cloud-section">
+                        <h4>🔴 Google Cloud Platform</h4>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <div class="tech-category">Compute</div>
+                                <div class="tech-list">Compute Engine, App Engine, GKE</div>
+            </div>
+                            <div class="tech-item">
+                                <div class="tech-category">Storage</div>
+                                <div class="tech-list">Cloud Storage, Persistent Disk, Filestore</div>
+        </div>
+                            <div class="tech-item">
+                                <div class="tech-category">Database</div>
+                                <div class="tech-list">Cloud SQL, Bigtable, Spanner, Firestore</div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-category">AI/ML</div>
+                                <div class="tech-list">AutoML, Vertex AI, AI Platform</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="syllabus-section collapsible">
+                <div class="syllabus-header" onclick="toggleSection(this)">
+                    <h3>⚙️ 3. DevOps Engineering Pipeline</h3>
+                    <span class="toggle-arrow">⌄</span>
+                </div>
+                <div class="syllabus-content">
+                    <div class="tech-badges-section">
+                        <h4>📂 Version Control & Collaboration</h4>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Git</span>
+                            <span class="tech-badge">GitHub</span>
+                            <span class="tech-badge">GitLab</span>
+                            <span class="tech-badge">Bitbucket</span>
+                            <span class="tech-badge">GitHub Actions</span>
+                </div>
+                </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-category">🔄 Build Tools</div>
+                            <div class="tech-list">Maven, Gradle, npm, pip, Docker</div>
+            </div>
+                        <div class="tech-item">
+                            <div class="tech-category">🚀 CI/CD Platforms</div>
+                            <div class="tech-list">Jenkins, GitHub Actions, GitLab CI</div>
+        </div>
+                        <div class="tech-item">
+                            <div class="tech-category">🧪 Testing</div>
+                            <div class="tech-list">JUnit, PyTest, SonarQube, Postman</div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-category">📦 Artifacts</div>
+                            <div class="tech-list">JFrog, Nexus, GitHub Packages</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-badges-section">
+                        <h4>🐳 Containerization & Orchestration</h4>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Docker</span>
+                            <span class="tech-badge">Kubernetes</span>
+                            <span class="tech-badge">Helm</span>
+                            <span class="tech-badge">Istio</span>
+                            <span class="tech-badge">Harbor</span>
+                            <span class="tech-badge">EKS/AKS/GKE</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-badges-section">
+                        <h4>🏗️ Infrastructure as Code</h4>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Terraform</span>
+                            <span class="tech-badge">CloudFormation</span>
+                            <span class="tech-badge">Ansible</span>
+                            <span class="tech-badge">ArgoCD</span>
+                            <span class="tech-badge">Pulumi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="syllabus-section collapsible">
+                <div class="syllabus-header" onclick="toggleSection(this)">
+                    <h3>🔐 4. Security & SRE Excellence</h3>
+                    <span class="toggle-arrow">⌄</span>
+                </div>
+                <div class="syllabus-content">
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-category">🛡️ Secrets Management</div>
+                            <div class="tech-list">Vault, AWS Secrets, Azure Key Vault</div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-category">🔍 Security Scanning</div>
+                            <div class="tech-list">Trivy, Snyk, OWASP ZAP, Checkov</div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-category">📋 Policy & Compliance</div>
+                            <div class="tech-list">OPA, Gatekeeper, CIS, PCI, SOC2</div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-category">🎯 SRE Practices</div>
+                            <div class="tech-list">SLO, SLI, SLA, Error budgets, Incident Management</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-badges-section">
+                        <h4>📊 Monitoring & Observability</h4>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Prometheus</span>
+                            <span class="tech-badge">Grafana</span>
+                            <span class="tech-badge">ELK Stack</span>
+                            <span class="tech-badge">Jaeger</span>
+                            <span class="tech-badge">OpenTelemetry</span>
+                            <span class="tech-badge">PagerDuty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="syllabus-section collapsible">
+                <div class="syllabus-header" onclick="toggleSection(this)">
+                    <h3>🤖 5. AI-Powered DevOps & Future Tech</h3>
+                    <span class="toggle-arrow">⌄</span>
+                </div>
+                <div class="syllabus-content">
+                    <div class="tech-grid">
+                        <div class="tech-item ai-enhanced">
+                            <div class="tech-category">🧠 AI Code Generation</div>
+                            <div class="tech-list">GitHub Copilot, Infrastructure as Code AI, Automated Testing</div>
+                        </div>
+                        <div class="tech-item ai-enhanced">
+                            <div class="tech-category">🔮 Intelligent Operations</div>
+                            <div class="tech-list">ChatGPT troubleshooting, RCA automation, Predictive scaling</div>
+                        </div>
+                        <div class="tech-item ai-enhanced">
+                            <div class="tech-category">🚨 AIOps Platforms</div>
+                            <div class="tech-list">Moogsoft, Dynatrace AI, Auto-incident resolution</div>
+                        </div>
+                        <div class="tech-item ai-enhanced">
+                            <div class="tech-category">📚 AI Documentation</div>
+                            <div class="tech-list">Prompt-based docs, AI chatbots, Knowledge bases</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="syllabus-section collapsible">
+                <div class="syllabus-header" onclick="toggleSection(this)">
+                    <h3>🚀 6. Portfolio Projects</h3>
+                    <span class="toggle-arrow">⌄</span>
+                </div>
+                <div class="syllabus-content">
+                    <div class="project-showcase">
+                        <div class="project-item">
+                            <h4>🌍 Multi-Cloud Hybrid Infrastructure</h4>
+                            <p>Deploy 3-tier application across AWS, Azure, and GCP with Terraform and secure VPN connectivity</p>
+                        </div>
+                        <div class="project-item">
+                            <h4>🔄 Enterprise CI/CD Pipeline</h4>
+                            <p>Complete pipeline with testing, scanning, notifications, and blue/green deployment to Kubernetes</p>
+                        </div>
+                        <div class="project-item">
+                            <h4>📊 SRE Monitoring Dashboard</h4>
+                            <p>Implement Prometheus + Grafana with SLO/SLI definitions and incident simulation</p>
+                        </div>
+                        <div class="project-item">
+                            <h4>🛡️ DevSecOps Security Pipeline</h4>
+                            <p>Integrated security scanning, policy enforcement, and compliance reporting</p>
+                        </div>
+                        <div class="project-item">
+                            <h4>☸️ Kubernetes Platform Engineering</h4>
+                            <p>Production-ready K8s platform with microservices, autoscaling, and service mesh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Courses Section -->
+    <section id="courses" class="section hidden-initial">
+        <div class="container">
+            <h2 class="section-title">All Premium Courses</h2>
+            <div class="courses-grid">
+                <!-- Featured Course -->
+                <div class="course-card hidden-initial">
+                    <div class="course-badge">🔥 New Batch</div>
+                    <div class="course-image-wrapper">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*-Iq5c95ZmaSGX4NnlcNudA.png" alt="Multi-Cloud DevOps + AI" class="course-image">
+                           </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Multi-Cloud DevOps + AI Mastery</h3>
+                        <p class="course-description">Master AWS, Azure, GCP with AI/ML operations. Complete MLOps, AIOps, and advanced DevOps practices in one comprehensive program.</p>
+                        <div class="course-buttons">
+                            <a href="https://meet.google.com/rja-nsvx-qsw" target="_blank" class="btn-3d btn-demo">
+                                <span class="material-icons">videocam</span> Demo
+                            </a>
+                            <button onclick="openSyllabus()" class="btn-3d btn-ai">
+                                <span class="material-icons">description</span> Syllabus
+                            </button>
+                        </div>
+                            </div>
+                        </div>
+
+                <!-- Other Courses -->
+                <div class="course-card hidden-initial">
+                    <div class="course-badge">🚀 Popular</div>
+                    <div class="course-image-wrapper">
+                        <img src="https://lh4.googleusercontent.com/OtRptlupbdbe2oFCNmp9e2jbyRVXZ60egvdr7PzTjCSMECiWcvjeJQJi2MMck8_pP64rAjEQclSQ12XAn-ap4ebRFMRDbLtBEDsiRqjU2zK9cbCG0tqe2sFtzoZT86X16Lq_zyY0" alt="MLOps" class="course-image">
+                            </div>
                     <div class="course-content">
                         <h3 class="course-title">MLOps: Development to Production</h3>
-                        <p class="course-description">Streamline ML operations. Learn model deployment on AWS Sagemaker, Azure ML, and Google AI Platform with best MLOps practices.</p>
-                         <div class="course-details">
-                            <!-- Date and time removed -->
-                        </div>
+                        <p class="course-description">Streamline ML operations. Learn model deployment on AWS Sagemaker, Azure ML, and Google AI Platform with best practices.</p>
                         <div class="course-buttons">
                             <a href="https://youtu.be/O6u6V-EZ9yQ" target="_blank" class="btn-3d btn-primary">
                                 <span class="material-icons">play_circle_filled</span> Demo
                             </a>
-                            <a href="#" class="btn-3d btn-secondary"> 
-                                <span class="material-icons">download</span> Syllabus
-                            </a>
-                             <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
-                                <span class="material-icons">sms</span> WhatsApp
-                            </a>
-                            <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
-                                <span class="material-icons">email</span> Email Us
+                            <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
+                                <span class="material-icons">chat</span> Enquire
                             </a>
                         </div>
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
-                <!-- Course 3 -->
                 <div class="course-card hidden-initial">
-                    <div class="course-badge">🛡️ Pro</div>
+                    <div class="course-badge">🛡️ Advanced</div>
                     <div class="course-image-wrapper">
                         <img src="https://juststickers.in/wp-content/uploads/2018/11/kubernetes-wordmark.png" alt="Kubernetes" class="course-image">
-                    </div>
+                            </div>
                     <div class="course-content">
                         <h3 class="course-title">Advanced Kubernetes Mastery</h3>
-                        <p class="course-description">Become a K8s expert. Master advanced deployments, autoscaling, load balancing, and Ingress controllers in depth.</p>
-                        <div class="course-details">
-                            <!-- Date and time removed -->
-                        </div>
+                        <p class="course-description">Become a K8s expert. Master advanced deployments, autoscaling, networking, and production-grade cluster management.</p>
                         <div class="course-buttons">
                             <a href="https://youtu.be/kpJu9QkXKFA" target="_blank" class="btn-3d btn-primary">
                                 <span class="material-icons">play_circle_filled</span> Demo
                             </a>
-                            <a href="#" class="btn-3d btn-secondary"> 
-                                <span class="material-icons">download</span> Syllabus
-                            </a>
-                             <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
-                                <span class="material-icons">sms</span> WhatsApp
-                            </a>
-                            <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
-                                <span class="material-icons">email</span> Email Us
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Course 4 -->
-                <div class="course-card hidden-initial">
-                    <div class="course-badge">💻 Dev Focus</div>
-                     <div class="course-image-wrapper">
-                        <img src="https://images.credly.com/images/51aeb74b-ec87-4069-93fc-0ea449c8d77f/twitter_thumb_201604_node.png" alt="Node.js React.js" class="course-image">
-                    </div>
-                    <div class="course-content">
-                        <h3 class="course-title">Full-Stack: Node.js & React.js</h3>
-                        <p class="course-description">Build scalable web apps with Node.js and React.js. Cover REST APIs, frontend magic, and robust backend architecture.</p>
-                         <div class="course-details">
-                            <!-- Date and time removed -->
-                        </div>
-                        <div class="course-buttons">
-                           <a href="#" target="_blank" class="btn-3d btn-primary"> 
-                                <span class="material-icons">play_circle_filled</span> Demo
-                            </a>
-                            <a href="#" class="btn-3d btn-secondary"> 
-                                <span class="material-icons">download</span> Syllabus
-                            </a>
-                             <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
-                                <span class="material-icons">sms</span> WhatsApp
-                            </a>
-                            <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
-                                <span class="material-icons">email</span> Email Us
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                 <!-- Course 5 -->
-                <div class="course-card hidden-initial">
-                    <div class="course-badge">⚙️ Automate</div>
-                    <div class="course-image-wrapper">
-                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*sFSP-4uK7gEoBxHELIa7cw.jpeg" alt="CI/CD" class="course-image">
-                    </div>
-                    <div class="course-content">
-                        <h3 class="course-title">CI/CD Automation for DevOps</h3>
-                        <p class="course-description">Automate your software lifecycle with Jenkins, GitHub Actions, & GitLab CI/CD. Build robust, efficient pipelines.</p>
-                        <div class="course-details">
-                            <!-- Date and time removed -->
-                        </div>
-                        <div class="course-buttons">
-                            <a href="https://youtu.be/FiI8uO7Mw1A" target="_blank" class="btn-3d btn-primary">
-                                <span class="material-icons">play_circle_filled</span> Demo
-                            </a>
-                            <a href="#" class="btn-3d btn-secondary"> 
-                                <span class="material-icons">download</span> Syllabus
-                            </a>
                             <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
-                                <span class="material-icons">sms</span> WhatsApp
+                                <span class="material-icons">chat</span> Enquire
                             </a>
-                            <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
-                                <span class="material-icons">email</span> Email Us
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section hidden-initial">
-        <div class="container">
-            <h2 class="section-title">Our Expert Services</h2>
-            <div class="services-grid">
-                <div class="service-card hidden-initial">
-                        <span class="material-icons service-icon">support_agent</span>
-                        <h3 class="service-title">Dedicated Job Support</h3>
-                        <p class="service-description">Navigate complex projects with our expert job support. Get real-time assistance, troubleshooting, and guidance to excel in your role.</p>
-                        <a href="https://wa.me/919100665231?text=Hi%2C%20I'm%20interested%20in%20Job%20Support" target="_blank" class="btn-3d btn-primary" style="margin-top: 20px;">
-                            <span class="material-icons">call</span> Get Support
-                        </a>
-                </div>
-                <div class="service-card hidden-initial">
-                        <span class="material-icons service-icon">workspaces</span>
-                        <h3 class="service-title">Freelance DevOps Excellence</h3>
-                        <p class="service-description">Leverage our top-tier freelance DevOps engineers for your projects. Scalable, expert solutions for CI/CD, cloud, and automation.</p>
-                        <a href="mailto:freelance@emergencytechops.com" class="btn-3d btn-secondary" style="margin-top: 20px;">
-                            <span class="material-icons">business_center</span> Hire Experts
-                        </a>
-                </div>
-                <div class="service-card hidden-initial">
-                        <span class="material-icons service-icon">code</span>
-                        <h3 class="service-title">Custom Development</h3>
-                        <p class="service-description">From web applications to complex cloud-native solutions, our development team brings your ideas to life with cutting-edge tech.</p>
-                        <a href="mailto:development@emergencytechops.com" class="btn-3d btn-primary" style="margin-top: 20px; background: var(--secondary-gradient);">
-                            <span class="material-icons">developer_mode</span> Start Project
-                        </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Reviews Section -->
-    <section id="reviews" class="section hidden-initial">
-        <div class="container">
-            <h2 class="section-title">What Our Students Say</h2>
-            <div class="reviews-container">
-                <div class="reviews-wrapper"> 
-                    <div class="reviews-grid" id="reviewsGrid">
-                        <!-- Review 1 -->
-                        <div class="review-card">
-                           <div class="review-content">
-                                <div class="stars">★★★★★</div>
-                                <p class="review-text">"The Multi-Cloud DevOps course was a game-changer! The instructors are experts and the hands-on labs were incredibly valuable. Highly recommend!"</p>
-                                <p class="review-author">Priya S. <span>- Cloud Engineer</span></p>
-                           </div>
-                        </div>
-                        <!-- Review 2 -->
-                        <div class="review-card">
-                             <div class="review-content">
-                                <div class="stars">★★★★★</div>
-                                <p class="review-text">"MLOps seemed daunting, but ETI made it accessible and practical. I'm now confidently deploying models in production. Thank you!"</p>
-                                <p class="review-author">Raj K. <span>- Data Scientist</span></p>
-                            </div>
-                        </div>
-                        <!-- Review 3 -->
-                        <div class="review-card">
-                            <div class="review-content">
-                                <div class="stars">★★★★★</div>
-                                <p class="review-text">"The Kubernetes deep dive was exactly what I needed. Complex concepts explained clearly with real-world scenarios. My skills have leveled up significantly."</p>
-                                <p class="review-author">Anjali M. <span>- DevOps Lead</span></p>
-                            </div>
-                        </div>
-                         <!-- Review 4 -->
-                        <div class="review-card">
-                            <div class="review-content">
-                                <div class="stars">★★★★★</div>
-                                <p class="review-text">"Job support from ETI was phenomenal. They helped me overcome critical blockers on a challenging project. True professionals!"</p>
-                                <p class="review-author">Vikram C. <span>- Senior Developer</span></p>
-                            </div>
-                        </div>
-                        <!-- Review 5 -->
-                        <div class="review-card">
-                            <div class="review-content">
-                                <div class="stars">★★★★★</div>
-                                <p class="review-text">"Best institute for anyone serious about a career in modern TechOps. The curriculum is up-to-date and the trainers are industry veterans."</p>
-                                <p class="review-author">Fatima Z. <span>- Solutions Architect</span></p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1099,17 +2124,17 @@
     <section id="contact" class="section glass-container hidden-initial">
         <div class="container">
             <div class="contact-content">
-                <h2 class="section-title">Get In Touch</h2>
+                <h2 class="section-title">Ready to Transform Your Career?</h2>
                 <p class="contact-description">
-                    Ready to elevate your tech skills or need expert support for your projects?
-                    Reach out to us! We're excited to help you achieve your goals.
+                    Join thousands of successful professionals who've advanced their careers with Emergency TechOps Institute. 
+                    Get expert training, hands-on experience, and industry recognition.
                 </p>
                 <div class="contact-buttons">
-                    <a href="https://wa.me/919100665231" target="_blank" class="btn-3d btn-whatsapp">
-                        <span class="material-icons">sms</span> Chat on WhatsApp
+                    <a href="https://wa.me/919100665231?text=Hi%2C%20I%20want%20to%20know%20more%20about%20the%20Multi-Cloud%20DevOps%20%2B%20AI%20course" target="_blank" class="btn-3d btn-whatsapp">
+                        <span class="material-icons">chat</span> Chat on WhatsApp
                     </a>
-                    <a href="mailto:technicalsupport@emergencytechops.com" class="btn-3d btn-email">
-                        <span class="material-icons">email</span> Send Us an Email
+                    <a href="mailto:technicalsupport@emergencytechops.com?subject=Multi-Cloud%20DevOps%20%2B%20AI%20Enquiry" class="btn-3d btn-primary">
+                        <span class="material-icons">email</span> Send Email
                     </a>
                 </div>
             </div>
@@ -1117,16 +2142,36 @@
     </section>
 
     <!-- Floating Action Button -->
-    <a href="https://wa.me/919100665231?text=Hi%2C%20I%20have%20a%20question%20about%20your%20courses." target="_blank" class="floating-cta" title="Quick Enquiry">
-        <span class="material-icons">question_answer</span>
+    <a href="https://wa.me/919100665231?text=Hi%2C%20I%20want%20to%20join%20the%20FREE%20demo%20session" target="_blank" class="floating-cta" title="Join FREE Demo">
+        <span class="material-icons">school</span>
     </a>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="footer-contact">
+                <h3>🚀 Ready to Start Your DevOps + AI Journey?</h3>
+                <div class="footer-phone">
+                    <span>📞 Call/WhatsApp: </span>
+                    <a href="tel:+919100665231" class="footer-phone-link">+91 9100665231</a>
+                </div>
+                <div class="footer-links">
+                    <a href="https://wa.me/919100665231" target="_blank" class="footer-button">
+                        <span class="material-icons">chat</span> WhatsApp
+                    </a>
+                    <a href="mailto:technicalsupport@emergencytechops.com" class="footer-button">
+                        <span class="material-icons">email</span> Email
+                    </a>
+                    <a href="https://meet.google.com/rja-nsvx-qsw" target="_blank" class="footer-button">
+                        <span class="material-icons">videocam</span> Join Demo
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
             <p>© <span id="currentYear"></span> Emergency TechOps Institute. All Rights Reserved.</p>
-            <p>Designed with <span style="color: var(--secondary-gradient); display: inline-block; background: var(--secondary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">❤️</span> by ETI Team. Powered by Next-Gen Tech.</p>
-            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                <p>Designed with <span style="color: var(--ai-gradient); display: inline-block; background: var(--ai-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">❤️</span> for Future Tech Leaders</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#featured">New Batch Info</a></p>
+            </div>
         </div>
     </footer>
 
@@ -1136,79 +2181,379 @@
         const loader = document.getElementById('loader');
         setTimeout(() => { 
             loader.classList.add('fade-out');
-        }, 500); 
+        }, 1000); 
     });
 
-    // --- Animated Background Particles ---
+    // --- Enhanced Background Particles ---
     const bgAnimation = document.getElementById('bgAnimation');
-    const numParticles = 40;
+    const numParticles = 50;
+    const numAiParticles = 15;
 
     if (bgAnimation) {
+        // Regular particles
         for (let i = 0; i < numParticles; i++) {
             const particle = document.createElement('div');
             particle.classList.add('particle');
-            const size = Math.random() * 4 + 1.5; 
+            const size = Math.random() * 5 + 2; 
             particle.style.width = `${size}px`;
             particle.style.height = `${size}px`;
             particle.style.left = `${Math.random() * 100}%`;
-            particle.style.setProperty('--initial-translate-y', `${Math.random() * 100}vh`); 
-            const duration = Math.random() * 18 + 22; 
+            const duration = Math.random() * 20 + 25; 
             particle.style.animationDuration = `${duration}s`;
             particle.style.animationDelay = `${Math.random() * -duration}s`; 
             bgAnimation.appendChild(particle);
         }
+
+        // AI particles
+        for (let i = 0; i < numAiParticles; i++) {
+            const aiParticle = document.createElement('div');
+            aiParticle.classList.add('particle', 'ai-particle');
+            const size = Math.random() * 3 + 1.5; 
+            aiParticle.style.width = `${size}px`;
+            aiParticle.style.height = `${size}px`;
+            aiParticle.style.left = `${Math.random() * 100}%`;
+            const duration = Math.random() * 15 + 20; 
+            aiParticle.style.animationDuration = `${duration}s`;
+            aiParticle.style.animationDelay = `${Math.random() * -duration}s`; 
+            bgAnimation.appendChild(aiParticle);
+        }
     }
     
+    // Enhanced mouse interaction
     document.addEventListener('mousemove', (e) => {
         if (!bgAnimation) return;
         const { clientX, clientY } = e;
         const centerX = window.innerWidth / 2;
         const centerY = window.innerHeight / 2;
-        const moveX = (clientX - centerX) * -0.004; 
-        const moveY = (clientY - centerY) * -0.004; 
+        const moveX = (clientX - centerX) * -0.006; 
+        const moveY = (clientY - centerY) * -0.006; 
         bgAnimation.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
     });
 
-    // --- Scroll-triggered Animations (Intersection Observer) ---
+    // --- Syllabus Modal Functions ---
+    function openSyllabus() {
+        const modal = document.getElementById('syllabusModal');
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSyllabus() {
+        const modal = document.getElementById('syllabusModal');
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (event) => {
+        const modal = document.getElementById('syllabusModal');
+        if (event.target === modal) {
+            closeSyllabus();
+        }
+    });
+
+    // --- Enhanced Scroll Animations ---
     const observerOptions = {
         root: null, 
-        rootMargin: '0px',
-        threshold: 0.05 
+        rootMargin: '-50px',
+        threshold: 0.1 
     };
 
     const revealOnScroll = (entries, observer) => {
-        entries.forEach((entry) => { 
+        entries.forEach((entry, index) => { 
             if (entry.isIntersecting) {
+                setTimeout(() => {
                 entry.target.classList.remove('hidden-initial');
                 if (entry.target.classList.contains('section')) {
                      entry.target.classList.add('visible-section');
-                } else if (entry.target.matches('.course-card, .service-card')) {
+                    } else if (entry.target.matches('.course-card')) {
                      entry.target.classList.add('visible-card');
                 }
+                }, index * 100); // Stagger animations
                 observer.unobserve(entry.target); 
             }
         });
     };
 
     const observer = new IntersectionObserver(revealOnScroll, observerOptions);
-    document.querySelectorAll('.section.hidden-initial, .course-card.hidden-initial, .service-card.hidden-initial').forEach(el => {
+    document.querySelectorAll('.section.hidden-initial, .course-card.hidden-initial').forEach(el => {
         observer.observe(el);
     });
 
-    // --- Reviews Carousel Duplication for Seamless Scroll ---
-    const reviewsGrid = document.getElementById('reviewsGrid');
-    if (reviewsGrid && reviewsGrid.children.length > 0) { 
-        const content = reviewsGrid.innerHTML;
-        reviewsGrid.innerHTML += content; 
-    }
+    // --- Smooth Scrolling for Navigation ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 
-
-    // --- Current Year for Footer ---
+    // --- Current Year ---
     const currentYearElement = document.getElementById('currentYear');
     if (currentYearElement) {
         currentYearElement.textContent = new Date().getFullYear();
     }
 
+    // --- Enhanced Syllabus Modal Functions ---
+    function toggleSection(header) {
+        const section = header.parentElement;
+        const isActive = section.classList.contains('active');
+        
+        // Close all sections first
+        document.querySelectorAll('.syllabus-section.collapsible').forEach(s => {
+            s.classList.remove('active');
+        });
+        
+        // Open clicked section if it wasn't already active
+        if (!isActive) {
+            section.classList.add('active');
+        }
+    }
+
+    // --- Tech Animation Interactive Effects ---
+    function initTechAnimation() {
+        // AI Eye interactive effects
+        const aiEye = document.querySelector('.ai-eye');
+        if (aiEye) {
+            aiEye.addEventListener('click', () => {
+                aiEye.style.animation = 'none';
+                setTimeout(() => {
+                    aiEye.style.animation = 'aiPulse 1s ease-in-out';
+                }, 10);
+                
+                // Add temporary glow effect
+                aiEye.style.boxShadow = '0 0 50px rgba(255, 107, 53, 1)';
+                setTimeout(() => {
+                    aiEye.style.boxShadow = '0 0 30px rgba(255, 107, 53, 0.6)';
+                }, 1000);
+            });
+        }
+
+        // Cloud logo hover effects
+        const cloudLogos = document.querySelectorAll('.cloud-logo');
+        cloudLogos.forEach(logo => {
+            logo.addEventListener('mouseenter', () => {
+                const icon = logo.querySelector('.logo-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1.2) rotate(10deg)';
+                }
+            });
+            
+            logo.addEventListener('mouseleave', () => {
+                const icon = logo.querySelector('.logo-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                }
+            });
+        });
+
+        // Tool icon click effects
+        const toolIcons = document.querySelectorAll('.tool-icon');
+        toolIcons.forEach(tool => {
+            tool.addEventListener('click', () => {
+                // Create ripple effect
+                const ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.width = '50px';
+                ripple.style.height = '50px';
+                ripple.style.background = 'rgba(0, 242, 254, 0.3)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'rippleEffect 0.6s ease-out';
+                ripple.style.pointerEvents = 'none';
+                
+                tool.style.position = 'relative';
+                tool.appendChild(ripple);
+                
+                setTimeout(() => {
+                    if (ripple.parentNode) {
+                        ripple.parentNode.removeChild(ripple);
+                    }
+                }, 600);
+            });
+        });
+
+        console.log('✅ Tech Animation Effects Initialized!');
+    }
+
+    // Add ripple effect animation to styles
+    const rippleStyle = document.createElement('style');
+    rippleStyle.textContent = `
+        @keyframes rippleEffect {
+            from { 
+                transform: scale(0); 
+                opacity: 1; 
+            }
+            to { 
+                transform: scale(2); 
+                opacity: 0; 
+            }
+        }
+    `;
+    document.head.appendChild(rippleStyle);
+
+    // --- AI-Powered Interactions ---
+    function addAIEffects() {
+        // Add sparkle effect to AI-enhanced items
+        const aiItems = document.querySelectorAll('.tech-item.ai-enhanced');
+        aiItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // Create sparkle effect
+                const sparkle = document.createElement('div');
+                sparkle.innerHTML = '✨';
+                sparkle.style.position = 'absolute';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.animation = 'sparkle 1s ease-out forwards';
+                item.style.position = 'relative';
+                item.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    if (sparkle.parentNode) {
+                        sparkle.parentNode.removeChild(sparkle);
+                    }
+                }, 1000);
+            });
+        });
+    }
+
+    // --- Enhanced Interactive Effects ---
+    function initInteractiveEffects() {
+        // Tech badge hover effects
+        const techBadges = document.querySelectorAll('.tech-badge');
+        techBadges.forEach((badge, index) => {
+            badge.addEventListener('mouseenter', () => {
+                badge.style.animation = `techPulse 0.6s ease-out`;
+            });
+            badge.addEventListener('animationend', () => {
+                badge.style.animation = '';
+            });
+        });
+
+        // Project showcase animations
+        const projectItems = document.querySelectorAll('.project-item');
+        projectItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+            
+            // Add intersection observer for scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'slideInFromLeft 0.8s ease-out forwards';
+                    }
+                });
+            });
+            
+            observer.observe(item);
+        });
+    }
+
+    // --- Add some interactive effects ---
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize tech animation
+        setTimeout(() => {
+            initTechAnimation();
+        }, 500);
+
+        // Initialize AI effects
+        addAIEffects();
+        
+        // Initialize interactive effects
+        initInteractiveEffects();
+
+        // Add subtle animations to buttons
+        const buttons = document.querySelectorAll('.btn-3d');
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.transform = button.style.transform + ' scale(1.02)';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = button.style.transform.replace(' scale(1.02)', '');
+            });
+        });
+
+        // Add typing effect to hero subtitle
+        const subtitle = document.querySelector('.hero-subtitle');
+        if (subtitle) {
+            const text = subtitle.textContent;
+            subtitle.textContent = '';
+            subtitle.style.opacity = '1';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < text.length) {
+                    subtitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 30);
+                }
+            };
+            
+            setTimeout(typeWriter, 2000);
+        }
+
+        // Add phone number click to copy functionality
+        const phoneNumber = document.querySelector('.phone-number');
+        if (phoneNumber) {
+            phoneNumber.addEventListener('click', () => {
+                navigator.clipboard.writeText('+919100665231').then(() => {
+                    // Show temporary notification
+                    const notification = document.createElement('div');
+                    notification.textContent = 'Phone number copied! 📋';
+                    notification.style.position = 'fixed';
+                    notification.style.top = '20px';
+                    notification.style.right = '20px';
+                    notification.style.background = '#25d366';
+                    notification.style.color = 'white';
+                    notification.style.padding = '10px 20px';
+                    notification.style.borderRadius = '10px';
+                    notification.style.zIndex = '9999';
+                    notification.style.animation = 'slideInRight 0.3s ease-out';
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 2000);
+                });
+            });
+            phoneNumber.style.cursor = 'pointer';
+            phoneNumber.title = 'Click to copy phone number';
+        }
+    });
+
+    // ⚡ TECH ANIMATION AUTO-START ⚡
+    // Ensure tech animation starts properly
+    setTimeout(() => {
+        const techContainer = document.querySelector('.tech-animation-container');
+        if (techContainer) {
+            console.log('✅ Tech animation container found!');
+            initTechAnimation();
+            
+            // Add mouse tracking for AI eye
+            document.addEventListener('mousemove', (e) => {
+                const aiEye = document.querySelector('.eye-pupil');
+                if (aiEye) {
+                    const rect = aiEye.getBoundingClientRect();
+                    const eyeCenterX = rect.left + rect.width / 2;
+                    const eyeCenterY = rect.top + rect.height / 2;
+                    
+                    const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
+                    const distance = Math.min(3, Math.sqrt(Math.pow(e.clientX - eyeCenterX, 2) + Math.pow(e.clientY - eyeCenterY, 2)) / 20);
+                    
+                    const moveX = Math.cos(angle) * distance;
+                    const moveY = Math.sin(angle) * distance;
+                    
+                    aiEye.style.transform = `translate(-50%, -50%) translate(${moveX}px, ${moveY}px)`;
+                }
+            });
+        }
+    }, 1000);
 </script>
 </body>
 </html>
+
